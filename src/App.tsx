@@ -1,12 +1,11 @@
-import React from "react";
-import "./App.css";
+import "./App.scss";
+import { Outlet } from "react-router-dom";
 
-function App() {
+export function App() {
   return (
     <div className="App">
-      <header className="App-header">Hello world</header>
+      {/* NavBar component */}
+      <Outlet />
     </div>
   );
 }
-
-export default App;

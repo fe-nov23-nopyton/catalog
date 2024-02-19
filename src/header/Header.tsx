@@ -2,12 +2,12 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable arrow-body-style */
 
+import classNames from "classnames";
 import { useEffect, useState } from "react";
 import "./header.css";
 import { Burger } from "./burger_menu/Burger";
 import { ButtonsHeader } from "./buttonsHeader/ButtonsHeader";
 import { NavLink } from "react-router-dom";
-import classNames from "classnames";
 
 export const Header = () => {
   const [isMobile, setIsMobile] = useState(false);

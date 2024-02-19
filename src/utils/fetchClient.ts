@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 const URL = "https://mate-academy.github.io/react_phone-catalog/api/products.json";
 
 export function getPhones() {

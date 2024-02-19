@@ -13,21 +13,44 @@
     "prettier"
   ],
   "parserOptions": {
-    "ecmaVersion": 2021,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
-  "ignorePatterns": [".build/*", "node_modules/*"],
+  "plugins": [
+    "react",
+    "prettier"
+  ],
+  "ignorePatterns": [
+    ".build/*",
+    "node_modules/*"
+  ],
   "rules": {
-    "prettier/prettier": "error",
-    "arrow-body-style": ["error", "as-needed"],
-    "react/self-closing-comp": ["error", {"component": true, "html": true}],
-    "no-unused-vars": ["warn", {"vars": "all", "args": "after-used", "ignoreRestSiblings": false}],
+    "prettier/prettier": [
+      "error"
+    ],
+    "arrow-body-style": [
+      "error",
+      "as-needed"
+    ],
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": "off",
     "no-case-declaration": "off",
-    "no-useless-escape": "off",
-    "@typescript-eslint/ban-ts-comment": "off"
+    "no-useless-escape": "off"
   }
 }

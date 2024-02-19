@@ -1,0 +1,22 @@
+@mixin container-margin($breakpoint) {
+  @if $breakpoint == phone-small {
+    @media (min-width: 320px) and (max-width: 639px) {
+      margin: 16px;
+    }
+  }
+  @if $breakpoint == phone-large {
+    @media (min-width: 640px) and (max-width: 767px) {
+      margin: 24px;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media (min-width: 768px) and (max-width: 1199px) {
+      margin: 32px;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 1200px) {
+     margin: 32px;
+    }
+  };
+}

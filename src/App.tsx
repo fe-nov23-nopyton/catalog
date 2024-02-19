@@ -4,6 +4,7 @@ import { RootState } from "./store";
 import { useDispatch, useSelector } from "react-redux";
 import { changeTheme } from "./redux/themeSlice";
 import { Outlet } from "react-router-dom";
+import { Footer } from "./Footer/Footer";
 
 export function App() {
   const theme = useSelector((state: RootState) => state.theme.theme);
@@ -24,6 +25,7 @@ export function App() {
         <button onClick={toggleTheme}>theme</button>
 
         <Outlet />
+        <Footer />
       </div>
     </>
   );

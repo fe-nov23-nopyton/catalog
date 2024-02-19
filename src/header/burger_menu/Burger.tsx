@@ -2,7 +2,7 @@
 /* eslint-disable arrow-body-style */
 
 import { useState } from "react";
-import "./burger.css";
+import "./burger.scss";
 import { ButtonsHeader } from "../buttonsHeader/ButtonsHeader";
 import { NavLink } from "react-router-dom";
 import classNames from "classnames";

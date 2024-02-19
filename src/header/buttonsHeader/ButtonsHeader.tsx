@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./buttonsHeader.css";
+import "./buttonsHeader.scss";
 
 export const ButtonsHeader = () => (
   <>

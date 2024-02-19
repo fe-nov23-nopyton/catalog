@@ -1,38 +1,41 @@
 .App {
   text-align: center;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --bg-header-light:rgba(255, 255, 255, 1);
+  --bg-header-dark:rgba(15, 17, 33, 1);
+
+  --header-img-light: url(./header/img/Logo.png);
+  --header-img-dark: url(./header/img/Logo-dark.png) ;
+
+  --cart-img-light: url(./header/buttonsHeader/icons/Shopping_bag.png);
+  --cart-img-dark: url(./header/buttonsHeader/icons/Group_17.png);
+
+  --favorite-img-light: url(./header/buttonsHeader/icons/Vector.png);
+  --favorite-img-dark: url(./header/buttonsHeader/icons/Vector_Stroke.png);
+
+  --main-text:rgba(137, 147, 154, 1);
+
+  --text-hover-dark: rgba(49, 50, 55, 1);
+  --text-hover-light:rgba(241, 242, 249, 1);
+
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.light-theme {
+  --bg-header: var(--bg-header-light);
+  --header-img: var(--header-img-light);
+  --text-hover: var(--text-hover-dark);
+  --cart-img: var(--cart-img-light);
+  --favorite-img: var(--favorite-img-light)
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dark-theme {
+  --bg-header: var(--bg-header-dark);
+  --header-img: var(--header-img-dark);
+  --text-hover: var(--text-hover-light);
+  --cart-img: var(--cart-img-dark);
+  --favorite-img: var(--favorite-img-dark);
 }

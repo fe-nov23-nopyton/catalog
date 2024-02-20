@@ -41,7 +41,7 @@ export const Header = () => {
       ) : (
         <div className="header__controls">
           <div className="header__menu">
-            <NavLink className={navLinkClassName} to={"home"}>
+            <NavLink className={navLinkClassName} to={"/"}>
               Home
             </NavLink>
             <NavLink className={navLinkClassName} to={"phones"}>

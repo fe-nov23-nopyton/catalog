@@ -45,12 +45,15 @@
   font-weight: 700;
   text-align: center;
 
+  transition: box-shadow 0.3s;
+
   &:hover {
     box-shadow: 0px 3px 13px 0px rgba(23, 32, 49, 0.4);
   }
 }
 
 .isFocus {
+  transition: color, background-color, 0.3s;
   color: var(--green-text);
   background-color: #FFF;
   border: 1px solid var(--gray-elements);

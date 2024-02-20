@@ -1,4 +1,5 @@
 import { CartList } from "../../Components/CartList/CartList";
+import { Loader } from "../../Components/Loader";
 import { CheckoutSummary } from "../../Components/СheckoutSummary";
 import { Item } from "../../types/Item";
 import "./CartPage.scss";
@@ -48,13 +49,15 @@ export const CartPage = () => {
 
   return (
     <main className="cart">
-      <h1 className="title">Cart</h1>
       {/* <!-- button back --> */}
-
-      <div className="cart-wrapper">
-        <CartList items={items} />
-        <CheckoutSummary totalPrice={totalPrice} itemsCount={itemsCount} />
-      </div>
+      {itemsCount ? <h1 className="title">Cart</h1> : <h1 className="empty-cart">Your cart is empty</h1>}
+      {<Loader />} {/* <!-- loading && (...) --> */}
+      {!!itemsCount && (
+        <div className="cart-wrapper">
+          <CartList items={items} />
+          <CheckoutSummary totalPrice={totalPrice} itemsCount={itemsCount} />
+        </div>
+      )}
     </main>
   );
 };

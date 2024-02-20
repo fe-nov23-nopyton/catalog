@@ -25,10 +25,22 @@
   --favorite-img-light: url(./header/buttonsHeader/icons/Vector.png);
   --favorite-img-dark: url(./header/buttonsHeader/icons/Vector_Stroke.png);
 
-  --main-text:rgba(137, 147, 154, 1);
+  --up-img-light: url(./Footer/images/up_light.svg);
+  --up-img-dark: url(./Footer/images/up_dark.svg);
+
+  --main-text-light:rgba(137, 147, 154, 1);
+  --main-text-dark:rgba(117, 118, 127, 1);
 
   --text-hover-dark: rgba(49, 50, 55, 1);
   --text-hover-light:rgba(241, 242, 249, 1);
+
+  --elements-border-light: rgba(226, 230, 233, 1);
+  --elements-border-dark: rgba(59, 62, 74, 1);
+
+  --icons-light: rgba(180, 189, 195, 1);
+  --icons-dark: rgba(50, 53, 66, 1);
+
+  --icons-dark: rgba(74, 77, 88, 1);
 
 
 }
@@ -38,7 +50,11 @@
   --header-img: var(--header-img-light);
   --text-hover: var(--text-hover-dark);
   --cart-img: var(--cart-img-light);
-  --favorite-img: var(--favorite-img-light)
+  --favorite-img: var(--favorite-img-light);
+  --elements-border: var(--elements-border-light);
+  --main-text: var(--main-text-light);
+  --icons: var(--icons-light);
+  --up-img: var(--up-img-light);
 }
 
 .dark-theme {
@@ -47,6 +63,10 @@
   --text-hover: var(--text-hover-light);
   --cart-img: var(--cart-img-dark);
   --favorite-img: var(--favorite-img-dark);
+  --elements-border: var(--elements-border-dark);
+  --main-text: var(--main-text-dark);
+  --icons: var(--icons-dark);
+  --up-img: var(--up-img-dark);
 }
 
 

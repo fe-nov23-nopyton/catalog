@@ -12,10 +12,12 @@ export function App() {
     <>
       <div className={`App ${theme} App-wrapper`}>
         <Header />
+
         <div className="content">
           <Outlet />
         </div>
-        <Footer />
+
+        <Footer theme={theme} />
       </div>
     </>
   );

@@ -28,6 +28,7 @@ export const Header = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  
 
   return (
     <header className="header">

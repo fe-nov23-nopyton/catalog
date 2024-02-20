@@ -13,7 +13,6 @@ export function App() {
       <div className={`App ${theme} App-wrapper`}>
         <Header />
         <Outlet />
-
         <Footer />
       </div>
     </>

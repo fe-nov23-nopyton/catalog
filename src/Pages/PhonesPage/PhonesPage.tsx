@@ -6,64 +6,27 @@ import { Phone } from "../../types/Phone";
 
 const phones: Phone[] = [
   {
-    id: 1,
+    age: 0,
+    type: "phone",
+    snippet: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
+    id: "1",
     name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
-    price: "$699",
-    image: 'https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194',
+    price: 699,
+    discount: 0,
+    imageUrl: 'https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194',
     screen: "6.1-inch",
     capacity: "64GB, 128GB, 256GB",
     ram: "4GB",
   },
   {
-    id: 2,
+    age: 0,
+    type: "phone",
+    snippet: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
+    id: "2",
     name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
-    price: "$699",
-    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
-    screen: "6.1-inch",
-    capacity: "64GB, 128GB, 256GB",
-    ram: "4GB",
-  },
-  {
-    id: 3,
-    name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
-    price: "$699",
-    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
-    screen: "6.1-inch",
-    capacity: "64GB, 128GB, 256GB",
-    ram: "4GB",
-  },
-  {
-    id: 4,
-    name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
-    price: "$699",
-    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
-    screen: "6.1-inch",
-    capacity: "64GB, 128GB, 256GB",
-    ram: "4GB",
-  },
-  {
-    id: 5,
-    name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
-    price: "$699",
-    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
-    screen: "6.1-inch",
-    capacity: "64GB, 128GB, 256GB",
-    ram: "4GB",
-  },
-  {
-    id: 6,
-    name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
-    price: "$699",
-    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
-    screen: "6.1-inch",
-    capacity: "64GB, 128GB, 256GB",
-    ram: "4GB",
-  },
-  {
-    id: 7,
-    name: "iPhone 12",
-    price: "$699",
-    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
+    price: 699,
+    discount: 0,
+    imageUrl: 'https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194',
     screen: "6.1-inch",
     capacity: "64GB, 128GB, 256GB",
     ram: "4GB",
@@ -82,7 +45,7 @@ export const PhonesPage: React.FC = () => {
       </div>
 
       <div className="additional-elements">
-        <p>{quantityPhones} models</p>
+        <p className="total-phones">{quantityPhones} models</p>
 
         <div className="sort-options">
           <label htmlFor="sort">Sort by:</label>

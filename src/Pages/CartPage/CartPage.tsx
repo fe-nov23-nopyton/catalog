@@ -2,16 +2,15 @@ import { CartList } from "../../Components/CartList/CartList";
 // import { Loader } from "../../Components/Loader";
 import { CheckoutSummary } from "../../Components/СheckoutSummary";
 import { CartItem } from "../../types/CartItem";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import "./CartPage.scss";
 import { totalQuantity } from "../../utils/totalQuantity";
-import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setCart } from "../../redux/features/cartSlice";
 
 export const CartPage = () => {
   const items: CartItem[] = useAppSelector((state) => state.cart.cart);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const savedCartState = localStorage.getItem("cart");
@@ -35,7 +34,7 @@ export const CartPage = () => {
   return (
     <main className="cart">
       {/* <!-- button back --> */}
-      {itemsCount ? <h1 className="title">Cart</h1> : <h1 className="empty-cart">Your cart is empty</h1>}
+      {!!itemsCount ? <h1 className="title">Cart</h1> : <h1 className="empty-cart">Your cart is empty</h1>}
       {/* {<Loader />} <!-- loading && (...) --> */}
       {!!itemsCount && (
         <div className="cart-wrapper">

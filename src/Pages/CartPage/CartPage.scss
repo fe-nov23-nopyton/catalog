@@ -1,12 +1,5 @@
-@import '/src/mixins/container-margin.scss';
-
 .cart {
   box-sizing: border-box;
-
-  @include container-margin(phone-small);
-  @include container-margin(phone-large);
-  @include container-margin(tablet);
-  @include container-margin(desktop);
 }
 
 .title {

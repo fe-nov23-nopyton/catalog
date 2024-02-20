@@ -19,6 +19,12 @@ export const Burger = () => {
     const newBurgerClass = isMenuClicked ? "burger-bar unclicked" : "burger-bar clicked";
     const newMenuClass = isMenuClicked ? "burger__menu hidden" : "burger__menu visible";
 
+    if (!isMenuClicked) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
     setBurgerClass(newBurgerClass);
     setMenuClass(newMenuClass);
     setIsMenuClicked(!isMenuClicked);

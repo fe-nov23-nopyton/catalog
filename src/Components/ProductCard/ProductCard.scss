@@ -45,7 +45,7 @@
 
     &--old {
       text-decoration: line-through;
-      color: var(--main-text);
+      color: var(--main-text-light);
       margin: 0;
     }
   }
@@ -76,7 +76,7 @@
       line-height: 15px;
       letter-spacing: 0em;
       text-align: left;
-      color: var(--main-text);
+      color: var(--main-text-light);
     }
 
     &-value {

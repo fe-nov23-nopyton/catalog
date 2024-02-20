@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  border: 1px solid var(--gray-elements);
+  border: 1px solid var(--elements-border-light);
 
   @media (max-width: 1199px) {
     width: 100%;
@@ -22,14 +22,14 @@
   font-size: 14px;
   line-height: 21px;
   font-weight: 500;
-  color: var(--main-text);
+  color: var(--main-text-light);
   margin-bottom: 25px;
 }
 
 .divider {
   height: 1px;
   width: 100%;
-  background-color: var(--gray-elements);
+  background-color: var(--elements-border-light);
   margin-bottom: 25px;
 }
 
@@ -56,7 +56,7 @@
   transition: color, background-color, 0.3s;
   color: var(--green-text);
   background-color: #FFF;
-  border: 1px solid var(--gray-elements);
+  border: 1px solid var(--elements-border-light);
   box-shadow: none;
 
   &:hover {

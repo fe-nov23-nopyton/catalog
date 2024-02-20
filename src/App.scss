@@ -24,15 +24,24 @@
   --favorite-img-light: url(./header/buttonsHeader/icons/Vector.png);
   --favorite-img-dark: url(./header/buttonsHeader/icons/Vector_Stroke.png);
 
-  --main-text:rgba(137, 147, 154, 1);
+  --main-text-light:rgba(137, 147, 154, 1);
+  --main-text-dark:rgba(117, 118, 127, 1);
+
   --green-text: rgba(39, 174, 96, 1);
 
 
   --text-hover-dark: rgba(49, 50, 55, 1);
   --text-hover-light:rgba(241, 242, 249, 1);
 
-  --gray-elements: rgba(226, 230, 233, 1);
-  --gray-icons: rgba(180, 189, 195, 1);
+  --elements-border-light: rgba(226, 230, 233, 1);
+  --elements-border-dark: rgba(59, 62, 74, 1);
+
+  --icons-light: rgba(180, 189, 195, 1);
+  --icons-dark: rgba(50, 53, 66, 1);
+
+  --icons-dark: rgba(74, 77, 88, 1);
+
+  --red--icons: rgba(235, 87, 87, 1);
 }
 
 .light-theme {

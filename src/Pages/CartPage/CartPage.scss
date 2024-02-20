@@ -22,7 +22,7 @@
   background-color: --bg-light;
   padding: 24px;
   margin-bottom: 16px;
-  border: 1px solid var(--gray-elements);
+  border: 1px solid var(--elements-border-light);
 
   .remove {
     color: rgba(180, 189, 195, 1);
@@ -59,7 +59,7 @@
       height: 32px;
       width: 32px;
       background-color: transparent;
-      border: 1px solid var(--gray-icons);
+      border: 1px solid var(--icons-light);
       font-size: 20px;
       cursor: pointer;
     }

@@ -1,5 +1,8 @@
 import logo from "./images/logo.svg";
-import "./Footer.css";
+import "./Footer.scss";
+import { Link } from "react-router-dom";
+
+const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
 export const Footer: React.FC = () => (
   <footer className="footer">
@@ -14,9 +17,9 @@ export const Footer: React.FC = () => (
         <li className="footer--list-item">Rights</li>
       </ul>
 
-      <a href="/" className="footer--to-top">
+      <Link to="#" className="footer--to-top" onClick={scrollToTop}>
         Back to top
-      </a>
+      </Link>
     </div>
   </footer>
 );

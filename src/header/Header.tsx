@@ -4,17 +4,17 @@
 
 import classNames from "classnames";
 import { useEffect, useState } from "react";
-import "./header.css";
+import "./header.scss";
 import { Burger } from "./burger_menu/Burger";
 import { ButtonsHeader } from "./buttonsHeader/ButtonsHeader";
 import { NavLink } from "react-router-dom";
+import { ToggleThemeButton } from "./toggleThemeButton/ToggleThemeButton";
 
 export const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-  const navLinkClassName = ({ isActive }: { isActive: boolean }) => classNames(
-    'header__item', { 'header-item-active': isActive },
-  );
+  const navLinkClassName = ({ isActive }: { isActive: boolean }) =>
+    classNames("header__item", { "header-item-active": isActive });
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,6 +29,7 @@ export const Header = () => {
     };
   }, []);
   
+
   return (
     <header className="header">
       <div className="header__logo">
@@ -41,7 +42,7 @@ export const Header = () => {
       ) : (
         <div className="header__controls">
           <div className="header__menu">
-            <NavLink className={navLinkClassName} to={"home"}>
+            <NavLink className={navLinkClassName} to={"/"}>
               Home
             </NavLink>
             <NavLink className={navLinkClassName} to={"phones"}>
@@ -54,7 +55,11 @@ export const Header = () => {
               Accessories
             </NavLink>
           </div>
+          
           <div className="header__buttons">
+          <div className="menu__toggle">
+              <ToggleThemeButton />
+            </div>
             <ButtonsHeader />
           </div>
         </div>

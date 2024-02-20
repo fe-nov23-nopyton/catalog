@@ -2,7 +2,7 @@
 /* eslint-disable arrow-body-style */
 
 import { useState } from "react";
-import "./burger.css";
+import "./burger.scss";
 import { ButtonsHeader } from "../buttonsHeader/ButtonsHeader";
 import { NavLink } from "react-router-dom";
 import classNames from "classnames";
@@ -18,6 +18,12 @@ export const Burger = () => {
   const updateMenu = () => {
     const newBurgerClass = isMenuClicked ? "burger-bar unclicked" : "burger-bar clicked";
     const newMenuClass = isMenuClicked ? "burger__menu hidden" : "burger__menu visible";
+
+    if (!isMenuClicked) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
 
     setBurgerClass(newBurgerClass);
     setMenuClass(newMenuClass);

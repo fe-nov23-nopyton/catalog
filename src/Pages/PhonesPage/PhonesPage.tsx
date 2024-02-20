@@ -4,74 +4,74 @@ import './PhonesPage.scss';
 import { ProductsList } from "../../Components/ProductsList/ProductsList";
 import { Phone } from "../../types/Phone";
 
+const phones: Phone[] = [
+  {
+    id: 1,
+    name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
+    price: "$699",
+    image: 'https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194',
+    screen: "6.1-inch",
+    capacity: "64GB, 128GB, 256GB",
+    ram: "4GB",
+  },
+  {
+    id: 2,
+    name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
+    price: "$699",
+    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
+    screen: "6.1-inch",
+    capacity: "64GB, 128GB, 256GB",
+    ram: "4GB",
+  },
+  {
+    id: 3,
+    name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
+    price: "$699",
+    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
+    screen: "6.1-inch",
+    capacity: "64GB, 128GB, 256GB",
+    ram: "4GB",
+  },
+  {
+    id: 4,
+    name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
+    price: "$699",
+    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
+    screen: "6.1-inch",
+    capacity: "64GB, 128GB, 256GB",
+    ram: "4GB",
+  },
+  {
+    id: 5,
+    name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
+    price: "$699",
+    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
+    screen: "6.1-inch",
+    capacity: "64GB, 128GB, 256GB",
+    ram: "4GB",
+  },
+  {
+    id: 6,
+    name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
+    price: "$699",
+    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
+    screen: "6.1-inch",
+    capacity: "64GB, 128GB, 256GB",
+    ram: "4GB",
+  },
+  {
+    id: 7,
+    name: "iPhone 12",
+    price: "$699",
+    image: "https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194",
+    screen: "6.1-inch",
+    capacity: "64GB, 128GB, 256GB",
+    ram: "4GB",
+  },
+]; // This is a mock data
+
 export const PhonesPage: React.FC = () => {
   console.log("PhonesPage");
-
-  const phones: Phone[] = [
-    {
-      id: 1,
-      name: "iPhone 12",
-      price: "$699",
-      image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343704000",
-      screen: "6.1-inch",
-      capacity: "64GB, 128GB, 256GB",
-      ram: "4GB",
-    },
-    {
-      id: 2,
-      name: "iPhone 12",
-      price: "$699",
-      image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343704000",
-      screen: "6.1-inch",
-      capacity: "64GB, 128GB, 256GB",
-      ram: "4GB",
-    },
-    {
-      id: 3,
-      name: "iPhone 12",
-      price: "$699",
-      image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343704000",
-      screen: "6.1-inch",
-      capacity: "64GB, 128GB, 256GB",
-      ram: "4GB",
-    },
-    {
-      id: 4,
-      name: "iPhone 12",
-      price: "$699",
-      image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343704000",
-      screen: "6.1-inch",
-      capacity: "64GB, 128GB, 256GB",
-      ram: "4GB",
-    },
-    {
-      id: 5,
-      name: "iPhone 12",
-      price: "$699",
-      image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343704000",
-      screen: "6.1-inch",
-      capacity: "64GB, 128GB, 256GB",
-      ram: "4GB",
-    },
-    {
-      id: 6,
-      name: "iPhone 12",
-      price: "$699",
-      image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343704000",
-      screen: "6.1-inch",
-      capacity: "64GB, 128GB, 256GB",
-      ram: "4GB",
-    },
-    {
-      id: 7,
-      name: "iPhone 12",
-      price: "$699",
-      image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343704000",
-      screen: "6.1-inch",
-      capacity: "64GB, 128GB, 256GB",
-      ram: "4GB",
-    },
-  ]; // This is a mock data
 
   const quantityPhones = phones.length;
 

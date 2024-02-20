@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./buttonsHeader.scss";
+import CartIconWithQuantity from "../../Components/CartIconWithQuantity/CartIconWithQuantity";
 
 export const ButtonsHeader = () => (
   <>
@@ -7,7 +8,7 @@ export const ButtonsHeader = () => (
       <div className="icon-favorite" />
     </Link>
     <Link className="buttons_header" to={"/cart"}>
-      <div className="icon-cart" />
+      <CartIconWithQuantity />
     </Link>
   </>
 );

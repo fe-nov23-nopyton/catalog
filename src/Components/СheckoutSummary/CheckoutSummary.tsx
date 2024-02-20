@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CheckoutSummary.scss";
-import classNames from "classnames";
+import { useAppDispatch } from "../../redux/hooks";
+import { deleteCartItems } from "../../redux/features/cartSlice";
 
 interface Props {
   totalPrice: number;
@@ -8,20 +9,14 @@ interface Props {
 }
 
 export const CheckoutSummary: React.FC<Props> = ({ totalPrice, itemsCount }) => {
-  console.log("CheckoutSummary");
-
-  const [isShowMessage, setIsShowMessage] = useState(false);
+  const dispatch = useAppDispatch();
 
   const handleCheckout = () => {
-    setIsShowMessage(true);
+    const userConfirmation = window.confirm("Checkout is not implemented yet. Do you want to clear the Cart?");
 
-    const timer = setTimeout(() => {
-      setIsShowMessage(false);
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    if (userConfirmation) {
+      dispatch(deleteCartItems());
+    }
   };
 
   return (
@@ -29,11 +24,9 @@ export const CheckoutSummary: React.FC<Props> = ({ totalPrice, itemsCount }) => 
       <span className="total-price">${totalPrice}</span>
       <div className="total-items">Total for {itemsCount} items</div>
       <div className="divider" />
-      <button className={classNames("checkout-button", { isFocus: isShowMessage })} onClick={handleCheckout}>
+      <button className="checkout-button" onClick={handleCheckout}>
         Checkout
       </button>
-
-      {isShowMessage && <p>We are sorry, but this feature is not implemented yet</p>}
     </div>
   );
 };

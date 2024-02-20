@@ -1,17 +1,34 @@
 import React from "react";
 import { Item } from "../../types/Item";
 import "../../Pages/CartPage/CartPage.scss";
+import { useAppDispatch } from "../../redux/hooks";
+import { addQuantity, deleteFromCart, subtractQuantity } from "../../redux/features/cartSlice";
 
 interface Props {
   item: Item;
 }
 
 export const CartItem: React.FC<Props> = ({ item }) => {
-  console.log("CartItem");
+  const dispatch = useAppDispatch();
+
+  const handleDeleteItem = () => {
+    dispatch(deleteFromCart(item));
+  };
+
+  const handleChangeQuantity = (action: string) => {
+    if (action === "+") {
+      dispatch(addQuantity(item));
+    } else {
+      dispatch(subtractQuantity(item));
+    }
+  };
+
   return (
     <div className="cart-item">
       <div className="wrapper">
-        <button className="remove">X</button>
+        <button className="remove" onClick={handleDeleteItem}>
+          X
+        </button>
 
         <img src={item.product.image} alt={item.product.name} />
 
@@ -20,9 +37,9 @@ export const CartItem: React.FC<Props> = ({ item }) => {
 
       <div className="wrapper">
         <div className="quantity">
-          <button>-</button>
+          <button onClick={() => handleChangeQuantity("-")}>-</button>
           <span>{item.quantity}</span>
-          <button>+</button>
+          <button onClick={() => handleChangeQuantity("+")}>+</button>
         </div>
 
         <p className="price">${item.product.price}</p>

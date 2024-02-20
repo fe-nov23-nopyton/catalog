@@ -1,11 +1,17 @@
 .App {
   text-align: center;
   height: 100vh;
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 
 :root {
-  --bg-header-light:rgba(255, 255, 255, 1);
-  --bg-header-dark:rgba(15, 17, 33, 1);
+  --bg-light:rgba(255, 255, 255, 1);
+  --bg-dark:rgba(15, 17, 33, 1);
 
   --header-img-light: url(./header/img/Logo.png);
   --header-img-dark: url(./header/img/Logo-dark.png) ;
@@ -25,7 +31,7 @@
 }
 
 .light-theme {
-  --bg-header: var(--bg-header-light);
+  --bg: var(--bg-light);
   --header-img: var(--header-img-light);
   --text-hover: var(--text-hover-dark);
   --cart-img: var(--cart-img-light);
@@ -33,7 +39,7 @@
 }
 
 .dark-theme {
-  --bg-header: var(--bg-header-dark);
+  --bg: var(--bg-dark);
   --header-img: var(--header-img-dark);
   --text-hover: var(--text-hover-light);
   --cart-img: var(--cart-img-dark);

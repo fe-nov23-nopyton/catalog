@@ -3,7 +3,7 @@
   flex-direction: row;
   height: 64px;
   border-bottom: 1px solid rgba(226, 230, 233, 1);
-  background-color: var(--bg-header);
+  background-color: var(--bg);
 }
 
 .header__logo {
@@ -44,7 +44,7 @@
 .header__buttons {
   display: flex;
   flex-direction: row;
-  width: 128px;
+  width: 186px;
   height: 100%;
 }
 
@@ -96,4 +96,11 @@
 
 .header__burger > * {
   margin-left: auto;
+}
+
+.menu__toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
 }

@@ -1,6 +1,22 @@
+
+@font-face {
+  font-family: 'Mont-Regular';
+  src: url('../public/fonts/Mont-Regular.otf');
+}
+
+@font-face {
+  font-family: 'Mont-Bold';
+  src: url('../public/fonts/Mont-Bold.otf');
+}
+
+@font-face {
+  font-family: 'Mont-SemiBold';
+  src: url('../public/fonts/Mont-SemiBold.otf');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Mont_Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

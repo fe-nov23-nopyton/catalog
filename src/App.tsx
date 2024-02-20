@@ -12,7 +12,9 @@ export function App() {
     <>
       <div className={`App ${theme} App-wrapper`}>
         <Header />
-        <Outlet />
+        <div className="content">
+          <Outlet />
+        </div>
         <Footer />
       </div>
     </>

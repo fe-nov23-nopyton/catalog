@@ -1,0 +1,105 @@
+@import "../../App.scss";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  font-family: "Mont-Regular";
+  box-sizing: border-box;
+  gap: 8px;
+
+  width: 272px;
+  height: 507px;
+
+  margin: 0 auto;
+  padding: 32px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  &__image {
+    width: auto;
+    margin: 0 auto;
+    height: 200px;
+
+    &-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__price {
+    display: flex;
+    gap: 8px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    &--old {
+      text-decoration: line-through;
+      color: var(--main-text);
+    }
+  }
+
+  .card__details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &-name {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 21px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+  }
+
+  .card__details &__feature {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+
+    &-name {
+      margin: 0;
+
+      font-weight: 700;
+      line-height: 15px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: var(--main-text);
+    }
+
+    &-value {
+      margin: 0;
+
+      font-weight: 700;
+      line-height: 15px;
+      letter-spacing: 0em;
+      text-align: right;
+      color: var(--text-hover);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 8px;
+    &-add-to-cart {
+      height: 40px;
+      flex-grow: 1;
+      color: var(--bg-light);
+      background-color: var(--text-hover);
+      border: none;
+    }
+
+    &-add-to-favourites {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

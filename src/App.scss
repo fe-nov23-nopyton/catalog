@@ -1,3 +1,6 @@
+@import './mixins/adaptive-rules.scss';
+
+
 .App {
   text-align: center;
   height: 100vh;
@@ -44,4 +47,23 @@
   --text-hover: var(--text-hover-light);
   --cart-img: var(--cart-img-dark);
   --favorite-img: var(--favorite-img-dark);
+}
+
+
+.content {
+  margin: 0 auto;
+
+  @include onDesktop {
+    padding: 50px;
+  }
+
+  @include onTablet {
+    @include onLargePhone {
+      padding: 24px;
+    }
+  }
+
+  @include onLargePhone {
+    padding: 16px;
+  }
 }

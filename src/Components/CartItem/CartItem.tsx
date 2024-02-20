@@ -1,6 +1,6 @@
 import React from "react";
 import { Item } from "../../types/Item";
-import "./CartItem.scss";
+import "../../Pages/CartPage/CartPage.scss";
 
 interface Props {
   item: Item;

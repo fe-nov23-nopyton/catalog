@@ -39,9 +39,14 @@
     letter-spacing: 0em;
     text-align: left;
 
+    &--actual {
+      margin: 0;
+    }
+
     &--old {
       text-decoration: line-through;
       color: var(--main-text);
+      margin: 0;
     }
   }
 

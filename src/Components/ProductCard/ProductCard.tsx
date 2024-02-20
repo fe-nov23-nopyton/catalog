@@ -21,7 +21,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
         <h2 className="card__details-name">{phone.name}</h2>
 
         <div className="card__price">
-          <p>{phone.price}</p>
+          <p className="card__price--actual">{phone.price}</p>
           <p className="card__price--old">{phone.price}</p>
         </div>
 

@@ -1,9 +1,10 @@
-.cart-quantity {
+.count-items {
   position: absolute;
   top: -8px;
   right: -8px;
   width: 17px;
   height: 17px;
+  border: 1px solid var(--bg-light);
   border-radius: 50%;
   color: var(--text-hover-light);
   background-color: var(--red--icons);

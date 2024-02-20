@@ -1,6 +1,5 @@
 @import './mixins/adaptive-rules.scss';
 
-
 .App {
   text-align: center;
   height: 100vh;
@@ -52,6 +51,12 @@
   --favorite-img: var(--favorite-img-dark);
 }
 
+.title {
+  text-align: left;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 56px;
+}
 
 .content {
   margin: 0 auto;
@@ -61,12 +66,14 @@
   }
 
   @include onTablet {
-    @include onLargePhone {
-      padding: 24px;
-    }
+    padding: 24px;
   }
 
   @include onLargePhone {
+    padding: 24px;
+  }
+
+  @include onSmallPhone {
     padding: 16px;
   }
 }

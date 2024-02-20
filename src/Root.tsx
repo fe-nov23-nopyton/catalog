@@ -5,6 +5,7 @@ import { NotFoundPage } from "./Pages/NotFoundPage";
 import { PhonesPage } from "./Pages/PhonesPage/PhonesPage";
 import { TabletsPage } from "./Pages/TabletsPage";
 import { AccessoriesPage } from "./Pages/AccessoriesPage";
+import { CartPage } from "./Pages/CartPage";
 
 export const Root = () => (
   <Router>
@@ -27,6 +28,10 @@ export const Root = () => (
         <Route path="accessories">
           <Route index element={<AccessoriesPage />} />
           <Route path=":accessoryId" element={<AccessoriesPage />} />
+        </Route>
+
+        <Route path="cart">
+          <Route index element={<CartPage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />

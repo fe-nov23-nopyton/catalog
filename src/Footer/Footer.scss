@@ -1,6 +1,9 @@
+@import '../App.scss';
+
 .footer {
   padding: 32px;
-  border-top: 1px solid rgba(226, 230, 233, 1);
+  border-top: 1px solid var(--elements-border);
+  background-color: var(--bg);
 
   &--container {
     display: flex;
@@ -26,7 +29,7 @@
   
     cursor: pointer;
   
-    color: rgba(137, 147, 154, 1);
+    color: var(--main-text);
   
     text-transform: uppercase;
     font-family: Mont;
@@ -36,7 +39,7 @@
   }
   
   &--list-item:hover {
-    color: rgba(49, 50, 55, 1);
+    color: var(--text-hover);
   
   }
   
@@ -45,7 +48,7 @@
     display: block;
     text-decoration: none;
     padding-right: 48px;
-    color: rgba(137, 147, 154, 1);
+    color: var(--main-text);
 
     &::after {
       content: '';
@@ -56,17 +59,17 @@
       display: block;
       width: 32px;
       height: 32px;
-      border: 1px solid rgba(180, 189, 195, 1);
-      background-image: url(./images/up.svg);
+      border: 1px solid var(--icons);
+      background-image: var(--up-img);
       background-repeat: no-repeat;
       background-position: center;
     }
 
     &:hover {
-      color: rgba(49, 50, 55, 1);
+      color: var(--text-hover);
 
       &::after {
-        border: 1px solid rgba(49, 50, 55, 1)
+        border: 1px solid var(--text-hover);
       }
     }
     

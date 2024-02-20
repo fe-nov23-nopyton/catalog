@@ -26,7 +26,7 @@ export function App() {
 
         <Outlet />
 
-        <Footer />
+        <Footer theme={theme} />
       </div>
     </>
   );

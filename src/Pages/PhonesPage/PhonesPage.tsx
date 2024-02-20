@@ -82,7 +82,7 @@ export const PhonesPage: React.FC = () => {
       </div>
 
       <div className="additional-elements">
-        <p>{quantityPhones} models</p>
+        <p className="total-phones">{quantityPhones} models</p>
 
         <div className="sort-options">
           <label htmlFor="sort">Sort by:</label>

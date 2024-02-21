@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { Phone } from "../../types/Phone";
@@ -10,32 +9,36 @@ export interface favoritesState {
 const initialState: favoritesState = {
   favorites: [
     {
-      age: 0,
-      type: "phone",
-      snippet: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
-      id: "1",
-      name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
-      price: 699,
-      discount: 0,
-      imageUrl: 'https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194',
-      screen: "6.1-inch",
-      capacity: "64GB, 128GB, 256GB",
-      ram: "4GB",
+      id: "60",
+      category: "phones",
+      phoneId: "apple-iphone-xr-128gb-yellow",
+      itemId: "apple-iphone-xr-128gb-yellow",
+      name: "Apple iPhone XR 128GB Yellow",
+      fullPrice: 880,
+      price: 815,
+      screen: "6.1' IPS",
+      capacity: "128GB",
+      color: "yellow",
+      ram: "3GB",
+      year: 2018,
+      image: "img/phones/apple-iphone-xr/yellow/00.jpg"
     },
     {
-      age: 0,
-      type: "phone",
-      snippet: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
-      id: "2",
-      name: "Apple iPhone Xs 64GB Silver (iMT9G2FS/A)",
-      price: 699,
-      discount: 0,
-      imageUrl: 'https://shoptopnotch.ca/cdn/shop/files/apple_iphone_xr_front.png?v=1704285194',
-      screen: "6.1-inch",
-      capacity: "64GB, 128GB, 256GB",
-      ram: "4GB",
-    },
-  ],
+      id: "61",
+      category: "phones",
+      phoneId: "apple-iphone-xr-128gb-yellow",
+      itemId: "apple-iphone-xr-128gb-yellow",
+      name: "Apple iPhone XR 128GB Yellow",
+      fullPrice: 880,
+      price: 815,
+      screen: "6.1' IPS",
+      capacity: "128GB",
+      color: "yellow",
+      ram: "3GB",
+      year: 2018,
+      image: "img/phones/apple-iphone-xr/yellow/00.jpg"
+    }
+  ]
 };
 
 export const favoritesSlice = createSlice({
@@ -50,7 +53,7 @@ export const favoritesSlice = createSlice({
     },
     deleteFromFavorite: (state, action: PayloadAction<Phone>) => {
       state.favorites.filter((item) => item.id !== action.payload.id);
-    },
+    }
   }
 });
 

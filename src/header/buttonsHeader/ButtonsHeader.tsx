@@ -9,12 +9,12 @@ export const ButtonsHeader = () => {
 
   return (
     <>
-      <Link className="buttons_header" to={"/favorites"}>
+      <Link className="buttons_header" to={"/catalog/favorites"}>
         <div className="icon-favorite">
           <IconCount items={favorites} />
         </div>
       </Link>
-      <Link className="buttons_header" to={"/cart"}>
+      <Link className="buttons_header" to={"/catalog/cart"}>
         <div className="icon-cart">
           <IconCount items={cart} />
         </div>

@@ -1,0 +1,37 @@
+.breadcrumbs-nav {
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.link-breadcrumbs {
+  display: flex;
+  align-self: center;
+  color: var(--main-text);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+  transition: color 0.15s ease-in-out;
+  &:hover {
+    color: var(--text-hover);
+  }
+}
+
+.home-icon {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  background-image: var(--home-icon);
+}
+
+.vector-right {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: var(--right-img);
+
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}

@@ -15,6 +15,9 @@
   --bg-light:rgba(255, 255, 255, 1);
   --bg-dark:rgba(15, 17, 33, 1);
 
+  --home-icon-light: url(.//Components/Breadcrumbs/images/Home_light.svg);
+  --home-icon-dark: url(.//Components/Breadcrumbs/images/Home_dark.svg);
+
   --header-img-light: url(./header/img/Logo.png);
   --header-img-dark: url(./header/img/Logo-dark.png) ;
 
@@ -26,6 +29,12 @@
 
   --up-img-light: url(./Footer/images/up_light.svg);
   --up-img-dark: url(./Footer/images/up_dark.svg);
+
+  --right-img-light: url(./Components/Breadcrumbs/images/right_light.svg);
+  --right-img-dark: url(./Components/Breadcrumbs/images/right_dark.svg);
+
+  --left-img-light: url(./Components/Breadcrumbs/images/left_light.svg);
+  --left-img-dark: url(./Components/Breadcrumbs/images/left_dark.svg);
 
   --green-text: rgba(39, 174, 96, 1);
 
@@ -56,6 +65,9 @@
   --main-text: var(--main-text-light);
   --icons: var(--icons-light);
   --up-img: var(--up-img-light);
+  --right-img: var(--right-img-light);
+  --left-img: var(--left-img-light);
+  --home-icon: var(--home-icon-light);
 }
 
 .dark-theme {
@@ -68,6 +80,9 @@
   --main-text: var(--main-text-dark);
   --icons: var(--icons-dark);
   --up-img: var(--up-img-dark);
+  --right-img: var(--right-img-dark);
+  --left-img: var(--left-img-dark);
+  --home-icon: var(--home-icon-dark);
 }
 
 .title {
@@ -75,6 +90,8 @@
   font-size: 48px;
   font-weight: 800;
   line-height: 56px;
+
+  margin-block: 24px;
 }
 
 .content {

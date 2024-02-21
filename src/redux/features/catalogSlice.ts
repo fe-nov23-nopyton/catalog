@@ -1,35 +1,43 @@
 /* eslint-disable prettier/prettier */
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Phone } from "../../types/Phone";
+import { getPhones } from "../../utils/fetchClient";
 
 export interface catalogState {
   phones: Phone[];
-  favorites: Phone[];
+  loading: boolean;
+  error: boolean;
 }
 
 const initialState: catalogState = {
   phones: [],
-  favorites: [],
+  loading: false,
+  error: false,
 };
+
+
+export const fetchPhones = createAsyncThunk(
+  'catalog/fetch',
+  () => getPhones()
+);
 
 export const catalogSlice = createSlice({
   name: "catalog",
   initialState,
-  reducers: {
-    setPhones: (state, action: PayloadAction<Phone[]>) => {
-      state.phones = [...action.payload];
-    },
-    addToFavorite: (state, action: PayloadAction<Phone>) => {
-      state.favorites = [...state.favorites, action.payload];
-    },
-    deleteFromFavorite: (state, action: PayloadAction<Phone>) => {
-      state.favorites.filter((item) => item.id !== action.payload.id);
-    },
-  }
-});
-
-export const SelectCatalogState = (state: catalogState) => state;
-export const { setPhones, addToFavorite, deleteFromFavorite } = catalogSlice.actions;
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchPhones.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchPhones.fulfilled, (state, action) => {
+        state.phones = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchPhones.rejected, (state) => {
+        state.error = true;
+        state.loading = false;
+      })}
+})
 
 export default catalogSlice.reducer;

@@ -3,8 +3,8 @@
 .grid {
   display: grid;
 
-  @include grid-template(phone-small);
-  @include grid-template(phone-large);
-  @include grid-template(tablet);
-  @include grid-template(desktop);
+  @include grid-template('phone-small');
+  @include grid-template('phone-large');
+  @include grid-template('tablet');
+  @include grid-template('desktop');
 }

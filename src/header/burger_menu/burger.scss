@@ -26,7 +26,7 @@
 
 .burger__menu {
   position: fixed;
-  top: 64px;
+  top: 48px;
   right: 0;
   width: 100%;
   max-width: 100%;
@@ -40,7 +40,7 @@
 
 .burger__menu.visible {
   border: 1px solid rgba(226, 230, 233, 1);
-  height: calc(100vh - 64px);
+  height: calc(100vh - 48px);
   visibility: visible;
   transition: height 0.3s ease-in, visibility 0s 0s;
 }

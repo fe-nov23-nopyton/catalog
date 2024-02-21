@@ -1,9 +1,23 @@
+@import "../mixins/adaptive-rules.scss";
+
 .header {
   display: flex;
   flex-direction: row;
   height: 64px;
   border-bottom: 1px solid rgba(226, 230, 233, 1);
   background-color: var(--bg);
+
+  @include onTablet {
+    height: 48px;
+  }
+
+  @include onLargePhone {
+    height: 48px;
+  }
+
+  @include onSmallPhone {
+    height: 48px;
+  }
 }
 
 .header__logo {
@@ -12,6 +26,21 @@
   align-items: center;
   width: 128px;
   height: 64px;
+
+  @include onTablet {
+    height: 48px;
+    width: 96px;
+  }
+
+  @include onLargePhone {
+    height: 48px;
+    width: 96px;
+  }
+
+  @include onSmallPhone {
+    height: 48px;
+    width: 96px;
+  }
 }
 
 .header__logo-img {
@@ -20,6 +49,22 @@
   background-image: var(--header-img);
   background-repeat: no-repeat;
   background-size: contain;
+
+  @include onTablet {
+    height: 22px;
+    width: 64px;
+  }
+
+  @include onLargePhone {
+    height: 22px;
+    width: 64px;
+  }
+
+  @include onSmallPhone {
+    height: 22px;
+    width: 64px;
+  }
+
 }
 
 .header__controls {
@@ -39,6 +84,19 @@
   text-transform: uppercase;
   font-weight: 800;
   font-size: 12px;
+
+  @include onTablet {
+    margin-left: 16px;
+    gap: 32px;
+  }
+
+  @include onLargePhone {
+    gap: 20px;
+  }
+
+  @include onSmallPhone {
+    gap: 10px;
+  }
 }
 
 .header__buttons {
@@ -46,6 +104,10 @@
   flex-direction: row;
   width: 186px;
   height: 100%;
+
+  @include onTablet {
+    width: 144px;
+  }
 }
 
 .header__item {
@@ -103,4 +165,16 @@
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+
+  @include onTablet {
+    margin-right: 15px;
+  }
+
+  @include onLargePhone {
+    margin-right: 10px;
+  }
+
+  @include onSmallPhone {
+    margin-right: 5px;
+  }
 }

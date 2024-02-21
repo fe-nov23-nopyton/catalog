@@ -11,20 +11,19 @@ export const Breadcrumbs: React.FC<Props> = ({ path }) => {
 
   return (
     <nav className="breadcrumbs-nav">
-      <Link to="/">
-        <span className="home-icon" />
-      </Link>
-      <span className="vector-right" />
-
       {pathParts.map((part, index) => {
         const normalizedPart = part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+        const isLast = index < pathParts.length - 1;
+        const linkTo = normalizedPart === "Catalog" ? "/catalog/" : `/${pathParts.slice(0, index + 1).join("/")}`;
+        const namePage = normalizedPart === "Catalog" ? null : normalizedPart;
+
         return (
-          <span key={index}>
-            <Link className="link-breadcrumbs" to={`/${pathParts.slice(0, index + 1).join("/")}`}>
-              {normalizedPart}
+          <>
+            <Link className={normalizedPart === "Catalog" ? "home-icon" : "link-breadcrumbs"} to={linkTo}>
+              {namePage}
             </Link>
-            {index < pathParts.length - 1 && <span className="vector-right" />}
-          </span>
+            {isLast && <span className="vector-right" />}
+          </>
         );
       })}
     </nav>

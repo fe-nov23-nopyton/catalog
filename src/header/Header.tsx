@@ -1,7 +1,3 @@
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable prettier/prettier */
-/* eslint-disable arrow-body-style */
-
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 import "./header.scss";
@@ -28,12 +24,11 @@ export const Header = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  
 
   return (
     <header className="header">
       <div className="header__logo">
-        <div className="header__logo-img"></div>
+        <div className="header__logo-img" />
       </div>
       {isMobile ? (
         <div className="header__burger">
@@ -42,7 +37,7 @@ export const Header = () => {
       ) : (
         <div className="header__controls">
           <div className="header__menu">
-            <NavLink className={navLinkClassName} to={"/"}>
+            <NavLink className={navLinkClassName} to={"/catalog/"}>
               Home
             </NavLink>
             <NavLink className={navLinkClassName} to={"phones"}>
@@ -55,9 +50,9 @@ export const Header = () => {
               Accessories
             </NavLink>
           </div>
-          
+
           <div className="header__buttons">
-          <div className="menu__toggle">
+            <div className="menu__toggle">
               <ToggleThemeButton />
             </div>
             <ButtonsHeader />

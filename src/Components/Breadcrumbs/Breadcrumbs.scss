@@ -17,10 +17,6 @@
   &:hover {
     color: var(--text-hover-dark);
   }
-  &:not(:last-child):after {
-    content: '/';
-    margin: 0 8px;
-  } // removed after visual testings
 }
 
 .home-icon {
@@ -35,7 +31,7 @@
   background-repeat: no-repeat;
   background-image: var(--right-img);
 
-  display: flex;
+  display: inline-block;
   width: 16px;
   height: 16px;
 }

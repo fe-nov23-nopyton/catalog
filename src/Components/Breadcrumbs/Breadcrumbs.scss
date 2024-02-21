@@ -8,14 +8,14 @@
 .link-breadcrumbs {
   display: flex;
   align-self: center;
-  color: var(--main-text-light);
+  color: var(--main-text);
   text-decoration: none;
   font-size: 14px;
   line-height: 1.5;
   font-weight: 700;
   transition: color 0.15s ease-in-out;
   &:hover {
-    color: var(--text-hover-dark);
+    color: var(--text-hover);
   }
 }
 

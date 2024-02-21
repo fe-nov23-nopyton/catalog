@@ -1,23 +1,23 @@
 @mixin grid-template($breakpoint) {
-  @if $breakpoint == phone-small {
+  @if $breakpoint == 'phone-small' {
     @media (min-width: 320px) and (max-width: 639px) {
       grid-template-columns: repeat(1, 24fr);
       grid-gap: 16px;
     }
   }
-  @if $breakpoint == phone-large {
+  @if $breakpoint == 'phone-large' {
     @media (min-width: 640px) and (max-width: 767px) {
       grid-template-columns: repeat(2, 12fr);
       grid-gap: 16px;
     }
   }
-  @if $breakpoint == tablet {
+  @if $breakpoint == 'tablet' {
     @media (min-width: 768px) and (max-width: 1199px) {
       grid-template-columns: repeat(3, 8fr);
       grid-gap: 16px;
     }
   }
-  @if $breakpoint == desktop {
+  @if $breakpoint == 'desktop' {
     @media (min-width: 1200px) {
       grid-template-columns: repeat(4, 6fr);
       grid-gap: 16px;

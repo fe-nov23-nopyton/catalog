@@ -8,3 +8,9 @@
   @include grid-template('tablet');
   @include grid-template('desktop');
 }
+
+.additional-elements {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+}

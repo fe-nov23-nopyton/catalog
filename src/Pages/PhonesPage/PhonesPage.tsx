@@ -20,10 +20,9 @@ export const PhonesPage: React.FC = () => {
       <div>
         <h1 className="title">Mobile phones</h1>
       </div>
+      <p className="total-phones">{quantityPhones} models</p>
 
       <div className="additional-elements">
-        <p className="total-phones">{quantityPhones} models</p>
-
         <div className="sort-options">
           <label htmlFor="sort">Sort by:</label>
           <select id="sort" name="sort">

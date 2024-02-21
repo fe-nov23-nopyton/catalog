@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/catalog/static/css/main.900f616f.css",
-    "main.js": "/catalog/static/js/main.52de6881.js",
-    "static/media/logo_light.svg": "/catalog/static/media/logo_light.8f45dda4450f6f4a1ab654701f1a54f9.svg",
-    "static/media/logo_dark.svg": "/catalog/static/media/logo_dark.60452a9bbce10e5af2c113c33085de5e.svg",
-    "static/media/Mont-Regular.otf": "/catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
-    "static/media/Mont-SemiBold.otf": "/catalog/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
-    "static/media/Mont-Bold.otf": "/catalog/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
-    "static/media/up_light.svg": "/catalog/static/media/up_light.80e27a8f296e8f6d01b0.svg",
-    "static/media/up_dark.svg": "/catalog/static/media/up_dark.c0e3f15d57e31409821a.svg",
-    "index.html": "/catalog/index.html",
-    "main.900f616f.css.map": "/catalog/static/css/main.900f616f.css.map",
-    "main.52de6881.js.map": "/catalog/static/js/main.52de6881.js.map"
+    "main.css": "/static/css/main.d4cb2685.css",
+    "main.js": "/static/js/main.3ed2d3cd.js",
+    "static/media/logo_light.svg": "/static/media/logo_light.8f45dda4450f6f4a1ab654701f1a54f9.svg",
+    "static/media/logo_dark.svg": "/static/media/logo_dark.60452a9bbce10e5af2c113c33085de5e.svg",
+    "static/media/Mont-Regular.otf": "/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
+    "static/media/Mont-SemiBold.otf": "/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
+    "static/media/Mont-Bold.otf": "/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
+    "static/media/up_light.svg": "/static/media/up_light.80e27a8f296e8f6d01b0.svg",
+    "static/media/up_dark.svg": "/static/media/up_dark.c0e3f15d57e31409821a.svg",
+    "index.html": "/index.html",
+    "main.d4cb2685.css.map": "/static/css/main.d4cb2685.css.map",
+    "main.3ed2d3cd.js.map": "/static/js/main.3ed2d3cd.js.map"
   },
   "entrypoints": [
-    "static/css/main.900f616f.css",
-    "static/js/main.52de6881.js"
+    "static/css/main.d4cb2685.css",
+    "static/js/main.3ed2d3cd.js"
   ]
 }

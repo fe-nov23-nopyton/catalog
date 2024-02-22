@@ -1,12 +1,12 @@
-import { CartList } from "../../Components/CartList/CartList";
 // import { Loader } from "../../Components/Loader";
+import { CartList } from "../../Components/CartList/CartList";
 import { CheckoutSummary } from "../../Components/СheckoutSummary";
 import { CartItem } from "../../types/CartItem";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import "./CartPage.scss";
 import { totalQuantity } from "../../utils/totalQuantity";
 import { useEffect } from "react";
 import { setCart } from "../../redux/features/cartSlice";
+import "./CartPage.scss";
 
 export const CartPage = () => {
   const items: CartItem[] = useAppSelector((state) => state.cart.cart);
@@ -33,7 +33,7 @@ export const CartPage = () => {
 
   return (
     <main className="cart">
-      {/* <!-- button back --> */}
+      {/* Back button */}
       {!!itemsCount ? <h1 className="title">Cart</h1> : <h1 className="empty-cart">Your cart is empty</h1>}
       {/* {<Loader />} <!-- loading && (...) --> */}
       {!!itemsCount && (

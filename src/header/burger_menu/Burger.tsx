@@ -50,7 +50,7 @@ export const Burger = () => {
       </nav>
       <div className={menuClass}>
         <div className="menu__container">
-          <NavLink className={navLinkClassName} to={"/home"}>
+          <NavLink className={navLinkClassName} to={"/catalog/"}>
             Home
           </NavLink>
           <NavLink className={navLinkClassName} to={"/phones"}>

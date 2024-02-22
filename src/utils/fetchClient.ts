@@ -1,9 +1,13 @@
 const URL = "./_new/products.json";
 
-export function getPhones() {
-  return fetch(URL).then((response) => {
-    console.log(response);
+function wait(delay: number) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, delay);
+  });
+}
 
+export function getPhones() {
+  return Promise.all([fetch(URL), wait(500)]).then(([response]) => {
     if (!response.ok) {
       throw new Error();
     }

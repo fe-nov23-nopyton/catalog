@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable prettier/prettier */
 import React from "react";
 import { Phone } from "../../types/Phone";
@@ -10,11 +11,10 @@ interface Props {
 }
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
-  console.log(phone);
   return (
     <div className="card">
       <div className="card__image-container">
-        <img className="card__image" src={`/catalog/_new/${phone.image}`} alt={phone.name} />
+       <img className="card__image" src={`/catalog/_new/${phone.image}`} alt={phone.name} />
       </div>
       <div className="card__details">
         <h2 className="card__details-name">{phone.name}</h2>

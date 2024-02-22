@@ -1,8 +1,9 @@
 @import './mixins/adaptive-rules.scss';
 
 .App {
+  height: 100%;
   text-align: center;
-  height: 100vh;
+  background-color: var(--bg);
 
   &-wrapper {
     display: flex;
@@ -90,12 +91,13 @@
   font-size: 48px;
   font-weight: 800;
   line-height: 56px;
+  color: var(--text-hover);
 
   margin-block: 24px;
 }
-
 .content {
   margin: 0 auto;
+  background-color: var(--bg);
 
   @include onDesktop {
     padding: 50px;

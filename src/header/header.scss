@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: row;
   height: 64px;
-  border-bottom: 1px solid rgba(226, 230, 233, 1);
+  border-bottom: 1px solid var(--icons);
   background-color: var(--bg);
 
   @include onTablet {

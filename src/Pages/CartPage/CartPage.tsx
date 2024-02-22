@@ -34,7 +34,7 @@ export const CartPage = () => {
   return (
     <main className="cart">
       {/* Back button */}
-      {!!itemsCount ? <h1 className="title">Cart</h1> : <h1 className="empty-cart">Your cart is empty</h1>}
+      {!!itemsCount ? <h1 className="title">Cart</h1> : <h1 className="title">Your cart is empty</h1>}
       {/* {<Loader />} <!-- loading && (...) --> */}
       {!!itemsCount && (
         <div className="cart-wrapper">

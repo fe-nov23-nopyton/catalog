@@ -16,6 +16,7 @@
   font-size: 32px;
   line-height: 41px;
   font-weight: 800;
+  color: var(--text-hover);
 }
 
 .total-items {
@@ -37,7 +38,7 @@
 .divider {
   height: 1px;
   width: 100%;
-  background-color: var(--elements-border-light);
+  background-color: var(--elements-border);
   margin-bottom: 25px;
 }
 

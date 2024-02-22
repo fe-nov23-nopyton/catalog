@@ -1,4 +1,4 @@
-const URL = "./_new/products.json";
+const URL = "./new/products.json";
 
 function wait(delay: number) {
   return new Promise((resolve) => {

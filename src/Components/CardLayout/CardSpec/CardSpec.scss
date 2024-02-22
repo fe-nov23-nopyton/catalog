@@ -1,0 +1,27 @@
+.spec {
+    width: 320px;
+    height: 84px;
+   
+    &__rows {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 8px;
+
+        &-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--main-text);
+        }
+
+        &-value {
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--text-hover);
+        }
+    }
+}
+
+.full__spec {
+    width: 100%;
+}

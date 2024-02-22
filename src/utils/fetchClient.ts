@@ -1,4 +1,4 @@
-const URL = "./_new/products.json";
+const URL = "./new/products.json";
 
 export function getPhones() {
   return fetch(URL).then((response) => {

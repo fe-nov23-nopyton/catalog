@@ -25,12 +25,6 @@ export const HomePage: React.FC = () => {
   const hotPrices = getHotPrices(phones);
   const newModels = getNewModels(phones);
 
-  // const banners = [
-  //   "../public/new/img/phones/banner-phones.png",
-  //   "../public/new/img/phones/banner-tablets.png",
-  //   "../public/new/img/phones/banner-accessories.png"
-  // ];
-
   return (
     <>
       <h1 className="title">Home Page</h1>

@@ -10,12 +10,13 @@ import { Phone } from "../../types/Phone";
 import { Breadcrumbs } from "../../Components/Breadcrumbs";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Pagination } from "../../Components/Pagination/Pagination";
+import { Loader } from "../../Components/Loader";
 
 const optionsForItemsOnPage = ["16", "8", "4", "All"];
 const optionsForSort = ["Cheapest", "Alphabetically", "Newest"];
 
 export const PhonesPage: React.FC = () => {
-  const { phones } = useAppSelector((state) => state.catalog); // use also loading and error states
+  const { phones, loading, errorMessage } = useAppSelector((state) => state.catalog); // use also loading and error states
   const dispatch = useAppDispatch();
 
   const { pathname } = useLocation();
@@ -36,6 +37,13 @@ export const PhonesPage: React.FC = () => {
     return changeVisible === "All" ? sortedPhones : sortedPhones.slice(start, end);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 275,
+      behavior: "smooth",
+    });
+  }
+
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSort(event.target.value);
   };
@@ -48,15 +56,16 @@ export const PhonesPage: React.FC = () => {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     navigate(`?page=${page}`);
+    scrollToTop();
   };
 
-const { page } = useParams<{ page: string }>();
+  const { page } = useParams<{ page: string }>();
 
-useEffect(() => {
-  if (page) {
-    setCurrentPage(parseInt(page));
-  }
-}, [page]);
+  useEffect(() => {
+    if (page) {
+      setCurrentPage(parseInt(page));
+    }
+  }, [page]);
 
   useEffect(() => {
     dispatch(fetchPhones());
@@ -70,20 +79,42 @@ useEffect(() => {
       <div>
         <h1 className="title">Mobile phones</h1>
       </div>
-      <p className="total-phones">{quantityPhones} models</p>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          {errorMessage ? (
+            <p className="title">There are no products</p>
+          ) : (
+            <>
+            {!!quantityPhones ? (
+            <>
+              <p className="total-phones">{quantityPhones} models</p>
 
-      <div className="dropdown-wrapper">
-        <Dropdown handleChange={handleSortChange} title={"Sort by"} options={optionsForSort} />
-        <Dropdown handleChange={handleItemsOnPageChange} title={"Items on page"} options={optionsForItemsOnPage} />
-      </div>
+              <div className="dropdown-wrapper">
+                <Dropdown handleChange={handleSortChange} title={"Sort by"} options={optionsForSort} />
+                <Dropdown
+                  handleChange={handleItemsOnPageChange}
+                  title={"Items on page"}
+                  options={optionsForItemsOnPage}
+                />
+              </div>
 
-      <ProductsList phones={prepareProducts(phones, sort, itemsOnPage)} />
-      <Pagination
-        total={quantityPhones}
-        perPage={perPage}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
+              <ProductsList phones={prepareProducts(phones, sort, itemsOnPage)} />
+              <Pagination
+                total={quantityPhones}
+                perPage={perPage}
+                currentPage={currentPage}
+                onPageChange={handlePageChange}
+              />
+              </>
+            ) : (
+              <p className="title">There are no products</p>
+            )}
+            </>
+          )}
+        </>
+      )}
     </>
   );
 };

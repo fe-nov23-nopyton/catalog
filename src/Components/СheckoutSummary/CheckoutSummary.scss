@@ -1,10 +1,12 @@
 .checkout-summary {
   height: fit-content;
   width: 370px;
+  padding: 20px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+
   border: 1px solid var(--elements-border-light);
 
   @media (max-width: 1199px) {
@@ -20,26 +22,27 @@
 }
 
 .total-items {
+  margin-bottom: 25px;
+
   font-size: 14px;
   line-height: 21px;
   font-weight: 500;
   color: var(--main-text-light);
-  margin-bottom: 25px;
 }
 
 .total-phones {
+  margin-bottom: 40px;
+
   font-weight: 600;
   color: var(--main-text-light);
   text-align: left;
-
-  margin-bottom: 40px;
 }
 
 .divider {
+  margin-bottom: 25px;
   height: 1px;
   width: 100%;
-  background-color: var(--elements-border);
-  margin-bottom: 25px;
+  background-color: var(--elements-border-light);
 }
 
 .checkout-button {
@@ -47,14 +50,14 @@
   height: 48px;
   padding-block: 10px;
   
-  background-color: rgba(49, 50, 55, 1);
+  background-color: rgba(49, 50, 55, 1);   // check this color
   color: var(--bg-light);
   
-  cursor: pointer;
   font-weight: 700;
   text-align: center;
 
   transition: box-shadow 0.3s;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0px 3px 13px 0px rgba(23, 32, 49, 0.4);

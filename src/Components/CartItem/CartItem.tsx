@@ -1,8 +1,8 @@
 import React from "react";
+import { addQuantity, deleteFromCart, subtractQuantity } from "../../redux/features/cartSlice";
+import { useAppDispatch } from "../../redux/hooks";
 import { Item } from "../../types/Item";
 import "../../Pages/CartPage/CartPage.scss";
-import { useAppDispatch } from "../../redux/hooks";
-import { addQuantity, deleteFromCart, subtractQuantity } from "../../redux/features/cartSlice";
 
 interface Props {
   item: Item;
@@ -16,11 +16,7 @@ export const CartItem: React.FC<Props> = ({ item }) => {
   };
 
   const handleChangeQuantity = (action: string) => {
-    if (action === "+") {
-      dispatch(addQuantity(item));
-    } else {
-      dispatch(subtractQuantity(item));
-    }
+    action === "+" ? dispatch(addQuantity(item)) : dispatch(subtractQuantity(item));
   };
 
   return (

@@ -1,0 +1,39 @@
+.card__galery {
+    display: grid;
+    grid-template-areas: "slider main";
+    column-gap: 16px;
+  
+    &-main {
+      grid-area: main;
+      width: 464px;
+      height: 464px;
+  
+      &-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  
+    &-sidebar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-area: slider;
+      width: 80px;
+      height: 464px;
+  
+      &-item {
+        cursor: pointer;
+        width: 80px;
+        height: 80px; 
+        margin-bottom: 16px;
+        object-fit: contain;
+      }
+    }
+  }
+
+.active__galery-card {
+  border: 1px solid rgba(59, 62, 74, 0.406);
+  box-sizing: border-box;
+}

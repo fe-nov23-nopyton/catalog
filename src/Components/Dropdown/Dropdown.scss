@@ -1,0 +1,41 @@
+.dropdown-wrapper {
+  display: flex;
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+.dropdown-container {
+  position: relative;
+  text-align: left;
+  width: 176px;
+  height: 40px;
+}
+
+.dropdown {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 700;
+  color: var(--text-hover);
+
+  border: 1px solid var(--icons);
+  box-sizing: border-box;
+}
+
+.title-select {
+  display: block;
+  margin-bottom: 4px;
+
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  color: var(--text-hover);
+}
+
+.option{
+  color: var(--text-hover);
+}

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
 /* eslint-disable prettier/prettier */
 import React from "react";
@@ -5,6 +6,7 @@ import { Phone } from "../../types/Phone";
 
 import "./ProductCard.scss";
 import { HeartLikeIcon } from "../../images/icons";
+import { Link } from "react-router-dom";
 
 interface Props {
   phone: Phone;
@@ -13,12 +15,18 @@ interface Props {
 export const ProductCard: React.FC<Props> = ({ phone }) => {
   return (
     <div className="card">
-      <div className="card__image-container">
-        <img className="card__image" src={`/catalog/new/${phone.image}`} alt={phone.name} />
-      </div>
+      <Link to={`/catalog/phones/${phone.itemId}`} className="card__link">
+        <div className="card__image-container">
+          <img className="card__image" src={`/catalog/new/${phone.image}`} alt={phone.name} />
+        </div>
+      </Link>
 
       <div className="card__details">
-        <h2 className="card__details-name">{phone.name}</h2>
+      <Link to={`/catalog/phones/${phone.itemId}`} className="card__link">
+        <h2 className="card__details-name">
+          {phone.name}
+        </h2>
+      </Link>
 
         <div className="card__price">
           <p className="card__price--actual">${phone.price}</p>

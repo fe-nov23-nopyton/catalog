@@ -1,0 +1,43 @@
+// .buttonStyle {
+//   width: 32px;
+//   height: 32px;
+//   background-color: transparent;
+//   border: 1px solid var(--elements-border);
+//   cursor: pointer;
+//   margin: 0 5px;
+//   color: black;
+// }
+li {
+  list-style-type: none;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination__item {
+  margin: 0px 3px;
+}
+
+.pagination__link {
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: 1px solid var(--elements-border);
+  cursor: pointer;
+}
+
+.pagination__link--arrow-right {
+  margin-right: 5px;
+}
+
+.pagination__link--arrow-left {
+  margin-left: 5px;
+}
+
+.pagination__item.active .pagination__link {
+  background-color: black;
+  color: white;
+}

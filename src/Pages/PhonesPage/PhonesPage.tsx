@@ -12,17 +12,18 @@ import { CardLayout } from "../../Components/CardLayout/CardLayout";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Pagination } from "../../Components/Pagination/Pagination";
 
+const optionsForItemsOnPage = ["16", "8", "4", "All"];
+const optionsForSort = ["Cheapest", "Alphabetically", "Newest"];
+
 export const PhonesPage: React.FC = () => {
   const { phones } = useAppSelector((state) => state.catalog); // use also loading and error states
   const dispatch = useAppDispatch();
 
   const { pathname } = useLocation();
 
-  const [sort, setSort] = useState("Cheapest");
-  const optionsForSort = ["Cheapest", "Alphabetically", "Newest"];
+  const [sort, setSort] = useState(optionsForSort[0]);
 
-  const [itemsOnPage, setItemsOnPage] = useState("All");
-  const optionsForItemsOnPage = ["All", "4", "8", "16"];
+  const [itemsOnPage, setItemsOnPage] = useState(optionsForItemsOnPage[0]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const perPage = parseInt(itemsOnPage) || phones.length;

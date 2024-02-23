@@ -19,6 +19,10 @@ export const PhonesPage: React.FC = () => {
   const { phones, loading, errorMessage } = useAppSelector((state) => state.catalog); // use also loading and error states
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(fetchPhones());
+  }, []);
+
   const { pathname } = useLocation();
 
   const [sort, setSort] = useState(optionsForSort[0]);
@@ -66,10 +70,6 @@ export const PhonesPage: React.FC = () => {
       setCurrentPage(parseInt(page));
     }
   }, [page]);
-
-  useEffect(() => {
-    dispatch(fetchPhones());
-  }, []);
 
   const quantityPhones = phones.length;
 

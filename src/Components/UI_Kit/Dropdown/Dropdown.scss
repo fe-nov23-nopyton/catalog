@@ -1,0 +1,15 @@
+@import '../../../App.scss';
+
+.dropdown {
+  width: 100%;
+  border-radius: 0;
+  height: 40px;
+  color: var(--text-hover);
+
+  appearance: none;
+
+  &:focus {
+    outline: none;
+    border-radius: 10px;
+  }
+}

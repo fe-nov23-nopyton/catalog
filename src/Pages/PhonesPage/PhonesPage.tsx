@@ -8,7 +8,6 @@ import { Dropdown } from "../../Components/Dropdown";
 import { sortItems } from "../../utils/sortItems";
 import { Phone } from "../../types/Phone";
 import { Breadcrumbs } from "../../Components/Breadcrumbs";
-import { CardLayout } from "../../Components/CardLayout/CardLayout";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Pagination } from "../../Components/Pagination/Pagination";
 
@@ -68,29 +67,23 @@ useEffect(() => {
   return (
     <>
       <Breadcrumbs path={pathname} />
-      {!false ? (
-        <>
-          <div>
-            <h1 className="title">Mobile phones</h1>
-          </div>
-          <p className="total-phones">{quantityPhones} models</p>
+      <div>
+        <h1 className="title">Mobile phones</h1>
+      </div>
+      <p className="total-phones">{quantityPhones} models</p>
 
-          <div className="dropdown-wrapper">
-            <Dropdown handleChange={handleSortChange} title={"Sort by"} options={optionsForSort} />
-            <Dropdown handleChange={handleItemsOnPageChange} title={"Items on page"} options={optionsForItemsOnPage} />
-          </div>
+      <div className="dropdown-wrapper">
+        <Dropdown handleChange={handleSortChange} title={"Sort by"} options={optionsForSort} />
+        <Dropdown handleChange={handleItemsOnPageChange} title={"Items on page"} options={optionsForItemsOnPage} />
+      </div>
 
-          <ProductsList phones={prepareProducts(phones, sort, itemsOnPage)} />
-          <Pagination
-            total={quantityPhones}
-            perPage={perPage}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-          />
-        </>
-      ) : (
-        <CardLayout />
-      )}
+      <ProductsList phones={prepareProducts(phones, sort, itemsOnPage)} />
+      <Pagination
+        total={quantityPhones}
+        perPage={perPage}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </>
   );
 };

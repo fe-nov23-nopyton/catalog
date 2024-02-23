@@ -1,12 +1,12 @@
 import React from "react";
 import { Phone } from "../../types/Phone";
 import { totalQuantity } from "../../utils/totalQuantity";
-import { CartItem } from "../../types/CartItem";
 
 import "./IconCount.scss";
+import { Item } from "../../types/Item";
 
 interface Props {
-  items: Phone[] | CartItem[];
+  items: Phone[] | Item[];
 }
 
 const IconCount: React.FC<Props> = ({ items }) => {
@@ -14,7 +14,7 @@ const IconCount: React.FC<Props> = ({ items }) => {
 
   if (items.length > 0) {
     if ("quantity" in items[0]) {
-      total = totalQuantity(items as CartItem[]);
+      total = totalQuantity(items as Item[]);
     } else {
       total = items.length;
     }

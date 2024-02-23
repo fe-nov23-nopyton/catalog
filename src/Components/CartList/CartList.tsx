@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const CartList: React.FC<Props> = ({ items }) => {
-  console.log("CartList");
+  console.log("");
   return (
     <div className="cart-items">
       {items.map((item) => (

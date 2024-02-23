@@ -41,6 +41,10 @@
   --close-icon-light: url(./Components/CartItem/icons/Close-light.svg);
   --close-icon-dark: url(./Components/CartItem/icons/Close-dark.svg);
 
+  --category-phone-img: url(../public/new/img/category-phones.png);
+  --category-tablets-img: url(../public/new/img/category-tablets.png);
+  --category-accessories-img: url(../public/new/img/category-accessories.png);
+
   --green-text: rgba(39, 174, 96, 1);
 
   --main-text-light:rgba(137, 147, 154, 1);
@@ -57,7 +61,12 @@
 
   --icons-dark: rgba(74, 77, 88, 1);
 
+  --phones-color-category: rgba(109, 100, 116, 1);
+  --tablets-color-category: rgba(141, 141, 146, 1);
+  --accessories-color-category: rgba(213, 60, 81, 1);
+
   --red--icons: rgba(235, 87, 87, 1);
+  --accent-hover: rgba(144, 91, 255, 1);
 }
 
 .light-theme {

@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const ProductsList: React.FC<Props> = ({ phones }) => {
-  console.log("ProductsList");
+  console.log(phones);
 
   return (
     <main className="grid">

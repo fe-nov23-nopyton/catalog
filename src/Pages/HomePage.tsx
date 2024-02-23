@@ -33,12 +33,16 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <h1 className="title">Home Page</h1>
-      {loading && <Loader />}
 
-      {newModels.length !== 0 && <Slider title={"Brand new models"} phones={newModels} />}
-
-      <Categories amount={amountItems} />
-      {hotPrices.length !== 0 && <Slider title={"Hot prices"} phones={hotPrices} />}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          {newModels.length !== 0 && <Slider title={"Brand new models"} phones={newModels} />}
+          <Categories amount={amountItems} />
+          {hotPrices.length !== 0 && <Slider title={"Hot prices"} phones={hotPrices} />}
+        </>
+      )}
     </>
   );
 };

@@ -110,7 +110,7 @@
 }
 .content {
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1136px;
   background-color: var(--bg);
 
   @include onDesktop {
@@ -119,13 +119,16 @@
 
   @include onTablet {
     padding: 24px;
+    max-width: 640px;
   }
 
   @include onLargePhone {
     padding: 24px;
+    max-width: 640px;
   }
 
   @include onSmallPhone {
     padding: 16px;
+    max-width: 288x;
   }
 }

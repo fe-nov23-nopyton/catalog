@@ -11,7 +11,7 @@ import { FavoritesPage } from "./Pages/FavouritesPage/FavouritesPage";
 export const Root = () => (
   <Router>
     <Routes>
-      <Route path="/catalog/" element={<App />}>
+      <Route path="/catalog/*" element={<App />}>
         <Route index element={<HomePage />} />
 
         <Route path="home" element={<Navigate to="/catalog/" />} />

@@ -18,11 +18,11 @@ const tempPhone: PhoneFull = {
   colorsAvailable: ["black", "green", "yellow", "white", "purple", "red"],
   color: "green",
   images: [
-    "/catalog/new/img/phones/apple-iphone-11/green/00.jpg",
-    "/catalog/new/img/phones/apple-iphone-11/green/01.jpg",
-    "/catalog/new/img/phones/apple-iphone-11/green/02.jpg",
-    "/catalog/new/img/phones/apple-iphone-11/green/03.jpg",
-    "/catalog/new/img/phones/apple-iphone-11/green/04.jpg"
+    "/catalog/new/img/phones/apple-iphone-11/green/00.png",
+    "/catalog/new/img/phones/apple-iphone-11/green/01.png",
+    "/catalog/new/img/phones/apple-iphone-11/green/02.png",
+    "/catalog/new/img/phones/apple-iphone-11/green/03.png",
+    "/catalog/new/img/phones/apple-iphone-11/green/04.png"
   ],
   description: [
     {
@@ -67,7 +67,7 @@ const tempShortPhone: PhoneShort = {
   color: "black",
   ram: "2GB",
   year: 2016,
-  image: "img/phones/apple-iphone-7/black/00.jpg"
+  image: "new/img/phones/apple-iphone-7/00.png"
 };
 
 export const CardLayout = () => {

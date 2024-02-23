@@ -1,18 +1,30 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
-/* eslint-disable prettier/prettier */
 import React from "react";
 import { Phone } from "../../types/Phone";
 
 import "./ProductCard.scss";
 import { HeartLikeIcon } from "../../images/icons";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "../../redux/hooks";
+import { addToCart } from "../../redux/features/cartSlice";
 
 interface Props {
   phone: Phone;
 }
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
+  const dispatch = useAppDispatch();
+
+  const handleAddToCart = () => {
+    const cartItem = {
+      id: phone.id,
+      quantity: 1,
+      product: phone
+    };
+
+    dispatch(addToCart(cartItem));
+  };
+
   return (
     <div className="card">
       <Link to={`/catalog/phones/${phone.itemId}`} className="card__link">
@@ -22,11 +34,9 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
       </Link>
 
       <div className="card__details">
-      <Link to={`/catalog/phones/${phone.itemId}`} className="card__link">
-        <h2 className="card__details-name">
-          {phone.name}
-        </h2>
-      </Link>
+        <Link to={`/catalog/phones/${phone.itemId}`} className="card__link">
+          <h2 className="card__details-name">{phone.name}</h2>
+        </Link>
 
         <div className="card__price">
           <p className="card__price--actual">${phone.price}</p>
@@ -51,7 +61,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
       </div>
 
       <div className="card__buttons">
-        <button className="card__buttons-add-to-cart" type="button">
+        <button onClick={handleAddToCart} className="card__buttons-add-to-cart" type="button">
           Add to cart
         </button>
 

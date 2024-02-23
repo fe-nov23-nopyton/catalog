@@ -1,10 +1,10 @@
 export interface Item {
-  id: number;
+  id: string;
   quantity: number;
   product: {
-    id: number;
+    id: string;
+    name: string;
     price: number;
     image: string;
-    name: string;
-  }; // replace with Product type
+  };
 }

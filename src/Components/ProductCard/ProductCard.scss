@@ -60,6 +60,11 @@
     }
   }
 
+  &__link {
+    text-decoration: none;
+    color: var(--text-hover);
+  }
+
   .card__details {
     display: flex;
     flex-direction: column;

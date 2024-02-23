@@ -6,10 +6,12 @@
 }
 
 .dropdown-container {
+  display: inline-table;
   position: relative;
-  text-align: left;
   width: 176px;
   height: 40px;
+
+  text-align: left;
 }
 
 .dropdown {
@@ -24,6 +26,12 @@
 
   border: 1px solid var(--icons);
   box-sizing: border-box;
+  background-color: transparent;
+
+}
+
+.option{
+  color: var(--text-hover);
 }
 
 .title-select {
@@ -33,9 +41,5 @@
   font-size: 12px;
   line-height: 16px;
   font-weight: 700;
-  color: var(--text-hover);
-}
-
-.option{
   color: var(--text-hover);
 }

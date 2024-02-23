@@ -9,7 +9,8 @@ import { sortItems } from "../../utils/sortItems";
 import { Phone } from "../../types/Phone";
 import { Breadcrumbs } from "../../Components/Breadcrumbs";
 import { CardLayout } from "../../Components/CardLayout/CardLayout";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Pagination } from "../../Components/Pagination/Pagination";
 
 export const PhonesPage: React.FC = () => {
   const { phones } = useAppSelector((state) => state.catalog); // use also loading and error states
@@ -23,13 +24,16 @@ export const PhonesPage: React.FC = () => {
   const [itemsOnPage, setItemsOnPage] = useState("All");
   const optionsForItemsOnPage = ["All", "4", "8", "16"];
 
-  console.log(phones);
-  console.log(sort);
-  console.log(itemsOnPage);
+  const [currentPage, setCurrentPage] = useState(1);
+  const perPage = parseInt(itemsOnPage) || phones.length;
+
+  const navigate = useNavigate();
 
   const prepareProducts = (phones: Phone[], sortBy: string, changeVisible: string) => {
     const sortedPhones = sortItems(phones, sortBy);
-    return changeVisible === "All" ? sortedPhones : sortedPhones.slice(0, +changeVisible);
+    const start = (currentPage - 1) * perPage;
+    const end = start + perPage;
+    return changeVisible === "All" ? sortedPhones : sortedPhones.slice(start, end);
   };
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -38,7 +42,21 @@ export const PhonesPage: React.FC = () => {
 
   const handleItemsOnPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setItemsOnPage(event.target.value);
+    setCurrentPage(1);
   };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    navigate(`?page=${page}`);
+  };
+
+const { page } = useParams<{ page: string }>();
+
+useEffect(() => {
+  if (page) {
+    setCurrentPage(parseInt(page));
+  }
+}, [page]);
 
   useEffect(() => {
     dispatch(fetchPhones());
@@ -62,6 +80,12 @@ export const PhonesPage: React.FC = () => {
           </div>
 
           <ProductsList phones={prepareProducts(phones, sort, itemsOnPage)} />
+          <Pagination
+            total={quantityPhones}
+            perPage={perPage}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
         </>
       ) : (
         <CardLayout />

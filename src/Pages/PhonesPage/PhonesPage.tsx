@@ -1,17 +1,32 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable prettier/prettier */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './PhonesPage.scss';
 import { ProductsList } from "../../Components/ProductsList/ProductsList";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPhones } from "../../redux/features/catalogSlice";
+import { Pagination } from "../../Components/Pagination/Pagination";
+import { paginateArray } from "../../utils/paginate";
 
 export const PhonesPage: React.FC = () => {
   const { phones } = useAppSelector(state => state.catalog); // use also loading and error states
+  const { itemsOnPage } = useAppSelector(state => state.filter)
+  const [currentPage, setCurentPage] = useState(1)
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchPhones())
   } ,[]);
+
+  useEffect(() => {
+    window.scrollTo(100, 100);
+  },[currentPage])
+
+  const phonesOnPage = paginateArray(phones, currentPage, itemsOnPage);
+
+  const onPageChange = (page: number) => {
+    setCurentPage(page)
+  }
 
   const quantityPhones = phones.length;
 
@@ -37,7 +52,14 @@ export const PhonesPage: React.FC = () => {
         </div>
       </div>
 
-      <ProductsList phones={phones} />
+      <ProductsList phones={phonesOnPage} />
+
+      <Pagination
+        total={phones.length}
+        perPage={itemsOnPage}
+        currentPage={currentPage}
+        onPageChange={onPageChange}
+      />
       </>
     );
   };

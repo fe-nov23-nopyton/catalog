@@ -37,7 +37,7 @@ export const Header = () => {
       ) : (
         <div className="header__controls">
           <div className="header__menu">
-            <NavLink className={navLinkClassName} to={"catalog/"}>
+            <NavLink className={navLinkClassName} to={"/catalog/home"}>
               Home
             </NavLink>
             <NavLink className={navLinkClassName} to={"phones"}>

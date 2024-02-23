@@ -16,11 +16,11 @@ const tempPhone: PhoneFull = {
   colorsAvailable: ["black", "green", "yellow", "white", "purple", "red"],
   color: "green",
   images: [
-    "/catalog/_new/img/phones/apple-iphone-11/green/00.jpg",
-    "/catalog/_new/img/phones/apple-iphone-11/green/01.jpg",
-    "/catalog/_new/img/phones/apple-iphone-11/green/02.jpg",
-    "/catalog/_new/img/phones/apple-iphone-11/green/03.jpg",
-    "/catalog/_new/img/phones/apple-iphone-11/green/04.jpg"
+    "/catalog/new/img/phones/apple-iphone-11/green/00.jpg",
+    "/catalog/new/img/phones/apple-iphone-11/green/01.jpg",
+    "/catalog/new/img/phones/apple-iphone-11/green/02.jpg",
+    "/catalog/new/img/phones/apple-iphone-11/green/03.jpg",
+    "/catalog/new/img/phones/apple-iphone-11/green/04.jpg"
   ],
   description: [
     {

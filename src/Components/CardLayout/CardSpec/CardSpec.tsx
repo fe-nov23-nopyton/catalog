@@ -11,11 +11,11 @@ interface CardSpecProps {
 }
 
 type typeSpecPropTitle = {
-  capacity: string;
   screen: string;
   resolution: string;
   processor: string;
   ram: string;
+  capacity: string;
   camera: string;
   zoom: string;
   cell: string;
@@ -31,6 +31,8 @@ const specPropTitle = {
   zoom: "Zoom",
   cell: "Cell"
 };
+
+const propsOfItem = ["screen", "resolution", "processor", "ram", "capacity", "camera", "zoom", "cell"];
 
 export const CardSpec: React.FC<CardSpecProps> = ({ spec, isTrimed }) => {
   const specKeys = Object.keys(spec);
@@ -48,14 +50,19 @@ export const CardSpec: React.FC<CardSpecProps> = ({ spec, isTrimed }) => {
 
   let renderFields: string[];
 
-  if (specKeys.length > 13 && isTrimed) {
-    renderFields = ["screen", "resolution", "processor", "ram"];
-  } else if (specKeys.length > 13 && !isTrimed) {
-    renderFields = ["screen", "resolution", "processor", "ram", "capacity", "camera", "zoom", "cell"];
-  } else if (specKeys.length <= 13) {
-    renderFields = ["screen", "capacity", "ram"];
-  } else {
-    renderFields = [];
+  switch (true) {
+    case specKeys.length > 13 && isTrimed:
+      renderFields = propsOfItem.slice(0, 4);
+      break;
+    case specKeys.length > 13 && !isTrimed:
+      renderFields = [...propsOfItem];
+      break;
+    case specKeys.length <= 13:
+      renderFields = propsOfItem.slice(0, 3);
+      break;
+    default:
+      renderFields = [];
+      break;
   }
 
   return (

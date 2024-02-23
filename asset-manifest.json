@@ -1,14 +1,17 @@
 {
   "files": {
-    "main.css": "/catalog/static/css/main.e98eae81.css",
-    "main.js": "/catalog/static/js/main.99b27fa8.js",
-    "static/media/logo_light.svg": "/catalog/static/media/logo_light.8f45dda4450f6f4a1ab654701f1a54f9.svg",
-    "static/media/logo_dark.svg": "/catalog/static/media/logo_dark.60452a9bbce10e5af2c113c33085de5e.svg",
+    "main.css": "/catalog/static/css/main.0c230d00.css",
+    "main.js": "/catalog/static/js/main.54235dc9.js",
+    "static/media/category-tablets.png": "/catalog/static/media/category-tablets.51782e18205a1ca01ce8.png",
+    "static/media/category-phones.png": "/catalog/static/media/category-phones.af93d992917380dfe206.png",
+    "static/media/category-accessories.png": "/catalog/static/media/category-accessories.e47d6d6df68a6548e82b.png",
     "static/media/Mont-Regular.otf": "/catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/catalog/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
     "static/media/Mont-Bold.otf": "/catalog/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
     "static/media/Home_dark.svg": "/catalog/static/media/Home_dark.901f72c9436f9e8c6357.svg",
     "static/media/Home_light.svg": "/catalog/static/media/Home_light.d4c29e4f137b3a79235a.svg",
+    "static/media/Close-light.svg": "/catalog/static/media/Close-light.3ea864f59fecb8596c4b.svg",
+    "static/media/Close-dark.svg": "/catalog/static/media/Close-dark.a7b1ced7ed3e49385129.svg",
     "static/media/right_dark.svg": "/catalog/static/media/right_dark.90170297dda7672a6426.svg",
     "static/media/right_light.svg": "/catalog/static/media/right_light.2a072ff1bf1fd396b30e.svg",
     "static/media/left_dark.svg": "/catalog/static/media/left_dark.31f074c6be5c844b3213.svg",
@@ -16,11 +19,11 @@
     "static/media/up_light.svg": "/catalog/static/media/up_light.80e27a8f296e8f6d01b0.svg",
     "static/media/up_dark.svg": "/catalog/static/media/up_dark.c0e3f15d57e31409821a.svg",
     "index.html": "/catalog/index.html",
-    "main.e98eae81.css.map": "/catalog/static/css/main.e98eae81.css.map",
-    "main.99b27fa8.js.map": "/catalog/static/js/main.99b27fa8.js.map"
+    "main.0c230d00.css.map": "/catalog/static/css/main.0c230d00.css.map",
+    "main.54235dc9.js.map": "/catalog/static/js/main.54235dc9.js.map"
   },
   "entrypoints": [
-    "static/css/main.e98eae81.css",
-    "static/js/main.99b27fa8.js"
+    "static/css/main.0c230d00.css",
+    "static/js/main.54235dc9.js"
   ]
 }

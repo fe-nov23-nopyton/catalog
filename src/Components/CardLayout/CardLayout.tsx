@@ -7,6 +7,7 @@ import { CardSpec } from "./CardSpec/CardSpec";
 import { PhoneFull } from "./PhoneFull";
 import { PhoneShort } from "./PhoneShort";
 import { Breadcrumbs } from "../Breadcrumbs";
+import { useEffect } from "react";
 const tempPhone: PhoneFull = {
   id: "apple-iphone-11-256gb-green",
   namespaceId: "apple-iphone-11",
@@ -72,6 +73,11 @@ const tempShortPhone: PhoneShort = {
 
 export const CardLayout = () => {
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 85, behavior: "smooth" });
+  }, []);
+
   return (
     <>
       <Breadcrumbs path={pathname} />

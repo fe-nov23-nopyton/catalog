@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
 import React from "react";
 import { Phone } from "../../types/Phone";
@@ -5,7 +7,8 @@ import { Phone } from "../../types/Phone";
 import "./ProductCard.scss";
 import { HeartLikeIcon } from "../../images/icons";
 import { Link } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { clickFavorite } from "../../redux/features/favoritesSlice";
 import { addToCart } from "../../redux/features/cartSlice";
 
 interface Props {
@@ -13,7 +16,14 @@ interface Props {
 }
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
+  // const favorites = useAppSelector((state) => state.favorites.favorites);
   const dispatch = useAppDispatch();
+
+  // const hasFavoriteItem = favorites.some((item) => item.id === phone.id);
+
+  const handleFavorite = () => {
+    dispatch(clickFavorite(phone));
+  };
 
   const handleAddToCart = () => {
     const cartItem = {
@@ -65,7 +75,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
           Add to cart
         </button>
 
-        <HeartLikeIcon />
+        <HeartLikeIcon onSelect={handleFavorite} />
       </div>
     </div>
   );

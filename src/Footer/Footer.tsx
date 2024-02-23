@@ -17,7 +17,7 @@ export const Footer: React.FC<Props> = ({ theme }) => (
       </a>
 
       <ul className="footer--list">
-        <li className="footer--list-item">Githab</li>
+        <li className="footer--list-item">Github</li>
         <li className="footer--list-item">Contacts</li>
         <li className="footer--list-item">Rights</li>
       </ul>

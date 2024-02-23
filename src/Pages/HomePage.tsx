@@ -9,6 +9,7 @@ import { Categories } from "../Components/Categories";
 import { getHotPrices } from "../utils/getHotPrices";
 import { getNewModels } from "../utils/getNewModels";
 import Swiper from "../Components/Slider/Swiper";
+import { response } from "express";
 
 export const HomePage: React.FC = () => {
   const { phones, loading } = useAppSelector((state) => state.catalog);
@@ -16,21 +17,12 @@ export const HomePage: React.FC = () => {
 
   const amountItems = { amountPhones: phones.length, amountTablets: 0, amountAccessories: 0 };
 
-  console.log(loading);
-  console.log(phones);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     dispatch(fetchPhones());
-  //   }, 500);
-  // }, []);
-
-  // useEffect(() => {
-  //   dispatch(fetchPhones());
-  // }, []);
+  useEffect(() => {
+    dispatch(fetchPhones());
+  }, []);
 
   const hotPrices = getHotPrices(phones);
-  const newModels = getNewModels(phones);
+  const newModels = [...phones].sort();
 
   // const banners = [
   //   "../public/new/img/phones/banner-phones.png",
@@ -41,15 +33,16 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <h1 className="title">Home Page</h1>
-      {loading && <Loader />}
 
-      {/* <Swiper images={banners} /> */}
-
-      {!!phones && !loading ? <Slider title={"Brand new models"} phones={newModels} /> : null}
-
-      <Categories amount={amountItems} />
-
-      {!!phones && !loading ? <Slider title={"Hot prices"} phones={hotPrices} /> : null}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          {newModels.length !== 0 && <Slider title={"Brand new models"} phones={newModels} />}
+          <Categories amount={amountItems} />
+          {hotPrices.length !== 0 && <Slider title={"Hot prices"} phones={hotPrices} />}
+        </>
+      )}
     </>
   );
 };

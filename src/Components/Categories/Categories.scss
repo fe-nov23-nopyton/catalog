@@ -1,3 +1,5 @@
+@import '../../mixins/adaptive-rules.scss';
+
 .container {
   text-align: left;
 }
@@ -20,6 +22,19 @@
 .image-container {
   width: 368px;
   height: 368px;
+  @include onTablet {
+    width: 187px;
+    height: 187px;
+  }
+  @include onLargePhone {
+    width: 187px;
+    height: 187px;
+  }
+
+  @include onSmallPhone {
+    width: 288px;
+    height: 288px;
+  }
   margin-bottom: 24px;
 
   background-size: cover;

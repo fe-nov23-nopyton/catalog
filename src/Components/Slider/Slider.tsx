@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { ProductCard } from "../ProductCard/ProductCard";
 import { Phone } from "../../types/Phone";
-import "./Slider.css";
+import "./Slider.scss";
 
 interface SliderProps {
   title: string;

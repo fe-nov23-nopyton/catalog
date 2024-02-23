@@ -27,6 +27,19 @@
   --up-img-light: url(./Footer/images/up_light.svg);
   --up-img-dark: url(./Footer/images/up_dark.svg);
 
+  --favorites-icon-light: url(./Components/UI_Kit/Icon/img/favourites_light.svg);
+  --favorites-icon-dark: url(./Components/UI_Kit/Icon/img/favourites_dark.svg);
+  --favorites-icon-selected: url(./Components/UI_Kit/Icon/img/favourites_selected.svg);
+
+  --arrow-icon-light: url(./Components/UI_Kit/Icon/img/arrow_light.svg);
+  --arrow-icon-dark: url(./Components/UI_Kit/Icon/img/arrow_dark.svg);
+  --arrow-icon-light-disabled: url(./Components/UI_Kit/Icon/img/arrow_light_disabled.svg);
+  --arrow-icon-dark-disabled: url(./Components/UI_Kit/Icon/img/arrow_dark_disabled.svg);
+
+  --arrow-left-light: url(./Components/UI_Kit/Icon/img/arrow_left_light.svg);
+  --arrow-left-dark: url(./Components/UI_Kit/Icon/img/arrow_left_dark.svg);
+  --arrow-left-dark-hover: url(./Components/UI_Kit/Icon/img/arrow_left_dark_hover.svg);
+
   --green-text: rgba(39, 174, 96, 1);
 
   --main-text-light:rgba(137, 147, 154, 1);
@@ -41,9 +54,22 @@
   --icons-light: rgba(180, 189, 195, 1);
   --icons-dark: rgba(50, 53, 66, 1);
 
-  --icons-dark: rgba(74, 77, 88, 1);
+  --icons-bg-dark: rgba(74, 77, 88, 1);
 
   --red--icons: rgba(235, 87, 87, 1);
+
+  --primary-button-bg-dark: rgba(144, 91, 255, 1);
+
+  --primary-button-box-shadow-hover: rgba(23, 32, 49, 0.4);
+
+  --primary-button-bg-hover-dark: rgba(163, 120, 255, 1);
+
+  --gray-surface-one: rgba(22, 24, 39, 1);
+
+  --black: rgba(76, 76, 76, 1);
+  --rosegold: rgba(183, 110, 121, 1);
+  --gold: rgba(252, 219, 193, 1);
+  --silver: rgba(95, 113, 112, 1);
 }
 
 .light-theme {
@@ -56,6 +82,30 @@
   --main-text: var(--main-text-light);
   --icons: var(--icons-light);
   --up-img: var(--up-img-light);
+  --primary-button-bg: var(--text-hover-dark);
+  --primary-button-color: var(--text-hover-light);
+  --primary-button-selected-color: var(--green-text);
+  --primary-button-selected-bg: var(--bg-light);
+  --primary-button-selected-border: var(--elements-border-light);
+  --primary-button-bg-hover: var(--text-hover-dark);
+  --color-selector-border: var(--elements-border-light);
+  --color-selector-border-hover: var(--icons-light);
+  --favorites-icon: var(--favorites-icon-light);
+  --favorites-border-hover: var(--text-hover-dark);
+  --favorites-bg-hover: var(--bg-light);
+  --favorites-border-selected: var(--elements-border-light);
+  --favorites-icon-bg: var(--bg-light);
+  --arrow-icon: var(--arrow-icon-light);
+  --arrow-icon-disabled: var(--arrow-icon-light-disabled);
+  --text-icon: var(--text-hover-dark);
+  --text-icon-border: var(--elements-border-light);
+  --text-icon-bg: var(--bg-light);
+  --text-icon-border-hover: var(--text-hover-dark);
+  --text-icon-bg-hover: var(--bg-light);
+  --navigation-button: var(--main-text-light);
+  --navigation-button-hover: var(--text-hover-dark);
+  --arrov-left: var(--arrow-left-light);
+  --arrov-left-hover: var(--arrow-left-light);
 }
 
 .dark-theme {
@@ -68,6 +118,30 @@
   --main-text: var(--main-text-dark);
   --icons: var(--icons-dark);
   --up-img: var(--up-img-dark);
+  --primary-button-bg: var(--primary-button-bg-dark);
+  --primary-button-color: var(--text-hover-light);
+  --primary-button-selected-color: var(--text-hover-light);
+  --primary-button-selected-bg: var(--icons-dark);
+  --primary-button-selected-border: var(--icons-dark);
+  --primary-button-bg-hover: var(--primary-button-bg-hover-dark);
+  --color-selector-border: var(--elements-border-dark);
+  --color-selector-border-hover: var(--main-text-dark);
+  --favorites-icon: var(--favorites-icon-dark);
+  --favorites-border-hover: var(--icons-dark);
+  --favorites-bg-hover: var(--icons-bg-dark);
+  --favorites-border-selected: var(--elements-border-dark);
+  --favorites-icon-bg: var(--icons-dark);
+  --arrow-icon: var(--arrow-icon-dark);
+  --arrow-icon-disabled: var(--arrow-icon-dark-disabled);
+  --text-icon: var(--text-hover-light);
+  --text-icon-border: var(--gray-surface-one);
+  --text-icon-bg: var(--gray-surface-one);
+  --text-icon-border-hover: var(--elements-border-dark);
+  --text-icon-bg-hover: var(--elements-border-dark);
+  --navigation-button: var(--text-hover-light);
+  --navigation-button-hover: var(--primary-button-bg-dark);
+  --arrov-left: var(--arrow-left-dark);
+  --arrov-left-hover: var(--arrow-left-dark-hover);
 }
 
 .title {

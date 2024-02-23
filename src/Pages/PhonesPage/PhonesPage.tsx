@@ -21,8 +21,8 @@ export const PhonesPage: React.FC = () => {
   const [sort, setSort] = useState("Cheapest");
   const optionsForSort = ["Cheapest", "Alphabetically", "Newest"];
 
-  const [itemsOnPage, setItemsOnPage] = useState("All");
-  const optionsForItemsOnPage = ["All", "4", "8", "16"];
+  const [itemsOnPage, setItemsOnPage] = useState("16");
+  const optionsForItemsOnPage = ["16", "8", "4", "All"];
 
   const [currentPage, setCurrentPage] = useState(1);
   const perPage = parseInt(itemsOnPage) || phones.length;

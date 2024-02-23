@@ -3,11 +3,11 @@ import { Phone } from "../types/Phone";
 export const sortItems = (phones: Phone[], criterion: string) =>
   [...phones].sort((a, b) => {
     switch (criterion) {
-      case "newest":
+      case "Newest":
         return b.year - a.year;
-      case "alphabetically":
+      case "Alphabetically":
         return a.name.localeCompare(b.name);
-      case "cheapest":
+      case "Cheapest":
         return a.price - b.price;
       default:
         return 0;

@@ -11,6 +11,8 @@ interface Props {
 export const CartItem: React.FC<Props> = ({ item }) => {
   const dispatch = useAppDispatch();
 
+  const normalizedUrl = `/catalog/new/${item.product.image}`;
+
   const handleDeleteItem = () => {
     dispatch(deleteFromCart(item));
   };
@@ -24,7 +26,7 @@ export const CartItem: React.FC<Props> = ({ item }) => {
       <div className="wrapper">
         <button className="remove" onClick={handleDeleteItem} />
 
-        <img src={item.product.image} alt={item.product.name} />
+        <img src={normalizedUrl} alt={item.product.name} />
 
         <h2>{item.product.name}</h2>
       </div>

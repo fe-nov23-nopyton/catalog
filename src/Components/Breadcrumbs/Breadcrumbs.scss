@@ -8,11 +8,13 @@
 .link-breadcrumbs {
   display: flex;
   align-self: center;
-  color: var(--main-text);
-  text-decoration: none;
+
   font-size: 14px;
   line-height: 1.5;
   font-weight: 700;
+
+  color: var(--main-text);
+  text-decoration: none;
   transition: color 0.15s ease-in-out;
   &:hover {
     color: var(--text-hover);
@@ -27,11 +29,11 @@
 }
 
 .vector-right {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--right-img);
-
   display: inline-block;
   width: 16px;
   height: 16px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: var(--right-img);
 }

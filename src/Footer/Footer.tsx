@@ -1,5 +1,5 @@
-import logoLight from "./images/logo_light.svg";
-import logoDark from "./images/logo_dark.svg";
+import logoLight from "../images/Logo.png";
+import logoDark from "../images/Logo-dark.png";
 import "./Footer.scss";
 import { Link } from "react-router-dom";
 

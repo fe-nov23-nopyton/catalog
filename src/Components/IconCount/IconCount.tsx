@@ -1,8 +1,9 @@
 import React from "react";
 import { Phone } from "../../types/Phone";
 import { totalQuantity } from "../../utils/totalQuantity";
-import "./IconCount.scss";
 import { CartItem } from "../../types/CartItem";
+
+import "./IconCount.scss";
 
 interface Props {
   items: Phone[] | CartItem[];

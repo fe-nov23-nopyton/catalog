@@ -4,7 +4,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(226, 230, 233, 1);
+
+    border: 1px solid var(--icons);
+    border-bottom: none;
+    border-right: none;
+  
     cursor: pointer;
   }
 

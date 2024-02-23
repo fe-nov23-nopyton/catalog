@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
 
-  border: 1px solid var(--elements-border-light);
+  border: 1px solid var(--elements-border);
 
   @media (max-width: 1199px) {
     width: 100%;
@@ -42,7 +42,7 @@
   margin-bottom: 25px;
   height: 1px;
   width: 100%;
-  background-color: var(--elements-border-light);
+  background-color: var(--elements-border);
 }
 
 .checkout-button {

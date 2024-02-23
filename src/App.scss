@@ -59,10 +59,8 @@
   --icons-light: rgba(180, 189, 195, 1);
   --icons-dark: rgba(50, 53, 66, 1);
 
-  --icons-dark: rgba(74, 77, 88, 1);
-
   --phones-color-category: rgba(109, 100, 116, 1);
-  --tablets-color-category: rgba(141, 141, 146, 1);
+  --tablets-color-category: rgb(146, 141, 141);
   --accessories-color-category: rgba(213, 60, 81, 1);
 
   --red--icons: rgba(235, 87, 87, 1);
@@ -112,6 +110,7 @@
 }
 .content {
   margin: 0 auto;
+  max-width: 1100px;
   background-color: var(--bg);
 
   @include onDesktop {

@@ -1,0 +1,43 @@
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-0.50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-slider {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 41px;
+  color: var(--text-hover);
+}
+
+.sliderButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.sliderWrapper {
+  position: static;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  cursor: auto;
+  background-color: Transparent;
+  animation: slide 0.3s ease-in-out;
+}

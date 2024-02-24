@@ -20,7 +20,9 @@ export const HomePage: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchPhones());
-  }, []);
+  }, [dispatch]);
+
+  console.log(phones);
 
   const hotPrices = getHotPrices(phones);
   const newModels = getNewModels(phones);

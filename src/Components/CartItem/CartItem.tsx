@@ -1,8 +1,8 @@
 import React from "react";
 import { addQuantity, deleteFromCart, subtractQuantity } from "../../redux/features/cartSlice";
 import { useAppDispatch } from "../../redux/hooks";
-import { Item } from "../../types/Item";
 import "../../Pages/CartPage/CartPage.scss";
+import { Item } from "../../types/Item";
 
 interface Props {
   item: Item;
@@ -10,6 +10,8 @@ interface Props {
 
 export const CartItem: React.FC<Props> = ({ item }) => {
   const dispatch = useAppDispatch();
+
+  const normalizedUrl = `/catalog/new/${item.product.image}`;
 
   const handleDeleteItem = () => {
     dispatch(deleteFromCart(item));
@@ -24,7 +26,7 @@ export const CartItem: React.FC<Props> = ({ item }) => {
       <div className="wrapper">
         <button className="remove" onClick={handleDeleteItem} />
 
-        <img src={item.product.image} alt={item.product.name} />
+        <img src={normalizedUrl} alt={item.product.name} />
 
         <h2>{item.product.name}</h2>
       </div>

@@ -16,7 +16,7 @@ const optionsForItemsOnPage = ["16", "8", "4", "All"];
 const optionsForSort = ["Cheapest", "Alphabetically", "Newest"];
 
 export const PhonesPage: React.FC = () => {
-  const { phones, loading, errorMessage } = useAppSelector((state) => state.catalog); // use also loading and error states
+  const { phones, loading, errorMessage } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -83,8 +83,8 @@ export const PhonesPage: React.FC = () => {
         <Loader />
       ) : (
         <>
-          {errorMessage ? (
-            <p className="title">There are no products</p>
+          {!!errorMessage ? (
+            <p className="title">{errorMessage}</p>
           ) : (
             <>
             {!!quantityPhones ? (

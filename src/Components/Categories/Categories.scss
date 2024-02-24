@@ -22,6 +22,9 @@
 .image-container {
   width: 368px;
   height: 368px;
+
+  background-repeat: no-repeat;
+
   @include onTablet {
     width: 187px;
     height: 187px;
@@ -70,7 +73,6 @@
   background-image: var(--category-accessories-img);
   background-position-y: 40px;
   background-position-x: 20px;
-  background-repeat: no-repeat;
 }
 
 .category-name {

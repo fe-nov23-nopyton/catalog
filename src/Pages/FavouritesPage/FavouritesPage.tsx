@@ -41,7 +41,7 @@ export const FavoritesPage: React.FC = () => {
           <ProductsList phones={items} />
         </>
       ) : (
-        <h1 className="empty-cart">Favorites is empty</h1>
+        <h1 className="title">Favorites is empty</h1>
       )}
 
       {/* {<Loader />} <!-- loading && (...) --> */}

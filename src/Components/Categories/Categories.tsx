@@ -29,10 +29,10 @@ export const Categories: React.FC<Props> = ({ amount }) => {
         {categories.map((category) => (
           <article className="box" key={category.link}>
             <div className={`image-container ${category.cssClass}`}>
-              <Link className="label" to={`${category.link}/`} />
+              <Link className="label" to={`/catalog/${category.link}`} />
             </div>
 
-            <Link to={`${category.link}/`} className="category-name">
+            <Link to={`/catalog/${category.link}`} className="category-name">
               {category.name}
             </Link>
             <span className="amount">{category.amount} models</span>

@@ -27,21 +27,22 @@
     display: flex;
     gap: 106px;
   
-    cursor: pointer;
-    font-family: Mont-Bold;
-  
-    color: var(--main-text);
-  
+    font-family: Mont-Bold;  
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.04em;
-  }
-  
-  &__list-item:hover {
-    color: var(--text-hover);
+    cursor: pointer;
   }
 
+  &__list-item {
+    color: var(--main-text);
+
+    &:hover {
+      color: var(--text-hover);
+    }
+  }
+  
   &__to-top {
     position: relative;
     display: block;

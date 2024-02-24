@@ -65,11 +65,11 @@ export const PhonesPage: React.FC = () => {
 
   const { page } = useParams<{ page: string }>();
 
-  useEffect(() => {
-    if (page) {
-      setCurrentPage(parseInt(page));
-    }
-  }, [page]);
+  // useEffect(() => {
+  //   if (page) {
+  //     setCurrentPage(parseInt(page));
+  //   }
+  // }, [page]);
 
   const quantityPhones = phones.length;
 
@@ -84,6 +84,7 @@ export const PhonesPage: React.FC = () => {
       ) : (
         <>
           {!!errorMessage ? (
+            console.log(errorMessage),
             <p className="title">{errorMessage}</p>
           ) : (
             <>

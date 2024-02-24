@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { Slider } from "../Components/Slider";
 import { fetchPhones } from "../redux/features/catalogSlice";
@@ -11,9 +11,11 @@ import { getNewModels } from "../utils/getNewModels";
 import Swiper from "../Components/Slider/Swiper";
 import { response } from "express";
 import { sortItems } from "../utils/sortItems";
+import { Phone } from "../types/Phone";
 
 export const HomePage: React.FC = () => {
   const { phones, loading } = useAppSelector((state) => state.catalog);
+  const [hotPrices, setHotPrices] = useState<Phone[]>([]);
   const dispatch = useAppDispatch();
 
   const amountItems = { amountPhones: phones.length, amountTablets: 0, amountAccessories: 0 };
@@ -22,7 +24,11 @@ export const HomePage: React.FC = () => {
     dispatch(fetchPhones());
   }, []);
 
-  const hotPrices = getHotPrices(phones);
+  useEffect(() => {
+    setHotPrices(getHotPrices(phones));
+  }, [phones]);
+
+  // const hotPrices = getHotPrices(phones);
   const newModels = getNewModels(phones);
 
   return (

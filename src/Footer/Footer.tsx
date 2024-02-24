@@ -1,5 +1,5 @@
-import logoLight from "../images/Logo.png";
-import logoDark from "../images/Logo-dark.png";
+import logoLight from "../images/Logo.svg";
+import logoDark from "../images/Logo-dark.svg";
 import "./Footer.scss";
 import { Link } from "react-router-dom";
 
@@ -11,18 +11,18 @@ interface Props {
 
 export const Footer: React.FC<Props> = ({ theme }) => (
   <footer className="footer">
-    <div className="container footer--container">
-      <a href="/" className="footer--logo">
+    <div className="container footer__container">
+      <Link to="home" className="footer__logo">
         <img alt="Nice Gadgets logo" src={theme === "light-theme" ? logoLight : logoDark} />
-      </a>
+      </Link>
 
-      <ul className="footer--list">
-        <li className="footer--list-item">Github</li>
-        <li className="footer--list-item">Contacts</li>
-        <li className="footer--list-item">Rights</li>
+      <ul className="footer__list">
+        <li className="footer__list-item">Github</li>
+        <li className="footer__list-item">Contacts</li>
+        <li className="footer__list-item">Rights</li>
       </ul>
 
-      <Link to="#" className="footer--to-top" onClick={scrollToTop}>
+      <Link to="#" className="footer__to-top" onClick={scrollToTop}>
         Back to top
       </Link>
     </div>

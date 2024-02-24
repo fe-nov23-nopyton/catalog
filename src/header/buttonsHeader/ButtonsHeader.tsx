@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import "./buttonsHeader.scss";
 import { useAppSelector } from "../../redux/hooks";
 import IconCount from "../../Components/IconCount/IconCount";
+import { NavLink } from "react-router-dom";
+import { navLinkClassName } from "../../utils/navLinkClassName";
 
 export const ButtonsHeader = () => {
   const { cart } = useAppSelector((state) => state.cart);
@@ -9,16 +10,16 @@ export const ButtonsHeader = () => {
 
   return (
     <>
-      <Link className="buttons_header" to={"/catalog/favorites"}>
+      <NavLink className={navLinkClassName} to={"/catalog/favorites"}>
         <div className="icon-favorite">
           <IconCount items={favorites} />
         </div>
-      </Link>
-      <Link className="buttons_header" to={"/catalog/cart"}>
+      </NavLink>
+      <NavLink className={navLinkClassName} to={"/catalog/cart"}>
         <div className="icon-cart">
           <IconCount items={cart} />
         </div>
-      </Link>
+      </NavLink>
     </>
   );
 };

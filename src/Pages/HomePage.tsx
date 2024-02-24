@@ -15,20 +15,15 @@ import { Phone } from "../types/Phone";
 
 export const HomePage: React.FC = () => {
   const { phones, loading } = useAppSelector((state) => state.catalog);
-  const [hotPrices, setHotPrices] = useState<Phone[]>([]);
   const dispatch = useAppDispatch();
 
   const amountItems = { amountPhones: phones.length, amountTablets: 0, amountAccessories: 0 };
 
   useEffect(() => {
     dispatch(fetchPhones());
-  }, []);
+  }, [dispatch]);
 
-  useEffect(() => {
-    setHotPrices(getHotPrices(phones));
-  }, [phones]);
-
-  // const hotPrices = getHotPrices(phones);
+  const hotPrices = getHotPrices(phones);
   const newModels = getNewModels(phones);
 
   return (

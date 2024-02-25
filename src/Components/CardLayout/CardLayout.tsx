@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { useLocation } from "react-router-dom";
 import { CardGalery } from "./CardGalery/CardGalery";
 import "./CardLayout.scss";
 import { CardSpec } from "./CardSpec/CardSpec";
 import { PhoneFull } from "./PhoneFull";
 import { PhoneShort } from "./PhoneShort";
+import { Breadcrumbs } from "../Breadcrumbs";
 const tempPhone: PhoneFull = {
   id: "apple-iphone-11-256gb-green",
   namespaceId: "apple-iphone-11",
@@ -16,11 +18,11 @@ const tempPhone: PhoneFull = {
   colorsAvailable: ["black", "green", "yellow", "white", "purple", "red"],
   color: "green",
   images: [
-    "/catalog/new/img/phones/apple-iphone-11/green/00.jpg",
-    "/catalog/new/img/phones/apple-iphone-11/green/01.jpg",
-    "/catalog/new/img/phones/apple-iphone-11/green/02.jpg",
-    "/catalog/new/img/phones/apple-iphone-11/green/03.jpg",
-    "/catalog/new/img/phones/apple-iphone-11/green/04.jpg"
+    "/catalog/new/img/phones/apple-iphone-11/green/00.png",
+    "/catalog/new/img/phones/apple-iphone-11/green/01.png",
+    "/catalog/new/img/phones/apple-iphone-11/green/02.png",
+    "/catalog/new/img/phones/apple-iphone-11/green/03.png",
+    "/catalog/new/img/phones/apple-iphone-11/green/04.png"
   ],
   description: [
     {
@@ -65,61 +67,68 @@ const tempShortPhone: PhoneShort = {
   color: "black",
   ram: "2GB",
   year: 2016,
-  image: "img/phones/apple-iphone-7/black/00.jpg"
+  image: "new/img/phones/apple-iphone-7/00.png"
 };
 
-export const CardLayout = () => (
-  <div className="cardLayout">
-    <div className="cardLayout__header">{tempPhone.name}</div>
-    <div className="cardLayout__pictures">
-      <CardGalery images={tempPhone.images} />
-    </div>
-    <div className="cardLayout__options">
-      <div className="cardLayout__options-id">ID: 802390</div>
-      <div className="cardLayout__options-color">
-        <div className="cardLayout__options-color-text">Avalible colors</div>
-        <div className="cardLayout__options-color-select">
-          {tempPhone.colorsAvailable.map((color) => (
-            <div className="cardLayout__options-color-item">{color}</div>
-          ))}
-        </div>
-      </div>
+export const CardLayout = () => {
+  const { pathname } = useLocation();
+  return (
+    <>
+      <Breadcrumbs path={pathname} />
 
-      <div className="cardLayout__options-capacity">
-        <div className="cardLayout__options-capacity-text">Select capacity</div>
-        <div className="cardLayout__options-capacity-select">
-          {tempPhone.capacityAvailable.map((capacity) => (
-            <div className="cardLayout__options-capacity-select-item">{capacity}</div>
-          ))}
+      <div className="cardLayout">
+        <div className="cardLayout__header">{tempPhone.name}</div>
+        <div className="cardLayout__pictures">
+          <CardGalery images={tempPhone.images} />
         </div>
-      </div>
-      <div className="cardLayout__options-price">
-        <div className="cardLayout__options-price-content">
-          <div className="cardLayout__options-price-regular">${tempPhone.priceRegular}</div>
-          <div className="cardLayout__options-price-disc">${tempPhone.priceDiscount}</div>
-        </div>
-        <div className="cardLayout__options-price-controls">??component with buttons??</div>
-      </div>
-      <div className="cardLayout__options-info">
-        <CardSpec spec={tempPhone} isTrimed={true} />
-      </div>
-    </div>
-    <div className="cardLayout__specs">
-      <div className="cardLayout__specs-title">Tech specs</div>
-      <div className="cardLayout__specs-info">
-        <CardSpec spec={tempPhone} isTrimed={false} />
-      </div>
-    </div>
-    <div className="cardLayout__about">
-      <div className="cardLayout__about-title">About</div>
-      <div className="cardLayout__about-content">
-        {tempPhone.description.map((content) => (
-          <div className="cardLayout__about-content-main">
-            <div className="cardLayout__about-content-main-title">{content.title}</div>
-            <div className="cardLayout__about-content-main-text">{content.text}</div>
+        <div className="cardLayout__options">
+          <div className="cardLayout__options-id">ID: 802390</div>
+          <div className="cardLayout__options-color">
+            <div className="cardLayout__options-color-text">Avalible colors</div>
+            <div className="cardLayout__options-color-select">
+              {tempPhone.colorsAvailable.map((color) => (
+                <div className="cardLayout__options-color-item">{color}</div>
+              ))}
+            </div>
           </div>
-        ))}
+
+          <div className="cardLayout__options-capacity">
+            <div className="cardLayout__options-capacity-text">Select capacity</div>
+            <div className="cardLayout__options-capacity-select">
+              {tempPhone.capacityAvailable.map((capacity) => (
+                <div className="cardLayout__options-capacity-select-item">{capacity}</div>
+              ))}
+            </div>
+          </div>
+          <div className="cardLayout__options-price">
+            <div className="cardLayout__options-price-content">
+              <div className="cardLayout__options-price-regular">${tempPhone.priceRegular}</div>
+              <div className="cardLayout__options-price-disc">${tempPhone.priceDiscount}</div>
+            </div>
+            <div className="cardLayout__options-price-controls">??component with buttons??</div>
+          </div>
+          <div className="cardLayout__options-info">
+            <CardSpec spec={tempPhone} isTrimed={true} />
+          </div>
+        </div>
+        <div className="cardLayout__specs">
+          <div className="cardLayout__specs-title">Tech specs</div>
+          <div className="cardLayout__specs-info">
+            <CardSpec spec={tempPhone} isTrimed={false} />
+          </div>
+        </div>
+        <div className="cardLayout__about">
+          <div className="cardLayout__about-title">About</div>
+          <div className="cardLayout__about-content">
+            {tempPhone.description.map((content) => (
+              <div className="cardLayout__about-content-main">
+                <div className="cardLayout__about-content-main-title">{content.title}</div>
+                <div className="cardLayout__about-content-main-text">{content.text}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-);
+    </>
+  );
+};

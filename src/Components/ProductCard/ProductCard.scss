@@ -33,6 +33,8 @@
     &-container {
       display: flex;
       justify-content: center;
+
+      cursor: pointer;
     }
   }
 
@@ -58,6 +60,11 @@
     }
   }
 
+  &__link {
+    text-decoration: none;
+    color: var(--text-hover);
+  }
+
   .card__details {
     display: flex;
     flex-direction: column;
@@ -72,6 +79,8 @@
       line-height: 21px;
       letter-spacing: 0em;
       text-align: left;
+
+      cursor: pointer;
     }
   }
 

@@ -10,6 +10,7 @@ import { getHotPrices } from "../utils/getHotPrices";
 import { getNewModels } from "../utils/getNewModels";
 import Swiper from "../Components/Slider/Swiper";
 import { response } from "express";
+import { sortItems } from "../utils/sortItems";
 
 export const HomePage: React.FC = () => {
   const { phones, loading } = useAppSelector((state) => state.catalog);
@@ -19,10 +20,12 @@ export const HomePage: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchPhones());
-  }, []);
+  }, [dispatch]);
+
+  console.log(phones);
 
   const hotPrices = getHotPrices(phones);
-  const newModels = [...phones].sort();
+  const newModels = getNewModels(phones);
 
   // const banners = [
   //   "../public/new/img/phones/banner-phones.png",

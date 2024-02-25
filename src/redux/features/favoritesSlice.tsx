@@ -22,6 +22,9 @@ export const favoritesSlice = createSlice({
         state.favorites = state.favorites.filter((item) => item.id !== action.payload.id);
       } else {
         state.favorites = [...state.favorites, action.payload];
+
+        const cartItems = JSON.parse(localStorage.getItem("favorites") || "[]");
+        localStorage.setItem("favorites", JSON.stringify([...cartItems, action.payload]));
       }
     }
   }

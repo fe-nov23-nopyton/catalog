@@ -30,9 +30,15 @@ export const fetchPhoneData = async (
     }
 
     const data = await response.json();
-    setPhoneData(data);
+    const normalizedData = {
+      ...data,
+      images: data.images.map((item: string) => item.replace(".jpg", ".png"))
+    };
+
+    setPhoneData(normalizedData);
     setLoading(false);
   } catch (error) {
     console.error(error);
+    setLoading(false);
   }
 };

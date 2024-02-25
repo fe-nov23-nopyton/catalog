@@ -8,7 +8,7 @@ export interface cartState {
 }
 
 const initialState: cartState = {
-  cart: [],
+  cart: JSON.parse(localStorage.getItem("cart") || "[]") as Item[],
 };
 
 export const cartSlice = createSlice({

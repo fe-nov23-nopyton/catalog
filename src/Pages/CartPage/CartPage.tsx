@@ -1,24 +1,14 @@
 // import { Loader } from "../../Components/Loader";
 import { CartList } from "../../Components/CartList/CartList";
 import { CheckoutSummary } from "../../Components/СheckoutSummary";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import { totalQuantity } from "../../utils/totalQuantity";
 import { useEffect } from "react";
-import { setCart } from "../../redux/features/cartSlice";
 import "./CartPage.scss";
 import { Item } from "../../types/Item";
 
 export const CartPage = () => {
   const items: Item[] = useAppSelector((state) => state.cart.cart);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    const savedCartState = localStorage.getItem("cart");
-    if (savedCartState) {
-      const cartState = JSON.parse(savedCartState);
-      dispatch(setCart(cartState));
-    }
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(items));

@@ -1,3 +1,4 @@
 import React from "react";
+import { LookingGuy } from "../Components/LookingGuy/LookingGuy";
 
-export const TabletsPage: React.FC = () => <h1 className="title">Tablets</h1>;
+export const TabletsPage: React.FC = () => <LookingGuy />;

@@ -63,6 +63,8 @@ const tempPhone: SelectedPhone = {
 
 export const CardLayout = () => {
   const [phoneData, setPhoneData] = useState<SelectedPhone>(tempPhone);
+  const [currentCapacity, setCurrentCapacity] = useState<string>(phoneData.capacity);
+  const [selectedColor, setSelectedColor] = useState<string>(phoneData.color);
   const [loading, setLoading] = useState(false);
 
   const { pathname } = useLocation();
@@ -116,8 +118,8 @@ export const CardLayout = () => {
       fullPrice: phoneData.priceRegular,
       price: phoneData.priceDiscount,
       screen: phoneData.screen,
-      capacity: phoneData.capacity,
-      color: phoneData.color,
+      capacity: currentCapacity,
+      color: selectedColor,
       ram: phoneData.ram,
       year: 2020, // we do not have this data
       image: phoneData.images[0]
@@ -142,7 +144,12 @@ export const CardLayout = () => {
                 <div className="cardLayout__options-color-text">Available colors</div>
                 <div className="cardLayout__options-color-select">
                   {phoneData.colorsAvailable.map((color) => (
-                    <div className="cardLayout__options-color-item">{color}</div>
+                    <Icon
+                      handleClick={() => setSelectedColor(color)}
+                      isSelected={selectedColor === color}
+                      iconType={IconContent.Color}
+                      color={color}
+                    />
                   ))}
                 </div>
               </div>
@@ -151,7 +158,12 @@ export const CardLayout = () => {
                 <div className="cardLayout__options-capacity-text">Select capacity</div>
                 <div className="cardLayout__options-capacity-select">
                   {phoneData.capacityAvailable.map((capacity) => (
-                    <div className="cardLayout__options-capacity-select-item">{capacity}</div>
+                    <Icon
+                      handleClick={() => setCurrentCapacity(capacity)}
+                      isSelected={currentCapacity === capacity}
+                      iconType={IconContent.Text}
+                      content={capacity}
+                    />
                   ))}
                 </div>
               </div>
@@ -161,7 +173,12 @@ export const CardLayout = () => {
                   <div className="cardLayout__options-price-disc">${phoneData.priceDiscount}</div>
                 </div>
                 <div className="cardLayout__options-price-controls">
-                  <Button handleClick={handleToggleCart} buttonType={ButtonType.Primary} />
+                  <Button
+                    handleClick={handleToggleCart}
+                    isSelected={hasCartItem}
+                    buttonType={ButtonType.Primary}
+                    buttonText="Add to cart"
+                  />
                   <Icon isSelected={hasFavoriteItem} handleClick={handleFavorite} iconType={IconContent.Favorites} />
                 </div>
               </div>

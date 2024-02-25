@@ -86,8 +86,10 @@
       }
 
       &-select {
-        margin-top: 8px;
         display: flex;
+        gap: 8px;
+        margin-top: 8px;
+
         width: 195px;
         height: 32px;
       }

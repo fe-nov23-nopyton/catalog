@@ -12,7 +12,7 @@ interface Props {
 export const Button: React.FC<Props> = ({
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   handleClick = () => {},
-  buttonText = "456",
+  buttonText = "",
   isSelected = false,
   buttonType = ButtonType.Primary
 }) => (

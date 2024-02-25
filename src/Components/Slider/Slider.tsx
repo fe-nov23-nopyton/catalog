@@ -4,6 +4,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { ProductCard } from "../ProductCard/ProductCard";
 import { Phone } from "../../types/Phone";
 import "./Slider.scss";
+import { Icon } from "../UI_Kit/Icon";
+import { IconContent } from "../../types/IconContent";
 
 interface SliderProps {
   title: string;
@@ -12,7 +14,7 @@ interface SliderProps {
 
 export const Slider: React.FC<SliderProps> = ({ title, phones }) => {
   const [currentPhoneIndex, setCurrentPhoneIndex] = useState(0);
-  const [backDisabled, setBackDisabled] = useState(false);
+  const [backDisabled, setBackDisabled] = useState(true);
   const [nextDisabled, setNextDisabled] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
 
@@ -56,6 +58,7 @@ export const Slider: React.FC<SliderProps> = ({ title, phones }) => {
     }
     setCurrentPhoneIndex((prevIndex) => (prevIndex === 0 ? phones.length - 1 : prevIndex - 1));
     setAnimationKey((prevKey) => prevKey + 1);
+    setNextDisabled(false);
   };
 
   const nextSlide = () => {
@@ -65,6 +68,7 @@ export const Slider: React.FC<SliderProps> = ({ title, phones }) => {
     }
     setCurrentPhoneIndex((prevIndex) => (prevIndex === phones.length - 1 ? 0 : prevIndex + 1));
     setAnimationKey((prevKey) => prevKey + 1);
+    setBackDisabled(false);
   };
 
   return (
@@ -72,8 +76,13 @@ export const Slider: React.FC<SliderProps> = ({ title, phones }) => {
       <div className="wrapper">
         <h2 className="title-slider">{title}</h2>
         <div className="sliderButtons">
-          <button onClick={prevSlide}>Previous</button>
-          <button onClick={nextSlide}>Next</button>
+          <div className="sliderIcon-reverse">
+            <Icon iconType={IconContent.Arrow} handleClick={prevSlide} isDisabled={backDisabled} />
+          </div>
+
+          <div>
+            <Icon iconType={IconContent.Arrow} handleClick={nextSlide} isDisabled={nextDisabled} />
+          </div>
         </div>
       </div>
       <div

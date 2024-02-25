@@ -23,17 +23,17 @@ export const Icon: React.FC<Props> = ({
 }) => (
   <button
     className={classNames("icon", {
-      "icon-favorite": iconType === IconContent.Favorites,
-      "icon-favorite-selected": isSelected && iconType === IconContent.Favorites,
+      "icon--favorite": iconType === IconContent.Favorites,
+      "icon--favorite-selected": isSelected && iconType === IconContent.Favorites,
 
-      "icon-arrow": iconType === IconContent.Arrow,
-      "icon-arrow-disabled": isDisabled && iconType === IconContent.Arrow,
+      "icon--arrow": iconType === IconContent.Arrow,
+      "icon--arrow-disabled": isDisabled && iconType === IconContent.Arrow,
 
-      "icon-text": iconType === IconContent.Text,
-      "icon-text-selected": isSelected && iconType === IconContent.Text,
+      "icon--text": iconType === IconContent.Text,
+      "icon--text-selected": isSelected && iconType === IconContent.Text,
 
-      "icon-colors": iconType === IconContent.Color,
-      "icon-colors-selected": isSelected && iconType === IconContent.Color
+      "icon--colors": iconType === IconContent.Color,
+      "icon--colors-selected": isSelected && iconType === IconContent.Color
     })}
     type="button"
     disabled={isDisabled}
@@ -41,11 +41,11 @@ export const Icon: React.FC<Props> = ({
   >
     <div
       className={classNames({
-        "icon-color": iconType === IconContent.Color,
-        "icon-color-black": iconType === IconContent.Color && color === Colors.Black,
-        "icon-color-rosegold": iconType === IconContent.Color && color === Colors.Rosegold,
-        "icon-color-gold": iconType === IconContent.Color && color === Colors.Gold,
-        "icon-color-silver": iconType === IconContent.Color && color === Colors.Silver
+        "icon--color": iconType === IconContent.Color,
+        "icon--color-black": iconType === IconContent.Color && color === Colors.Black,
+        "icon--color-rosegold": iconType === IconContent.Color && color === Colors.Rosegold,
+        "icon--color-gold": iconType === IconContent.Color && color === Colors.Gold,
+        "icon--color-silver": iconType === IconContent.Color && color === Colors.Silver
       })}
     >
       {iconType === IconContent.Text && content}

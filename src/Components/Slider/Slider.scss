@@ -42,3 +42,7 @@
   background-color: Transparent;
   animation: slide 0.3s ease-in-out;
 }
+
+.sliderIcon-reverse {
+  transform: rotate(180deg);
+}

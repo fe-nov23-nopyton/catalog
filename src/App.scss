@@ -38,6 +38,13 @@
   --left-img-light: url(./images/icons/left_light.svg);
   --left-img-dark: url(./images/icons/left_dark.svg);
 
+  --close-icon-light: url(./Components/CartItem/icons/Close-light.svg);
+  --close-icon-dark: url(./Components/CartItem/icons/Close-dark.svg);
+
+  --category-phone-img: url(../public/new/img/category-phones.png);
+  --category-tablets-img: url(../public/new/img/category-tablets.png);
+  --category-accessories-img: url(../public/new/img/category-accessories.png);
+
   --favorites-icon-light: url(./images/icons/favourites_light.svg);
   --favorites-icon-dark: url(./images/icons/favourites_dark.svg);
   --favorites-icon-selected: url(./images/icons/favourites_selected.svg);
@@ -67,9 +74,13 @@
 
   --icons-bg-dark: rgba(74, 77, 88, 1);
 
-  --red--icons: rgba(235, 87, 87, 1);
+  --phones-color-category: rgba(109, 100, 116, 1);
+  --tablets-color-category: rgb(146, 141, 141);
+  --accessories-color-category: rgba(213, 60, 81, 1);
 
-  --primary-button-bg-dark: rgba(144, 91, 255, 1);
+  --red--icons: rgba(235, 87, 87, 1);
+  --accent-hover: rgba(144, 91, 255, 1);
+
   --primary-button-box-shadow-hover: rgba(23, 32, 49, 0.4);
   --primary-button-bg-hover-dark: rgba(163, 120, 255, 1);
   --gray-surface-one: rgba(22, 24, 39, 1);
@@ -94,6 +105,7 @@
   --right-img: var(--right-img-light);
   --left-img: var(--left-img-light);
   --home-icon: var(--home-icon-light);
+  --close-icon: var(--close-icon-light);
   --primary-button-bg: var(--text-hover-dark);
   --primary-button-color: var(--text-hover-light);
   --primary-button-selected-color: var(--green-text);
@@ -136,7 +148,8 @@
   --right-img: var(--right-img-dark);
   --left-img: var(--left-img-dark);
   --home-icon: var(--home-icon-dark);
-  --primary-button-bg: var(--primary-button-bg-dark);
+  --close-icon: var(--close-icon-dark);
+  --primary-button-bg: var(--accent-hover);
   --primary-button-color: var(--text-hover-light);
   --primary-button-selected-color: var(--text-hover-light);
   --primary-button-selected-bg: var(--icons-dark);
@@ -157,7 +170,7 @@
   --text-icon-border-hover: var(--elements-border-dark);
   --text-icon-bg-hover: var(--elements-border-dark);
   --navigation-button: var(--text-hover-light);
-  --navigation-button-hover: var(--primary-button-bg-dark);
+  --navigation-button-hover: var(--accent-hover);
   --arrov-left: var(--arrow-left-dark);
   --arrov-left-hover: var(--arrow-left-dark-hover);
   --dropdown-button-border-hover: var(--icons-bg-dark);
@@ -176,6 +189,7 @@
 }
 .content {
   margin: 0 auto;
+  max-width: 1136px;
   background-color: var(--bg);
 
   @include onDesktop {
@@ -184,13 +198,16 @@
 
   @include onTablet {
     padding: 24px;
+    max-width: 640px;
   }
 
   @include onLargePhone {
     padding: 24px;
+    max-width: 640px;
   }
 
   @include onSmallPhone {
     padding: 16px;
+    max-width: 288x;
   }
 }

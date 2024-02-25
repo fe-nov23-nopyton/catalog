@@ -22,9 +22,7 @@ export const CartItem: React.FC<Props> = ({ item }) => {
   return (
     <div className="cart-item">
       <div className="wrapper">
-        <button className="remove" onClick={handleDeleteItem}>
-          X
-        </button>
+        <button className="remove" onClick={handleDeleteItem} />
 
         <img src={item.product.image} alt={item.product.name} />
 

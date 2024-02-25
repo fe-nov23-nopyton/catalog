@@ -14,11 +14,13 @@ export const FavoritesPage: React.FC = () => {
 
   useEffect(() => {
     const savedFavoritesState = localStorage.getItem("favorites");
+    console.log(savedFavoritesState);
     if (savedFavoritesState) {
       const cartState = JSON.parse(savedFavoritesState);
+      console.log(cartState);
       dispatch(setFavorites(cartState));
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(items));

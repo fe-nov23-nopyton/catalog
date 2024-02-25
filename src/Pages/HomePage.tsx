@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { Slider } from "../Components/Slider";
 import { fetchPhones } from "../redux/features/catalogSlice";
@@ -11,6 +11,7 @@ import { getNewModels } from "../utils/getNewModels";
 import Swiper from "../Components/Slider/Swiper";
 import { response } from "express";
 import { sortItems } from "../utils/sortItems";
+import { Phone } from "../types/Phone";
 
 export const HomePage: React.FC = () => {
   const { phones, loading } = useAppSelector((state) => state.catalog);
@@ -22,20 +23,12 @@ export const HomePage: React.FC = () => {
     dispatch(fetchPhones());
   }, [dispatch]);
 
-  console.log(phones);
-
   const hotPrices = getHotPrices(phones);
   const newModels = getNewModels(phones);
 
-  // const banners = [
-  //   "../public/new/img/phones/banner-phones.png",
-  //   "../public/new/img/phones/banner-tablets.png",
-  //   "../public/new/img/phones/banner-accessories.png"
-  // ];
-
   return (
     <>
-      <h1 className="title">Home Page</h1>
+      <h1 className="title">Welcome to Nice Gadgets store!</h1>
 
       {loading ? (
         <Loader />

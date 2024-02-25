@@ -7,38 +7,7 @@ export interface favoritesState {
 }
 
 const initialState: favoritesState = {
-  favorites: [
-    {
-      id: "60",
-      category: "phones",
-      phoneId: "apple-iphone-xr-128gb-yellow",
-      itemId: "apple-iphone-xr-128gb-yellow",
-      name: "Apple iPhone XR 128GB Yellow",
-      fullPrice: 880,
-      price: 815,
-      screen: "6.1' IPS",
-      capacity: "128GB",
-      color: "yellow",
-      ram: "3GB",
-      year: 2018,
-      image: "img/phones/apple-iphone-xr/yellow/00.jpg"
-    },
-    {
-      id: "61",
-      category: "phones",
-      phoneId: "apple-iphone-xr-128gb-yellow",
-      itemId: "apple-iphone-xr-128gb-yellow",
-      name: "Apple iPhone XR 128GB Yellow",
-      fullPrice: 880,
-      price: 815,
-      screen: "6.1' IPS",
-      capacity: "128GB",
-      color: "yellow",
-      ram: "3GB",
-      year: 2018,
-      image: "img/phones/apple-iphone-xr/yellow/00.jpg"
-    }
-  ]
+  favorites: []
 };
 
 export const favoritesSlice = createSlice({
@@ -48,15 +17,16 @@ export const favoritesSlice = createSlice({
     setFavorites: (state, action: PayloadAction<Phone[]>) => {
       state.favorites = action.payload;
     },
-    addToFavorite: (state, action: PayloadAction<Phone>) => {
-      state.favorites = [...state.favorites, action.payload];
-    },
-    deleteFromFavorite: (state, action: PayloadAction<Phone>) => {
-      state.favorites.filter((item) => item.id !== action.payload.id);
+    clickFavorite: (state, action: PayloadAction<Phone>) => {
+      if (state.favorites.some((item) => item.id === action.payload.id)) {
+        state.favorites = state.favorites.filter((item) => item.id !== action.payload.id);
+      } else {
+        state.favorites = [...state.favorites, action.payload];
+      }
     }
   }
 });
 
-export const { setFavorites, addToFavorite, deleteFromFavorite } = favoritesSlice.actions;
+export const { setFavorites, clickFavorite } = favoritesSlice.actions;
 
 export default favoritesSlice.reducer;

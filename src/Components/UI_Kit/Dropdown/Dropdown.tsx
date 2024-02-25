@@ -1,15 +1,51 @@
+import { useState } from "react";
 import "./Dropdown.scss";
 
 interface Props {
-  list?: string[];
+  list: string[];
+  handleClick: () => void;
 }
 
-const list = ["123", "456", "789", "qwerty"];
+export const Dropdown: React.FC<Props> = ({ list, handleClick }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [buttonContent, setButtonContent] = useState(list[0]);
 
-export const Dropdown: React.FC<Props> = () => (
-  <select className="dropdown">
-    {list.map((item) => (
-      <option value={item}>{item}</option>
-    ))}
-  </select>
-);
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsOpen(false);
+  };
+
+  const handleOnBlur = () => {
+    setTimeout(() => {
+      closeDropdown();
+    }, 100);
+  };
+
+  const handleOnClick = (item: string) => {
+    handleClick();
+    setButtonContent(item);
+    closeDropdown();
+  };
+
+  return (
+    <div className="dropdown">
+      <button type="button" className="dropdown--button" onClick={toggleDropdown} onBlur={handleOnBlur}>
+        {buttonContent}
+      </button>
+      {isOpen && (
+        <div className="dropdown--container">
+          <div className="dropdown--menu" role="menu">
+            {list.map((item) => (
+              <div className="dropdown--item" onClick={() => handleOnClick(item)} key={item}>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};

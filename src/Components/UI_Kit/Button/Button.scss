@@ -1,0 +1,68 @@
+@import '../../../App.scss';
+
+.button {
+  box-sizing: border-box;
+  font-family: 'Mont-SemiBold';
+  cursor: pointer;
+
+  &-primary {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+  
+    height: 40px;
+    width: 100%;
+    color: var(--bg-light);
+    background-color: var(--primary-button-bg);
+    border: none;
+  
+    &:hover {
+      background-color: var(--primary-button-bg-hover);
+      box-shadow: 0px 3px 13px 0px var(--primary-button-box-shadow-hover);
+    }
+  
+    &-selected {
+      color: var(--primary-button-selected-color);
+      border: 1px solid var(--primary-button-selected-border);
+      background-color: var(--primary-button-selected-bg);
+
+      &:hover {
+        background-color: var(--primary-button-selected-bg);
+        box-shadow: none;
+      }
+    }
+  }
+
+  &-navigation {
+    position: relative;
+    padding-left: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+    letter-spacing: 0em;
+    color: var(--navigation-button);
+    border: none;
+    background-color: inherit;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+
+      width: 16px;
+      height: 16px;
+      
+      background-image: var(--arrov-left);
+      transform: translateY(-50%);
+    }
+
+    &:hover {
+      color: var(--navigation-button-hover);
+
+      &::before {
+        background-image: var(--arrov-left-hover);
+      }
+    }
+  }
+}

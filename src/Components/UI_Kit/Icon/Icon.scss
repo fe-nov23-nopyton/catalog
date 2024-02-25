@@ -1,0 +1,125 @@
+@import '../../../App.scss';
+
+.icon {
+  display: block;
+  min-width: 32px;
+  height: 32px; 
+  box-sizing: border-box;
+  border: 1px solid var(--icons);
+  background-color: var(--bg);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--favorite {
+    width: 40px;
+    height: 40px;
+    background-color: var(--favorites-icon-bg);
+    background-image: var(--favorites-icon);
+    background-size: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      border-color: var(--favorites-border-hover);
+      background-color: var(--favorites-bg-hover);
+    }
+    
+    &-selected {
+      background-color: var(--bg);
+      border-color: var(--favorites-border-selected);
+      background-image: var(--favorites-icon-selected);
+    }
+  }
+
+  &--arrow {
+    background-color: var(--favorites-icon-bg);
+    background-image: var(--arrow-icon);
+    background-size: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      border-color: var(--favorites-border-hover);
+      background-color: var(--favorites-bg-hover);
+    }
+    
+    &-disabled {
+      background-color: var(--bg);
+      border-color: var(--favorites-border-selected);
+      background-image: var(--arrow-icon-disabled);
+
+      &:hover {
+        background-color: var(--bg);
+        border-color: var(--favorites-border-selected);
+      }
+    }
+  }
+
+  &--text {
+    font-family: 'Mont-SemiBold';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+
+    color: var(--text-icon);
+    border-color: var(--text-icon-border);
+    background-color: var(--text-icon-bg);
+    background-size: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      border-color: var(--text-icon-border-hover);
+      background-color: var(--text-icon-bg-hover);
+    }
+    
+    &-selected {
+      color: var(--bg-light);
+      border: 1px solid var(--primary-button-selected-border);
+      background-color: var(--primary-button-bg);
+
+      &:hover {
+        border-color: var(--primary-button-selected-border);
+        background-color: var(--primary-button-bg);
+      }
+    }
+  }
+
+ &--colors {
+  border-radius: 50%;
+  max-width: 32px;
+  border-color: var(--color-selector-border);
+
+  &:hover {
+    border-color: var(--color-selector-border-hover);
+  }
+
+  &-selected {
+    border-color: var(--text-hover);
+  }
+ }
+
+ &--color {
+  margin-left: -4px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+
+  &-black {
+    background-color: var(--black);
+  }
+  &-rosegold {
+    background-color: var(--rosegold);
+  }
+  &-gold {
+    background-color: var(--gold);
+  }
+  &-silver {
+    background-color: var(--silver);
+  }
+ }
+}

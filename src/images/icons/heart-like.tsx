@@ -1,5 +1,11 @@
-const HeartLikeIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+import React from "react";
+
+interface HeartLikeIconProps {
+  onSelect: () => void;
+}
+
+const HeartLikeIcon: React.FC<HeartLikeIconProps> = ({ onSelect }) => (
+  <svg onClick={onSelect} width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="0.5" y="0.5" width="39" height="39" stroke="#B4BDC4" />
     <path
       fill-rule="evenodd"

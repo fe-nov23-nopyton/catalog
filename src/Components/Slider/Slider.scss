@@ -16,6 +16,7 @@
 }
 
 .title-slider {
+  font-family: Mont-Bold;
   font-size: 32px;
   font-weight: 800;
   line-height: 41px;
@@ -40,4 +41,8 @@
   cursor: auto;
   background-color: Transparent;
   animation: slide 0.3s ease-in-out;
+}
+
+.sliderIcon-reverse {
+  transform: rotate(180deg);
 }

@@ -6,13 +6,13 @@ import { getPhones } from "../../utils/fetchClient";
 export interface catalogState {
   phones: Phone[];
   loading: boolean;
-  error: boolean;
+  errorMessage: string;
 }
 
 const initialState: catalogState = {
   phones: [],
   loading: false,
-  error: false,
+  errorMessage: "",
 };
 
 
@@ -35,7 +35,7 @@ export const catalogSlice = createSlice({
         state.loading = false;
       })
       .addCase(fetchPhones.rejected, (state) => {
-        state.error = true;
+        state.errorMessage = 'Sorry( Please try again later.';
         state.loading = false;
       })}
 })

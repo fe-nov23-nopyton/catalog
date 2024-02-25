@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
 import React from "react";
 import { Phone } from "../../types/Phone";
@@ -5,24 +7,44 @@ import { Phone } from "../../types/Phone";
 import "./ProductCard.scss";
 import { HeartLikeIcon } from "../../images/icons";
 import { Link } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
-import { addToCart } from "../../redux/features/cartSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { clickFavorite } from "../../redux/features/favoritesSlice";
+import { addToCart, deleteFromCart } from "../../redux/features/cartSlice";
+import { Button } from "../UI_Kit/Button";
+import { ButtonType } from "../../types/ButtonType";
+import { Icon } from "../UI_Kit/Icon";
+import { IconContent } from "../../types/IconContent";
 
 interface Props {
   phone: Phone;
 }
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
+  const favorites = useAppSelector((state) => state.favorites.favorites);
+  const cart = useAppSelector((state) => state.cart.cart);
   const dispatch = useAppDispatch();
 
-  const handleAddToCart = () => {
+  const hasFavoriteItem = favorites.some((item) => item.id === phone.id);
+  const hasCartItem = cart.some((item) => item.id === phone.id);
+
+  const handleFavorite = () => {
+    dispatch(clickFavorite(phone));
+  };
+
+  const handleToggleCart = () => {
     const cartItem = {
       id: phone.id,
       quantity: 1,
       product: phone
     };
 
-    dispatch(addToCart(cartItem));
+    if (hasCartItem) {
+      dispatch(deleteFromCart(cartItem));
+    } else {
+      dispatch(addToCart(cartItem));
+      const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
+      localStorage.setItem("cart", JSON.stringify([...cartItems, cartItem]));
+    }
   };
 
   return (
@@ -61,11 +83,14 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
       </div>
 
       <div className="card__buttons">
-        <button onClick={handleAddToCart} className="card__buttons-add-to-cart" type="button">
-          Add to cart
-        </button>
+        <Button
+          handleClick={handleToggleCart}
+          buttonType={ButtonType.Primary}
+          buttonText="Add to cart"
+          isSelected={hasCartItem}
+        />
 
-        <HeartLikeIcon />
+        <Icon handleClick={handleFavorite} iconType={IconContent.Favorites} isSelected={hasFavoriteItem} />
       </div>
     </div>
   );

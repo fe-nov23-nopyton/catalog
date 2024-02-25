@@ -18,12 +18,12 @@ export const Breadcrumbs: React.FC<Props> = ({ path }) => {
         const namePage = normalizedPart === "Catalog" ? null : normalizedPart;
 
         return (
-          <>
+          <React.Fragment key={index}>
             <Link className={normalizedPart === "Catalog" ? "home-icon" : "link-breadcrumbs"} to={linkTo}>
               {namePage}
             </Link>
             {isLast && <span className="vector-right" />}
-          </>
+          </React.Fragment>
         );
       })}
     </nav>

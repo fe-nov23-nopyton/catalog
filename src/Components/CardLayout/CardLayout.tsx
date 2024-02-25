@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { CardGalery } from "./CardGalery/CardGalery";
 import "./CardLayout.scss";
 import { CardSpec } from "./CardSpec/CardSpec";
@@ -76,6 +76,9 @@ export const CardLayout = () => {
 
   const hasFavoriteItem = favorites.some((item) => item.id === phoneData.id);
   const hasCartItem = cart.some((item) => item.id === phoneData.id);
+  const navigate = useNavigate();
+
+  const handleBack = () => navigate(-1);
 
   useEffect(() => {
     window.scrollTo({ top: 85, behavior: "smooth" });
@@ -132,6 +135,9 @@ export const CardLayout = () => {
       {!loading && (
         <>
           <Breadcrumbs path={pathname} />
+          <div style={{ textAlign: "left" }}>
+            <Button handleClick={handleBack} buttonType={ButtonType.Navigation} buttonText="Back" />
+          </div>
 
           <div className="cardLayout">
             <div className="cardLayout__header">{phoneData.name}</div>

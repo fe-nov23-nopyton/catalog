@@ -12,7 +12,7 @@
     cursor: pointer;
   }
 
-  &-favorite {
+  &--favorite {
     width: 40px;
     height: 40px;
     background-color: var(--favorites-icon-bg);
@@ -33,7 +33,7 @@
     }
   }
 
-  &-arrow {
+  &--arrow {
     background-color: var(--favorites-icon-bg);
     background-image: var(--arrow-icon);
     background-size: 15px;
@@ -57,7 +57,7 @@
     }
   }
 
-  &-text {
+  &--text {
     font-family: 'Mont-SemiBold';
     font-size: 14px;
     font-weight: 500;
@@ -89,7 +89,7 @@
     }
   }
 
- &-colors {
+ &--colors {
   border-radius: 50%;
   max-width: 32px;
   border-color: var(--color-selector-border);
@@ -103,7 +103,7 @@
   }
  }
 
- &-color {
+ &--color {
   margin-left: -4px;
   width: 26px;
   height: 26px;

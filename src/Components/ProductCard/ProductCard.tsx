@@ -88,7 +88,6 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
           isSelected={hasCartItem}
         />
 
-        {/* <HeartLikeIcon onSelect={handleFavorite} /> */}
         <Icon handleClick={handleFavorite} iconType={IconContent.Favorites} isSelected={hasFavoriteItem} />
       </div>
     </div>

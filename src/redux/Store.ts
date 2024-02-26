@@ -3,7 +3,7 @@ import filterSlice from "./features/filterSlice";
 import catalogSlice from "./features/catalogSlice";
 import cartSlice from "./features/cartSlice";
 import favoritesSlice from "./features/favoritesSlice";
-import selectItemSlice from "./features/selectItemSlice";
+import productDataSlice from "./features/productDataSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +11,7 @@ export const store = configureStore({
     catalog: catalogSlice,
     favorites: favoritesSlice,
     filter: filterSlice,
-    isSelectItem: selectItemSlice
+    phoneData: productDataSlice
   }
 });
 

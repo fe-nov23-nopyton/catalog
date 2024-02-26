@@ -17,32 +17,13 @@ export function getPhones() {
   });
 }
 
-export const fetchPhoneData = async (
-  pathname: string,
-  setPhoneData: (value: any) => void,
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>,
-  setCurrentCapacity: React.Dispatch<React.SetStateAction<string>>,
-  setSelectedColor: React.Dispatch<React.SetStateAction<string>>
-) => {
-  try {
-    const response = await fetch(`/catalog/new/products/${pathname}.json`);
+export function getPhoneData(pathname: string) {
+  return Promise.all([fetch(`/catalog/new/products/${pathname}.json`), wait(500)]).then(([response]) => {
     console.log(response);
     if (!response.ok) {
       throw new Error();
     }
 
-    const data = await response.json();
-    const normalizedData = {
-      ...data,
-      images: data.images.map((item: string) => item.replace(".jpg", ".png"))
-    };
-
-    setPhoneData(normalizedData);
-    setCurrentCapacity(normalizedData.capacity);
-    setSelectedColor(normalizedData.color);
-    setLoading(false);
-  } catch (error) {
-    console.error(error);
-    setLoading(false);
-  }
-};
+    return response.json();
+  });
+}

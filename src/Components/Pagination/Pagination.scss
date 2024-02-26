@@ -18,26 +18,21 @@ li {
 }
 
 .pagination__item {
-  margin: 0px 3px;
-}
+  margin-right: 8px;
 
-.pagination__link {
-  width: 32px;
-  height: 32px;
-  background-color: transparent;
-  border: 1px solid var(--elements-border);
-  cursor: pointer;
-}
+  &:nth-last-child(2) {
+    margin-right: 0;
+  }
 
-.pagination__link--arrow-right {
-  margin-right: 5px;
-}
+  &-reversed {
+    transform: rotate(180deg);
+  }
 
-.pagination__link--arrow-left {
-  margin-left: 5px;
-}
+  &-first {
+    margin-right: 16px;
+  }
 
-.pagination__item.active .pagination__link {
-  background-color: black;
-  color: white;
+  &-last {
+    margin-left: 16px;
+  }
 }

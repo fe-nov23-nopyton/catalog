@@ -1,4 +1,5 @@
 @import '/src/mixins/grid-template.scss';
+@import '../../mixins/adaptive-rules.scss';
 
 .grid {
   display: grid;
@@ -13,4 +14,26 @@
   display: flex;
   gap: 16px;
   margin-bottom: 40px;
+}
+
+.dropdown-wrapper {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.dropdown-sortBy {
+  width: 176px;
+
+  @include onSmallPhone {
+    width: 50%;
+  }
+}
+
+.dropdown-itemsOnPage {
+  width: 128px;
+
+  @include onSmallPhone {
+    width: 50%;
+  }
 }

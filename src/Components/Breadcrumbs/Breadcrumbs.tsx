@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Breadcrumbs.scss";
+import { Button } from "../UI_Kit/Button";
+import { ButtonType } from "../../types/ButtonType";
 
 interface Props {
   path: string;
@@ -13,16 +15,14 @@ export const Breadcrumbs: React.FC<Props> = ({ path }) => {
     <nav className="breadcrumbs-nav">
       {pathParts.map((part, index) => {
         const normalizedPart = part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
-        const isLast = index < pathParts.length - 1;
         const linkTo = normalizedPart === "Catalog" ? "/catalog/" : `/${pathParts.slice(0, index + 1).join("/")}`;
         const namePage = normalizedPart === "Catalog" ? null : normalizedPart;
 
         return (
           <React.Fragment key={index}>
             <Link className={normalizedPart === "Catalog" ? "home-icon" : "link-breadcrumbs"} to={linkTo}>
-              {namePage}
+              {namePage && <Button buttonType={ButtonType.Navigation} buttonText={namePage} isArrowRight={true} />}
             </Link>
-            {isLast && <span className="vector-right" />}
           </React.Fragment>
         );
       })}

@@ -6,13 +6,13 @@ import "./PhonesPage.scss";
 import { ProductsList } from "../../Components/ProductsList/ProductsList";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPhones } from "../../redux/features/catalogSlice";
-import { Dropdown } from "../../Components/Dropdown";
 import { sortItems } from "../../utils/sortItems";
 import { Phone } from "../../types/Phone";
 import { Breadcrumbs } from "../../Components/Breadcrumbs";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Pagination } from "../../Components/Pagination/Pagination";
 import { Loader } from "../../Components/Loader";
+import { Dropdown } from "../../Components/UI_Kit/Dropdown";
 
 const optionsForItemsOnPage = ["16", "8", "4", "All"];
 const optionsForSort = ["Cheapest", "Alphabetically", "Newest"];
@@ -50,14 +50,12 @@ export const PhonesPage: React.FC = () => {
     });
   }
 
-  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSort(event.target.value);
-  };
-
-  const handleItemsOnPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setItemsOnPage(event.target.value);
+  const handleItemsOnPage = (param: string) => {
+    setItemsOnPage(param);
     setCurrentPage(1);
   };
+
+  const handleSortBy = (sortBy: string) => setSort(sortBy);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -76,11 +74,11 @@ export const PhonesPage: React.FC = () => {
   const quantityPhones = phones.length;
 
   return (
-    <>
+    <div>
       <Breadcrumbs path={pathname} />
-      <div>
-        <h1 className="title">Mobile phones</h1>
-      </div>
+
+      <h1 className="title">Mobile phones</h1>
+
       {loading ? (
         <Loader />
       ) : (
@@ -95,12 +93,12 @@ export const PhonesPage: React.FC = () => {
               <p className="total-phones">{quantityPhones} models</p>
 
               <div className="dropdown-wrapper">
-                <Dropdown handleChange={handleSortChange} title={"Sort by"} options={optionsForSort} />
-                <Dropdown
-                  handleChange={handleItemsOnPageChange}
-                  title={"Items on page"}
-                  options={optionsForItemsOnPage}
-                />
+                <div className="dropdown-sortBy">
+                  <Dropdown list={optionsForSort} handleClick={handleSortBy} title={"Sort by"} />
+                </div>
+                <div className="dropdown-itemsOnPage">
+                  <Dropdown list={optionsForItemsOnPage} handleClick={handleItemsOnPage} title={"Items on page"} />
+                </div>
               </div>
 
               <ProductsList phones={prepareProducts(phones, sort, itemsOnPage)} />
@@ -119,6 +117,6 @@ export const PhonesPage: React.FC = () => {
           )}
         </>
       )}
-    </>
+    </div>
   );
 };

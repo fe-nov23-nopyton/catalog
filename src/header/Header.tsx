@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Header.scss";
-import { Burger } from "./Burger_menu/Burger";
+import { Burger } from "./burger_menu/Burger";
 import { ButtonsHeader } from "./ButtonsHeader/ButtonsHeader";
 import { ToggleThemeButton } from "./toggleThemeButton/ToggleThemeButton";
 import { MenuNavigation } from "./Nav/MenuNavigation";

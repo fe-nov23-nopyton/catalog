@@ -6,14 +6,13 @@ import "./PhonesPage.scss";
 import { ProductsList } from "../../Components/ProductsList/ProductsList";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPhones } from "../../redux/features/catalogSlice";
-import { Dropdown } from "../../Components/Dropdown";
 import { sortItems } from "../../utils/sortItems";
 import { Phone } from "../../types/Phone";
 import { Breadcrumbs } from "../../Components/Breadcrumbs";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Pagination } from "../../Components/Pagination/Pagination";
 import { Loader } from "../../Components/Loader";
-import { Dropdownsss } from "../../Components/UI_Kit/Dropdown";
+import { Dropdown } from "../../Components/UI_Kit/Dropdown";
 
 const optionsForItemsOnPage = ["16", "8", "4", "All"];
 const optionsForSort = ["Cheapest", "Alphabetically", "Newest"];
@@ -75,11 +74,11 @@ export const PhonesPage: React.FC = () => {
   const quantityPhones = phones.length;
 
   return (
-    <>
+    <div>
       <Breadcrumbs path={pathname} />
-      <div>
-        <h1 className="title">Mobile phones</h1>
-      </div>
+
+      <h1 className="title">Mobile phones</h1>
+
       {loading ? (
         <Loader />
       ) : (
@@ -95,10 +94,10 @@ export const PhonesPage: React.FC = () => {
 
               <div className="dropdown-wrapper">
                 <div className="dropdown-sortBy">
-                  <Dropdownsss list={optionsForSort} handleClick={handleSortBy} title={"Sort by"} />
+                  <Dropdown list={optionsForSort} handleClick={handleSortBy} title={"Sort by"} />
                 </div>
                 <div className="dropdown-itemsOnPage">
-                  <Dropdownsss list={optionsForItemsOnPage} handleClick={handleItemsOnPage} title={"Items on page"} />
+                  <Dropdown list={optionsForItemsOnPage} handleClick={handleItemsOnPage} title={"Items on page"} />
                 </div>
               </div>
 
@@ -118,6 +117,6 @@ export const PhonesPage: React.FC = () => {
           )}
         </>
       )}
-    </>
+    </div>
   );
 };

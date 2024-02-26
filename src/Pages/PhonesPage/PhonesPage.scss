@@ -8,6 +8,10 @@
   @include grid-template('phone-large');
   @include grid-template('tablet');
   @include grid-template('desktop');
+
+  @include onSmallPhone {
+    justify-items: center;
+  }
 }
 
 .additional-elements {

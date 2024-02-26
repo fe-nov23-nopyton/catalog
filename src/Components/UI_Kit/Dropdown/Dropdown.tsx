@@ -8,7 +8,7 @@ interface Props {
   handleClick: (param: string) => void;
 }
 
-export const Dropdownsss: React.FC<Props> = ({ list, handleClick, title }) => {
+export const Dropdown: React.FC<Props> = ({ list, handleClick, title }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [buttonContent, setButtonContent] = useState(list[0]);
 

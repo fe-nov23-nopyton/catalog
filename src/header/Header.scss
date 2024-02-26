@@ -1,0 +1,113 @@
+@import "../mixins/adaptive-rules.scss";
+
+.header {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  height: 64px;
+  border-bottom: 1px solid var(--elements-border);
+  width: 100%;
+
+  @include onTablet {
+    height: 48px;
+  }
+
+  @include onLargePhone {
+    height: 48px;
+  }
+
+  @include onSmallPhone {
+    height: 48px;
+    justify-content: space-between;
+  }
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  height: 100%;
+
+  @include onTablet {
+    width: 96px;
+  }
+
+  @include onLargePhone {
+    width: 96px;
+  }
+
+  @include onSmallPhone {
+    width: 96px;
+  }
+}
+
+.header__logo-img {
+  width: 80px;
+  height: 28px;
+  background-image: var(--header-img);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include onTablet {
+    width: 64px;
+    height: 22px;
+  }
+
+  @include onLargePhone {
+    width: 64px;
+    height: 22px;
+  }
+
+  @include onSmallPhone {
+    width: 64px;
+    height: 22px;
+  }
+
+}
+
+.header__controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.header__controls-nav {
+  margin-left: 24px;
+}
+
+.header__controls-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+}
+
+.header__controls-buttons-theme {
+  display: flex;
+}
+
+.header__controls-buttons-fav {
+  display: flex;
+  height: 64px;
+  width: 128px;
+
+  @include onTablet {
+    width: 96px;
+    height: 48px;
+  }
+
+  @include onLargePhone {
+    width: 96px;
+    height: 48px;
+  }
+
+  @include onSmallPhone {
+    width: 96px;
+    height: 48px;
+  }
+}

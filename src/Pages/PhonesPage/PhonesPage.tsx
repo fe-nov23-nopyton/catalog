@@ -104,12 +104,13 @@ export const PhonesPage: React.FC = () => {
               </div>
 
               <ProductsList phones={prepareProducts(phones, sort, itemsOnPage)} />
-              <Pagination
+              {itemsOnPage !== "All" && <Pagination
                 total={quantityPhones}
                 perPage={perPage}
                 currentPage={currentPage}
                 onPageChange={handlePageChange}
-              />
+              />}
+              
               </>
             ) : (
               <p className="title">There are no products</p>

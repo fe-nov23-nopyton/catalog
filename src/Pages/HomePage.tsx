@@ -12,7 +12,7 @@ import Swiper from "../Components/Slider/Swiper";
 import { response } from "express";
 import { sortItems } from "../utils/sortItems";
 import { Phone } from "../types/Phone";
-import { Banner } from "../Components/Slider/SliderLib/Banner";
+import { Banner } from "../Components/Banner/Banner";
 
 export const HomePage: React.FC = () => {
   const { phones, loading } = useAppSelector((state) => state.catalog);

@@ -1,4 +1,4 @@
-@import '../../../mixins/adaptive-rules.scss';
+@import '../../mixins/adaptive-rules.scss';
 
 .banner {
   border-radius: 9px;
@@ -16,7 +16,7 @@
     width: 100%;
 
     @include onSmallPhone {
-      content: url('../../../images/image_small_phone.png');
+      content: url('../../images/image_small_phone.png');
     }
   }
 }

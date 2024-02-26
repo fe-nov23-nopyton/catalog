@@ -23,14 +23,7 @@ export const fetchPhone = createAsyncThunk("productData/fetch", (pathName: strin
 export const productDataSlice = createSlice({
   name: "productData",
   initialState,
-  reducers: {
-    selectNewColor: (state, action) => {
-      state.color = action.payload;
-    },
-    selectNewCapacity: (state, action) => {
-      state.capacity = action.payload;
-    }
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchPhone.pending, (state) => {
@@ -51,6 +44,6 @@ export const productDataSlice = createSlice({
   }
 });
 
-export const { selectNewColor, selectNewCapacity } = productDataSlice.actions;
+export const {} = productDataSlice.actions;
 
 export default productDataSlice.reducer;

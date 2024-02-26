@@ -14,16 +14,30 @@ import { IconContent } from "../../types/IconContent";
 import { clickFavorite } from "../../redux/features/favoritesSlice";
 import { replacePart } from "../../utils/replacePath";
 import { Loader } from "../Loader";
-import { selectNewCapacity, selectNewColor, fetchPhone } from "../../redux/features/productDataSlice";
+import { fetchPhone } from "../../redux/features/productDataSlice";
 
 export const CardLayout = () => {
-  const { phoneData, color, capacity, loading, errorMessage } = useAppSelector((state) => state.phoneData);
+  // #region Fetching phone data
+  const { phoneData, loading, errorMessage } = useAppSelector((state) => state.phoneData);
   const dispatch = useAppDispatch();
 
   const { pathname } = useLocation();
   const normalizedPath = pathname.split("/")[3];
-  const ramPath = replacePart(normalizedPath, capacity, false);
-  const colorPath = replacePart(normalizedPath, color);
+
+  useEffect(() => {
+    dispatch(fetchPhone(normalizedPath));
+  }, [pathname]);
+
+  const handleAttributeChange = (attribute: string, isColor = true) => {
+    const path = replacePart(normalizedPath, attribute, isColor);
+    navigate(`/catalog/phones/${path}`);
+  };
+
+  const handleColor = (color: string) => handleAttributeChange(color);
+  const handleCapacity = (capacity: string) => handleAttributeChange(capacity, false);
+  // #endregion
+
+  // #region States favorite and cart
 
   const favorites = useAppSelector((state) => state.favorites.favorites);
   const cart = useAppSelector((state) => state.cart.cart);
@@ -31,25 +45,19 @@ export const CardLayout = () => {
   const hasFavoriteItem = favorites.some((item) => item.id === phoneData.id);
   const hasCartItem = cart.some((item) => item.id === phoneData.id);
 
+  // #endregion
+
+  // #region Navigation
   const navigate = useNavigate();
   const handleBack = () => navigate(-1);
 
   useEffect(() => {
     window.scrollTo({ top: 85, behavior: "smooth" });
-  }, []);
+  }, [phoneData]);
 
-  useEffect(() => {
-    dispatch(fetchPhone(normalizedPath));
-  }, []);
+  // #endregion
 
-  useEffect(() => {
-    dispatch(fetchPhone(ramPath));
-  }, [capacity]);
-
-  useEffect(() => {
-    dispatch(fetchPhone(colorPath));
-  }, [color]);
-
+  // #region Selecting product
   const handleToggleCart = () => {
     const phone = {
       id: phoneData.id,
@@ -82,8 +90,8 @@ export const CardLayout = () => {
       fullPrice: phoneData.priceRegular,
       price: phoneData.priceDiscount,
       screen: phoneData.screen,
-      capacity,
-      color,
+      capacity: phoneData.capacity,
+      color: phoneData.color,
       ram: phoneData.ram,
       year: 2020, // we do not have this data
       image: phoneData.images[0]
@@ -91,6 +99,8 @@ export const CardLayout = () => {
 
     dispatch(clickFavorite(phone));
   };
+
+  // #endregion
 
   return (
     <>
@@ -113,8 +123,8 @@ export const CardLayout = () => {
                 <div className="cardLayout__options-color-select">
                   {phoneData.colorsAvailable.map((availableColor) => (
                     <Icon
-                      handleClick={() => dispatch(selectNewColor(availableColor))}
-                      isSelected={availableColor === color}
+                      handleClick={() => handleColor(availableColor)}
+                      isSelected={availableColor === phoneData.color}
                       iconType={IconContent.Color}
                       color={availableColor}
                     />
@@ -127,8 +137,8 @@ export const CardLayout = () => {
                 <div className="cardLayout__options-capacity-select">
                   {phoneData.capacityAvailable.map((availableCapacity) => (
                     <Icon
-                      handleClick={() => dispatch(selectNewCapacity(availableCapacity))}
-                      isSelected={availableCapacity === capacity}
+                      handleClick={() => handleCapacity(availableCapacity)}
+                      isSelected={availableCapacity === phoneData.capacity}
                       iconType={IconContent.Text}
                       content={availableCapacity}
                     />
@@ -166,7 +176,9 @@ export const CardLayout = () => {
                 {phoneData.description.map((content) => (
                   <div className="cardLayout__about-content-main">
                     <div className="cardLayout__about-content-main-title">{content.title}</div>
-                    <div className="cardLayout__about-content-main-text">{content.text.map((t) => t)}</div>
+                    <div className="cardLayout__about-content-main-text">
+                      {content.text.map((paragraph) => paragraph)}
+                    </div>
                   </div>
                 ))}
               </div>

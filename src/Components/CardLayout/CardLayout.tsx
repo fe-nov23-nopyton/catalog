@@ -63,6 +63,8 @@ import { clickFavorite } from "../../redux/features/favoritesSlice";
 
 export const CardLayout = () => {
   const [phoneData, setPhoneData] = useState<SelectedPhone>({} as SelectedPhone);
+  const [currentCapacity, setCurrentCapacity] = useState<string>(phoneData.capacity);
+  const [selectedColor, setSelectedColor] = useState<string>(phoneData.color);
   const [loading, setLoading] = useState(true);
 
   const { pathname } = useLocation();
@@ -83,11 +85,8 @@ export const CardLayout = () => {
   }, []);
 
   useEffect(() => {
-    fetchPhoneData(normalizedPath, setPhoneData, setLoading);
+    fetchPhoneData(normalizedPath, setPhoneData, setLoading, setCurrentCapacity, setSelectedColor);
   }, []);
-
-  const [currentCapacity, setCurrentCapacity] = useState<string>(phoneData.capacity);
-  const [selectedColor, setSelectedColor] = useState<string>(phoneData.color);
 
   const handleToggleCart = () => {
     const phone = {

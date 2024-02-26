@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./CardGalery.scss";
 import classNames from "classnames";
 
@@ -6,7 +6,7 @@ interface GaleryProps {
   images: string[];
 }
 
-export const CardGalery: React.FC<GaleryProps> = ({ images }) => {
+export const CardGalery: React.FC<GaleryProps> = React.memo(({ images }) => {
   const [img, setImg] = useState(images[0]);
 
   return (
@@ -26,4 +26,4 @@ export const CardGalery: React.FC<GaleryProps> = ({ images }) => {
       </div>
     </div>
   );
-};
+});

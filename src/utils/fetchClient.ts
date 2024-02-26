@@ -20,7 +20,9 @@ export function getPhones() {
 export const fetchPhoneData = async (
   pathname: string,
   setPhoneData: (value: any) => void,
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>,
+  setCurrentCapacity: React.Dispatch<React.SetStateAction<string>>,
+  setSelectedColor: React.Dispatch<React.SetStateAction<string>>
 ) => {
   try {
     const response = await fetch(`/catalog/new/products/${pathname}.json`);
@@ -36,6 +38,8 @@ export const fetchPhoneData = async (
     };
 
     setPhoneData(normalizedData);
+    setCurrentCapacity(normalizedData.capacity);
+    setSelectedColor(normalizedData.color);
     setLoading(false);
   } catch (error) {
     console.error(error);

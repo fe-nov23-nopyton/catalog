@@ -1,25 +1,30 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/self-closing-comp */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Modal.scss";
+import { useAppDispatch } from "../../redux/hooks";
+import { deleteCartItems } from "../../redux/features/cartSlice";
 
-interface ModalProps {
-  active: boolean;
-  setActive: React.Dispatch<React.SetStateAction<boolean>>;
-  children: React.ReactNode;
-}
+export const Modal = () => {
+  const dispatch = useAppDispatch();
+  const [active, setActive] = useState(false);
 
-const Modal: React.FC<ModalProps> = ({ active, setActive, children }) => {
+  useEffect(() => {
+    setActive(true);
+    const timerId = setTimeout(() => {
+      dispatch(deleteCartItems());
+      window.location.href = "/catalog/home";
+    }, 3000);
+
+    return () => clearTimeout(timerId);
+  }, []);
+
   return (
     <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
-      <div className={active ? "modal__content active" : "modal__content"} onClick={(e) => e.stopPropagation()}>
-        <span className="modal__close" onClick={() => setActive(false)}>
-          X
-        </span>
-        {children}
+      <div className={active ? "modal__content active" : "modal__content"}>
+        <div className="modal__image" />
+        <h2 className="modal__title">Congrats!</h2>
+        <h3 className="modal__thanks">Thank you for your purchase!</h3>
+        <p className="modal__subtitle">We appreciate your purchase. Enjoy your products!</p>
       </div>
     </div>
   );
 };
-
-export default Modal;

@@ -1,16 +1,12 @@
-import classNames from "classnames";
 import { useEffect, useState } from "react";
-import "./header.scss";
-import { Burger } from "./burger_menu/Burger";
-import { ButtonsHeader } from "./buttonsHeader/ButtonsHeader";
-import { NavLink } from "react-router-dom";
+import "./Header.scss";
+import { Burger } from "./Burger_menu/Burger";
+import { ButtonsHeader } from "./ButtonsHeader/ButtonsHeader";
 import { ToggleThemeButton } from "./toggleThemeButton/ToggleThemeButton";
+import { MenuNavigation } from "./Nav/MenuNavigation";
 
 export const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
-
-  const navLinkClassName = ({ isActive }: { isActive: boolean }) =>
-    classNames("header__item", { "header-item-active": isActive });
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,31 +27,21 @@ export const Header = () => {
         <div className="header__logo-img" />
       </div>
       {isMobile ? (
-        <div className="header__burger">
+        <div className="burger__layuot">
           <Burger />
         </div>
       ) : (
         <div className="header__controls">
-          <div className="header__menu">
-            <NavLink className={navLinkClassName} to={"/catalog/home"}>
-              Home
-            </NavLink>
-            <NavLink className={navLinkClassName} to={"phones"}>
-              Phones
-            </NavLink>
-            <NavLink className={navLinkClassName} to={"tablets"}>
-              Tablets
-            </NavLink>
-            <NavLink className={navLinkClassName} to={"accessories"}>
-              Accessories
-            </NavLink>
+          <div className="header__controls-nav">
+            <MenuNavigation />
           </div>
-
-          <div className="header__buttons">
-            <div className="menu__toggle">
+          <div className="header__controls-buttons">
+            <div className="header__controls-buttons-theme">
               <ToggleThemeButton />
             </div>
-            <ButtonsHeader />
+            <div className="header__controls-buttons-fav">
+              <ButtonsHeader />
+            </div>
           </div>
         </div>
       )}

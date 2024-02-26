@@ -2,19 +2,16 @@
 /* eslint-disable arrow-body-style */
 
 import { useEffect, useState } from "react";
-import "./burger.scss";
-import { ButtonsHeader } from "../buttonsHeader/ButtonsHeader";
-import { NavLink, useLocation } from "react-router-dom";
-import classNames from "classnames";
+import "./Burger.scss";
+import { ButtonsHeader } from "../ButtonsHeader/ButtonsHeader";
+import { useLocation } from "react-router-dom";
+import { MenuNavigation } from "../Nav/MenuNavigation";
 
 export const Burger = () => {
   const location = useLocation();
   const [burgerClass, setBurgerClass] = useState("burger-bar unclicked");
   const [menuClass, setMenuClass] = useState("burger__menu hidden");
   const [isMenuClicked, setIsMenuClicked] = useState(false);
-
-  const navLinkClassName = ({ isActive }: { isActive: boolean }) =>
-    classNames("menu__item", { "header-item-active": isActive });
 
   const updateMenu = () => {
     const newBurgerClass = isMenuClicked ? "burger-bar unclicked" : "burger-bar clicked";
@@ -49,20 +46,7 @@ export const Burger = () => {
         </div>
       </nav>
       <div className={menuClass}>
-        <div className="menu__container">
-          <NavLink className={navLinkClassName} to={"home"}>
-            Home
-          </NavLink>
-          <NavLink className={navLinkClassName} to={"phones"}>
-            Phones
-          </NavLink>
-          <NavLink className={navLinkClassName} to={"tablets"}>
-            Tablets
-          </NavLink>
-          <NavLink className={navLinkClassName} to={"accessories"}>
-            Accessories
-          </NavLink>
-        </div>
+        <MenuNavigation />
         <div className="menu__footer">
           <ButtonsHeader />
         </div>

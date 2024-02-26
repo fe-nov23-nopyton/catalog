@@ -1,0 +1,49 @@
+@import '../../../App.scss';
+
+.input {
+  width: 100%;
+
+  color: var(--text-hover);
+  font-family: 'Mont-SemiBold';
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  &--title {
+    margin-bottom: 4px;
+    padding-left: 2px;
+
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0em;
+    color: var(--navigation-button);
+
+  }
+
+  &--button {
+    position: relative;
+    width: 100%;
+    display: block;
+    height: 40px;
+    padding: 0 40px 0 12px;
+    
+    box-sizing: border-box;
+    border: 1px solid var(--primary-button-selected-border);
+    background-color: var(--primary-button-selected-bg);
+    color: var(--text-hover);
+
+    font-family: 'Mont-SemiBold';
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--dropdown-button-border-hover);
+    }
+  }
+}

@@ -22,6 +22,7 @@
 
 .dropdown-wrapper {
   margin-bottom: 24px;
+  flex-wrap: wrap;
   display: flex;
   gap: 16px;
 }
@@ -36,6 +37,14 @@
 
 .dropdown-itemsOnPage {
   width: 128px;
+
+  @include onSmallPhone {
+    width: 50%;
+  }
+}
+
+.dropdown-input {
+  width: 225px;
 
   @include onSmallPhone {
     width: 50%;

@@ -202,16 +202,13 @@
 
   @include onTablet {
     padding: 24px;
-    // max-width: 640px;
   }
 
   @include onLargePhone {
     padding: 24px;
-    // max-width: 640px;
   }
 
   @include onSmallPhone {
     padding: 16px;
-    // max-width: 288x;
   }
 }

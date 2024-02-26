@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
-import "./Toggle.scss"; // You can define your CSS for day/night mode styles
+import { useContext } from "react";
 import { ThemeContext } from "../../ThemeContext/ThemeContext";
+
+import "./Toggle.scss";
 
 export const Toggle = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);

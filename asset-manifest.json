@@ -1,15 +1,25 @@
 {
   "files": {
-    "main.css": "/catalog/static/css/main.ff82bbbe.css",
-    "main.js": "/catalog/static/js/main.30ceb2a0.js",
+    "main.css": "/catalog/static/css/main.bb2b8265.css",
+    "main.js": "/catalog/static/js/main.37f2f03f.js",
     "static/media/category-tablets.png": "/catalog/static/media/category-tablets.51782e18205a1ca01ce8.png",
     "static/media/category-phones.png": "/catalog/static/media/category-phones.af93d992917380dfe206.png",
     "static/media/category-accessories.png": "/catalog/static/media/category-accessories.e47d6d6df68a6548e82b.png",
+    "static/media/Logo-dark.svg": "/catalog/static/media/Logo-dark.dd455c76dd18a0437aa99359fc04343e.svg",
+    "static/media/Logo.svg": "/catalog/static/media/Logo.6c995ee360ec6216a83b72b63c1d53c5.svg",
     "static/media/Mont-Regular.otf": "/catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/catalog/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
     "static/media/Mont-Bold.otf": "/catalog/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
+    "static/media/image_small_phone.png": "/catalog/static/media/image_small_phone.d67d667c5547c1a339ce.png",
+    "static/media/Group_17.svg": "/catalog/static/media/Group_17.fbb7bb4b7513df420fa1.svg",
+    "static/media/Shopping_bag.svg": "/catalog/static/media/Shopping_bag.f9632dca8fdaed9bb696.svg",
+    "static/media/Vector.svg": "/catalog/static/media/Vector.670cf5136eb8aecd15dc.svg",
+    "static/media/favourites_dark.svg": "/catalog/static/media/favourites_dark.40477fe0fa486830b14a.svg",
+    "static/media/Vector_Stroke.svg": "/catalog/static/media/Vector_Stroke.28f6088c83570782c6af.svg",
+    "static/media/favourites_light.svg": "/catalog/static/media/favourites_light.5c003ee4a0e79f74efbe.svg",
     "static/media/Home_dark.svg": "/catalog/static/media/Home_dark.901f72c9436f9e8c6357.svg",
     "static/media/Home_light.svg": "/catalog/static/media/Home_light.d4c29e4f137b3a79235a.svg",
+    "static/media/favourites_selected.svg": "/catalog/static/media/favourites_selected.a50cb178e4751a64f215.svg",
     "static/media/Close-light.svg": "/catalog/static/media/Close-light.3ea864f59fecb8596c4b.svg",
     "static/media/Close-dark.svg": "/catalog/static/media/Close-dark.a7b1ced7ed3e49385129.svg",
     "static/media/right_dark.svg": "/catalog/static/media/right_dark.90170297dda7672a6426.svg",
@@ -18,12 +28,21 @@
     "static/media/left_light.svg": "/catalog/static/media/left_light.d51ddc975aaaa3964a8e.svg",
     "static/media/up_light.svg": "/catalog/static/media/up_light.80e27a8f296e8f6d01b0.svg",
     "static/media/up_dark.svg": "/catalog/static/media/up_dark.c0e3f15d57e31409821a.svg",
+    "static/media/arrow_dark.svg": "/catalog/static/media/arrow_dark.756d3b79b5aacd8a12e6.svg",
+    "static/media/arrow_dark_disabled.svg": "/catalog/static/media/arrow_dark_disabled.c9171b88f2b5c91378fd.svg",
+    "static/media/arrow_left_dark.svg": "/catalog/static/media/arrow_left_dark.53e25b3fe481140514f0.svg",
+    "static/media/arrow_left_dark_hover.svg": "/catalog/static/media/arrow_left_dark_hover.17835e5517a544bee67a.svg",
+    "static/media/arrow_left_light.svg": "/catalog/static/media/arrow_left_light.960106b239d993f02b1f.svg",
+    "static/media/arrow_light.svg": "/catalog/static/media/arrow_light.70f42d77d4895623e71b.svg",
+    "static/media/arrow_light_disabled.svg": "/catalog/static/media/arrow_light_disabled.e028d3889646e0b5e56c.svg",
+    "static/media/arrow_dropdown_dark.svg": "/catalog/static/media/arrow_dropdown_dark.e6cfe11ac807815e9d25.svg",
+    "static/media/arrow_dropdown_light.svg": "/catalog/static/media/arrow_dropdown_light.b87d883446f750defdba.svg",
     "index.html": "/catalog/index.html",
-    "main.ff82bbbe.css.map": "/catalog/static/css/main.ff82bbbe.css.map",
-    "main.30ceb2a0.js.map": "/catalog/static/js/main.30ceb2a0.js.map"
+    "main.bb2b8265.css.map": "/catalog/static/css/main.bb2b8265.css.map",
+    "main.37f2f03f.js.map": "/catalog/static/js/main.37f2f03f.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff82bbbe.css",
-    "static/js/main.30ceb2a0.js"
+    "static/css/main.bb2b8265.css",
+    "static/js/main.37f2f03f.js"
   ]
 }

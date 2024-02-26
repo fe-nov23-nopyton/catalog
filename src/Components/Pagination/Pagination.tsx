@@ -1,6 +1,7 @@
 import React from "react";
-import cn from "classnames";
 import "./Pagination.scss";
+import { Icon } from "../UI_Kit/Icon";
+import { IconContent } from "../../types/IconContent";
 
 type Props = {
   total: number;
@@ -11,8 +12,31 @@ type Props = {
 };
 
 export const Pagination: React.FC<Props> = ({ total, perPage, currentPage, onPageChange }) => {
-  const totalPages = Math.ceil(total / perPage);
+  const totalPages = Math.ceil(total / perPage - 1);
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+  const navWindow = 5;
+
+  function visiblePagesHelper() {
+    if (totalPages <= 5) {
+      return pages;
+    }
+
+    const window = navWindow % 2 === 0 ? navWindow + 1 : navWindow;
+
+    switch (true) {
+      case currentPage > Math.ceil(window / 2) && currentPage < pages.length - Math.ceil(window / 2):
+        return pages.slice(currentPage - Math.ceil(window / 2), currentPage + Math.ceil(window / 2) - 1);
+
+      case currentPage <= Math.ceil(window / 2):
+        return pages.slice(0, window);
+
+      case currentPage >= pages.length - Math.ceil(window / 2):
+        return pages.slice(pages.length - window, pages.length);
+
+      default:
+        return pages;
+    }
+  }
 
   function handleNextPage() {
     if (currentPage < totalPages) {
@@ -26,39 +50,47 @@ export const Pagination: React.FC<Props> = ({ total, perPage, currentPage, onPag
     }
   }
 
+  function handleToTop() {
+    onPageChange(1);
+  }
+
+  function handleToBottom() {
+    onPageChange(totalPages);
+  }
+
   return (
     <ul className="pagination">
-      <li className={cn("pagination__item", { disabled: currentPage === 1 })}>
-        <button
-          className="pagination__link pagination__link--arrow-right"
-          disabled={currentPage === 1}
-          onClick={handlePrevPage}
-        >
-          &lt;
-        </button>
+      <li className="pagination__item-reversed pagination__item-first">
+        <Icon iconType={IconContent.Arrow} handleClick={handlePrevPage} isDisabled={currentPage === 1} />
+        <Icon
+          iconType={IconContent.Arrow}
+          handleClick={handleToTop}
+          isDisabled={currentPage === 1}
+          isDoubleArrow={true}
+        />
       </li>
-      {pages.map((page) => (
-        <li className={cn("pagination__item", { active: currentPage === page })} key={page}>
-          <button
-            className="pagination__link"
-            onClick={() => {
+      {visiblePagesHelper().map((page) => (
+        <li key={page} className="pagination__item">
+          <Icon
+            iconType={IconContent.Text}
+            handleClick={() => {
               if (currentPage !== page) {
                 onPageChange(page);
               }
             }}
-          >
-            {page}
-          </button>
+            isSelected={currentPage === page}
+            content={page.toString()}
+          />
         </li>
       ))}
-      <li className={cn("pagination__item", { disabled: currentPage === totalPages })}>
-        <button
-          className="pagination__link pagination__link--arrow-left"
-          disabled={currentPage === totalPages}
-          onClick={handleNextPage}
-        >
-          &gt;
-        </button>
+      <li className="pagination__item-last">
+        <Icon iconType={IconContent.Arrow} handleClick={handleNextPage} isDisabled={currentPage === totalPages} />
+        <Icon
+          iconType={IconContent.Arrow}
+          handleClick={handleToBottom}
+          isDisabled={currentPage === totalPages}
+          isDoubleArrow={true}
+        />
       </li>
     </ul>
   );

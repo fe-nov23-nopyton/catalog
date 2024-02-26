@@ -40,6 +40,12 @@
     background-position: center;
     background-repeat: no-repeat;
 
+    &-double {
+      background-repeat: repeat-x;
+      background-position: center;
+      background-size: 11px;
+    }
+
     &:hover {
       border-color: var(--favorites-border-hover);
       background-color: var(--favorites-bg-hover);
@@ -61,7 +67,7 @@
     font-family: 'Mont-SemiBold';
     font-size: 14px;
     font-weight: 500;
-    line-height: 21px;
+    line-height: 100%;
     letter-spacing: 0em;
     text-align: center;
 

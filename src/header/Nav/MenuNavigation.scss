@@ -1,0 +1,78 @@
+@import "/src/mixins/adaptive-rules.scss";
+
+.nav__menu {
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    width: 100%;
+
+    @include onTablet {
+        gap: 32px;
+    }
+
+    @include onLargePhone {
+        gap: 30px;
+    }
+
+    @include onSmallPhone {
+        margin-top: 24px;
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+.nav__link-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4%;
+    color: var(--main-text);
+    font-size: 12px;
+    font-weight: 800;
+    height: 64px;
+
+    @include onTablet {
+        height: 48px;
+      }
+    
+      @include onLargePhone {
+        height: 48px;
+      }
+    
+      @include onSmallPhone {
+        height: 48px;
+      }
+}
+
+.nav__link-item:hover {
+    color: var(--text-hover);
+}
+
+.nav__link-item:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: var(--text-hover);
+  }
+
+.nav-item-active {
+    color: var(--text-hover);
+}
+
+.nav-item-active::after {
+    color: var(--text-hover);
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: var(--text-hover);
+}

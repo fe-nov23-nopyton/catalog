@@ -1,0 +1,134 @@
+@import '../../App.scss';
+
+.no-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-hover);
+
+  &__message {
+    font-weight: bold;
+  }
+}
+
+.looking-guy {
+    width: 100px;
+    height: 100px;
+
+    @include onLargePhone {
+      width: 75px;
+      height: 75px;
+    }
+
+    @include onSmallPhone {
+      width: 50px;
+      height: 50px;
+    }
+
+    background-color: var(--text-hover);
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .eye {
+    width: 15px;
+    height: 15px;
+
+    @include onLargePhone {
+      width: 8px;
+      height: 8px;
+    }
+
+    @include onSmallPhone {
+      width: 8px;
+      height: 8px;
+    }
+    background-color: var(--bg);
+    border-radius: 50%;
+    position: absolute;
+    top: 40%;
+    animation: moveEyes 0.5s infinite alternate;
+  }
+  
+  .left-eye {
+    left: 30%;
+  }
+  
+  .right-eye {
+    right: 30%;
+  }
+  
+  .forward {
+    animation: moveForward 0.5s infinite alternate;
+  }
+  
+  .left {
+    animation: moveLeft 0.5s infinite alternate;
+  }
+  
+  .right {
+    animation: moveRight 0.5s infinite alternate;
+  }
+  
+  .up {
+    animation: moveUp 0.5s infinite alternate;
+  }
+  
+  .down {
+    animation: moveDown 0.5s infinite alternate;
+  }
+  
+  @keyframes moveForward {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(5px);
+    }
+  }
+  
+  @keyframes moveLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-5px);
+    }
+  }
+  
+  @keyframes moveRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(5px);
+    }
+  }
+  
+  @keyframes moveUp {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  @keyframes moveDown {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(5px);
+    }
+  }
+  
+  @keyframes moveEyes {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(3px);
+    }
+  }

@@ -10,6 +10,7 @@ interface Props {
   isSelected?: boolean; //required for all types, except iconType === IconContent.Arrow
   content?: string; //required only for iconType === IconContent.Text
   isDisabled?: boolean; //required only for iconType === IconContent.Arrow
+  isDoubleArrow?: boolean;
 }
 
 export const Icon: React.FC<Props> = ({
@@ -19,7 +20,8 @@ export const Icon: React.FC<Props> = ({
   isSelected = false,
   iconType = IconContent.Favorites,
   content = "1",
-  isDisabled = false
+  isDisabled = false,
+  isDoubleArrow = false
 }) => (
   <button
     className={classNames("icon", {
@@ -27,6 +29,7 @@ export const Icon: React.FC<Props> = ({
       "icon--favorite-selected": isSelected && iconType === IconContent.Favorites,
 
       "icon--arrow": iconType === IconContent.Arrow,
+      "icon--arrow-double": isDoubleArrow && iconType === IconContent.Arrow,
       "icon--arrow-disabled": isDisabled && iconType === IconContent.Arrow,
 
       "icon--text": iconType === IconContent.Text,

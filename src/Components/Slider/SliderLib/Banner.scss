@@ -1,0 +1,50 @@
+@import '../../../mixins/adaptive-rules.scss';
+
+.banner {
+  border-radius: 9px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 1136px;
+  margin-bottom: 56px;
+  position: relative;
+
+  @include onTablet {
+    margin-bottom: 64px;
+  }
+
+  &__photo {
+    width: 100%;
+
+    @include onSmallPhone {
+      content: url('../../../images/image_small_phone.png');
+    }
+  }
+}
+
+.swiper {
+  justify-content: center;
+  align-items: center;
+
+  .swiper-button {
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+    cursor: pointer;
+    height: 100%;
+
+    &-prev,
+    &-next {
+      color: white;
+      width: 15px;
+
+      @include onSmallPhone {
+        display: none;
+      }
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 14px;
+    border-radius: 0;
+  }
+}

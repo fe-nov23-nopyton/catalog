@@ -12,6 +12,7 @@ import Swiper from "../Components/Slider/Swiper";
 import { response } from "express";
 import { sortItems } from "../utils/sortItems";
 import { Phone } from "../types/Phone";
+import { Banner } from "../Components/Slider/SliderLib/Banner";
 
 export const HomePage: React.FC = () => {
   const { phones, loading } = useAppSelector((state) => state.catalog);
@@ -34,6 +35,7 @@ export const HomePage: React.FC = () => {
         <Loader />
       ) : (
         <>
+          <Banner />
           {newModels.length !== 0 && <Slider title={"Brand new models"} phones={newModels} />}
           <Categories amount={amountItems} />
           {hotPrices.length !== 0 && <Slider title={"Hot prices"} phones={hotPrices} />}

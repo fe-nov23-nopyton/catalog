@@ -18,7 +18,6 @@ import { selectNewCapacity, selectNewColor, fetchPhone } from "../../redux/featu
 
 export const CardLayout = () => {
   const { phoneData, color, capacity, loading, errorMessage } = useAppSelector((state) => state.phoneData);
-  console.log(phoneData);
   const dispatch = useAppDispatch();
 
   const { pathname } = useLocation();
@@ -40,27 +39,15 @@ export const CardLayout = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchPhone(pathname));
-
-    return () => {
-      console.log("unmount", phoneData);
-    };
+    dispatch(fetchPhone(normalizedPath));
   }, []);
 
   useEffect(() => {
-    if (Object.keys(phoneData).length === 0) {
-      return;
-    } else {
-      dispatch(fetchPhone(ramPath));
-    }
+    dispatch(fetchPhone(ramPath));
   }, [capacity]);
 
   useEffect(() => {
-    if (Object.keys(phoneData).length === 0) {
-      return;
-    } else {
-      dispatch(fetchPhone(colorPath));
-    }
+    dispatch(fetchPhone(colorPath));
   }, [color]);
 
   const handleToggleCart = () => {
@@ -101,6 +88,7 @@ export const CardLayout = () => {
       year: 2020, // we do not have this data
       image: phoneData.images[0]
     };
+
     dispatch(clickFavorite(phone));
   };
 
@@ -126,9 +114,9 @@ export const CardLayout = () => {
                   {phoneData.colorsAvailable.map((availableColor) => (
                     <Icon
                       handleClick={() => dispatch(selectNewColor(availableColor))}
-                      isSelected={color === availableColor}
+                      isSelected={availableColor === color}
                       iconType={IconContent.Color}
-                      color={color}
+                      color={availableColor}
                     />
                   ))}
                 </div>
@@ -137,12 +125,12 @@ export const CardLayout = () => {
               <div className="cardLayout__options-capacity">
                 <div className="cardLayout__options-capacity-text">Select capacity</div>
                 <div className="cardLayout__options-capacity-select">
-                  {phoneData.capacityAvailable.map((currentCapacity) => (
+                  {phoneData.capacityAvailable.map((availableCapacity) => (
                     <Icon
-                      handleClick={() => dispatch(selectNewCapacity(currentCapacity))}
-                      isSelected={currentCapacity === capacity}
+                      handleClick={() => dispatch(selectNewCapacity(availableCapacity))}
+                      isSelected={availableCapacity === capacity}
                       iconType={IconContent.Text}
-                      content={capacity}
+                      content={availableCapacity}
                     />
                   ))}
                 </div>

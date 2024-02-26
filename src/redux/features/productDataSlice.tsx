@@ -11,26 +11,7 @@ export interface productDataState {
 }
 
 const initialState: productDataState = {
-  phoneData: {
-    id: "",
-    namespaceId: "",
-    name: "",
-    capacityAvailable: [],
-    capacity: "",
-    priceRegular: 0,
-    priceDiscount: 0,
-    colorsAvailable: [],
-    color: "",
-    images: [],
-    description: [],
-    screen: "",
-    resolution: "",
-    processor: "",
-    ram: "",
-    camera: "",
-    zoom: "",
-    cell: []
-  } as SelectedPhone,
+  phoneData: {} as SelectedPhone,
   color: "",
   capacity: "",
   loading: true,
@@ -60,11 +41,7 @@ export const productDataSlice = createSlice({
           ...action.payload,
           images: action.payload.images.map((item: string) => item.replace(".jpg", ".png"))
         };
-
         state.phoneData = normalizedData;
-        state.capacity = normalizedData.capacity;
-        state.color = normalizedData.color;
-
         state.loading = false;
       })
       .addCase(fetchPhone.rejected, (state) => {

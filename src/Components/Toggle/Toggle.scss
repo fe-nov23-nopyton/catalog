@@ -13,24 +13,24 @@
 }
 
 .notch {
-    height: 18px;
-    width: 18px;
-    border-radius: 50%;
-    background: yellow;
-    position: absolute;
     top: 1px;
     left: 1px;
-    box-shadow: 0 0 1px yellow;
-    z-index: 1;
-    transition: all 0.3s ease;
-}
-
-.notch > .crater {
-    background: burlywood;
-    border-radius: 50%;
+    height: 18px;
+    width: 18px;
     position: absolute;
-    opacity: 0;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4) inset;
+    z-index: 1;
+    border-radius: 50%;
+    background: yellow;
+    box-shadow: 0 0 1px yellow;
+    transition: all 0.3s ease;
+
+    & > .crater {
+        background: burlywood;
+        border-radius: 50%;
+        position: absolute;
+        opacity: 0;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4) inset;
+    }
 }
 
 .night .crater {
@@ -64,28 +64,28 @@
     background: whitesmoke;
     border-radius: 50%;
     transition: all 0.3s ease;
-}
 
-.shape.sm {
-    height: 1px;
-    width: 10px;
-    top: 50%;
-    left: 60%;
-}
+    &.sm {
+        height: 1px;
+        width: 10px;
+        top: 50%;
+        left: 60%;
+    }
 
-.shape.md {
-    height: 2px;
-    width: 15px;
-    top: 25%;
-    left: 25%;
-    z-index: 2;
-}
+    &.md {
+        height: 2px;
+        width: 15px;
+        top: 25%;
+        left: 25%;
+        z-index: 2;
+    }
 
-.shape.lg {
-    height: 3px;
-    width: 20px;
-    bottom: 3px;
-    left: 25%;
+    &.lg {
+        height: 3px;
+        width: 20px;
+        bottom: 3px;
+        left: 25%;
+    }
 }
 
 .night .shape {

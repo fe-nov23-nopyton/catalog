@@ -1,4 +1,4 @@
-import "./buttonsHeader.scss";
+import "./ButtonsHeader.scss";
 import { useAppSelector } from "../../redux/hooks";
 import IconCount from "../../Components/IconCount/IconCount";
 import { NavLink } from "react-router-dom";

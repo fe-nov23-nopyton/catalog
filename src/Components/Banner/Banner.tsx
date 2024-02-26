@@ -29,7 +29,7 @@ export const Banner = () => {
       >
         {[1, 2, 3].map((slideIndex) => (
           <SwiperSlide key={slideIndex} className="banner__slide">
-            <img className="banner__photo" src="/catalog/new/banner.png" alt={`Banner ${slideIndex}`} />
+            <img className="banner__photo" src="/catalog/new/Banner.png" alt={`Banner ${slideIndex}`} />
           </SwiperSlide>
         ))}
       </Swiper>

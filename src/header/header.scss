@@ -1,11 +1,12 @@
 @import "../mixins/adaptive-rules.scss";
 
 .header {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   height: 64px;
-  border-bottom: 1px solid var(--icons);
-  background-color: var(--bg);
+  border-bottom: 1px solid var(--elements-border);
+  width: 100%;
 
   @include onTablet {
     height: 48px;
@@ -17,28 +18,26 @@
 
   @include onSmallPhone {
     height: 48px;
+    justify-content: space-between;
   }
 }
 
 .header__logo {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 128px;
-  height: 64px;
+  height: 100%;
 
   @include onTablet {
-    height: 48px;
     width: 96px;
   }
 
   @include onLargePhone {
-    height: 48px;
     width: 96px;
   }
 
   @include onSmallPhone {
-    height: 48px;
     width: 96px;
   }
 }
@@ -51,132 +50,64 @@
   background-size: contain;
 
   @include onTablet {
-    height: 22px;
     width: 64px;
+    height: 22px;
   }
 
   @include onLargePhone {
-    height: 22px;
     width: 64px;
+    height: 22px;
   }
 
   @include onSmallPhone {
-    height: 22px;
     width: 64px;
+    height: 22px;
   }
 
 }
 
 .header__controls {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  flex-direction: row;
+  align-items: center;
+
 }
 
-.header__menu {
-  display: flex;
-  flex-direction: row;
+.header__controls-nav {
   margin-left: 24px;
-  gap: 64px;
-  justify-content: center;
-  align-items: center;
-
-  text-transform: uppercase;
-  font-family: Mont-Bold;
-  font-size: 12px;
-  font-weight: 800;
-
-  @include onTablet {
-    margin-left: 16px;
-    gap: 32px;
-  }
-
-  @include onLargePhone {
-    gap: 20px;
-  }
-
-  @include onSmallPhone {
-    gap: 10px;
-  }
 }
 
-.header__buttons {
+.header__controls-buttons {
   display: flex;
   flex-direction: row;
-  width: 186px;
-  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+}
+
+.header__controls-buttons-theme {
+  display: flex;
+}
+
+.header__controls-buttons-fav {
+  display: flex;
+  height: 64px;
+  width: 128px;
 
   @include onTablet {
-    width: 144px;
-  }
-}
-
-.header__item {
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  color: var(--main-text-light);
-}
-
-.header__item:hover {
-  color: var(--text-hover);
-}
-
-.header-item-active {
-  color: var(--text-hover);
-}
-
-.header-item-active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background-color: var(--text-hover);
-}
-
-.header__item:hover::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background-color: var(--text-hover);
-}
-
-.header__burger {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header__burger > * {
-  margin-left: auto;
-}
-
-.menu__toggle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
-
-  @include onTablet {
-    margin-right: 15px;
+    width: 96px;
+    height: 48px;
   }
 
   @include onLargePhone {
-    margin-right: 10px;
+    width: 96px;
+    height: 48px;
   }
 
   @include onSmallPhone {
-    margin-right: 5px;
+    width: 96px;
+    height: 48px;
   }
 }

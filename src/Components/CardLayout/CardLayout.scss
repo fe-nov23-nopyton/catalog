@@ -1,3 +1,5 @@
+@import "/src/mixins/adaptive-rules.scss";
+
 .cardLayout {
   box-sizing: border-box;
   display: grid;
@@ -8,6 +10,44 @@
     "pictures option"
     "about specs";
   background-color: var(--bg);
+
+  @include onTablet {
+    width: 592px;
+
+    grid-template-areas: 
+    "title title"
+    "pictures option"
+    "about about"
+    "specs specs";
+
+    column-gap: 16px;
+  }
+
+  @include onLargePhone {
+    width: 592px;
+
+    grid-template-areas: 
+    "title title"
+    "pictures option"
+    "about about"
+    "specs specs";
+
+    column-gap: 16px;
+  }
+
+  @include onSmallPhone {
+    width: 288px;
+
+    grid-template-areas: 
+    "title"
+    "pictures"
+    "option"
+    "about"
+    "specs";
+
+    column-gap: 0px;
+    row-gap: 40px;
+  }
 
   &__header {
     grid-area: title;
@@ -24,6 +64,19 @@
     grid-area: pictures;
     width: 560px;
     height: 464px;
+
+    @include onTablet {
+      width: 338px;
+    }
+
+    @include onLargePhone {
+      width: 338px;
+    }
+
+    @include onSmallPhone {
+      width: 288px;
+      height: 353px;
+    }
   }
 
   &__options {
@@ -38,12 +91,59 @@
       "price ."
       "info .";
 
+    @include onTablet {
+      position: relative;
+      grid-template-areas: 
+      "color"
+      "capacity"
+      "price"
+      "info";
+
+      width: 237px;
+    }
+
+    @include onLargePhone {
+      position: relative;
+      grid-template-areas: 
+      "color"
+      "capacity"
+      "price"
+      "info";
+
+      width: 237px;
+    }
+
+    @include onSmallPhone {
+      position: relative;
+      grid-template-areas: 
+      "color"
+      "capacity"
+      "price"
+      "info";
+
+      width: 288px;
+
+      padding-top: 0;
+    }
+
     &-color {
       grid-area: color;
       display: flex;
       flex-direction: column;
       width: 320px;
       border-bottom: 1px solid rgba(59, 62, 74, 0.406);
+
+      @include onTablet {
+        width: 237px;
+      }
+
+      @include onLargePhone {
+        width: 237px;
+      }
+
+      @include onSmallPhone {
+        width: 288px;
+      }
 
       &-text {
         display: flex;
@@ -67,6 +167,26 @@
       justify-content: flex-end;
       font-weight: 700;
       font-size: 12px;
+
+      @include onTablet {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding-top: 35px;
+      }
+
+      @include onLargePhone {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding-top: 35px;
+      }
+
+      @include onSmallPhone {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
     }
 
     &-capacity {
@@ -77,6 +197,18 @@
       align-items: flex-start;
       width: 320px;
       border-bottom: 1px solid rgba(59, 62, 74, 0.406);
+
+      @include onTablet {
+        width: 237px;
+      }
+
+      @include onLargePhone {
+        width: 237px;
+      }
+
+      @include onSmallPhone {
+        width: 288px;
+      }
 
       &-text {
         display: flex;
@@ -100,6 +232,19 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+
+      
+      @include onTablet {
+        width: 237px;
+      }
+
+      @include onLargePhone {
+        width: 237px;
+      }
+
+      @include onSmallPhone {
+        width: 288px;
+      }
 
       &-content {
         display: flex;
@@ -131,12 +276,38 @@
       grid-area: info;
       width: 320px;
       display: flex;
+
+      
+      @include onTablet {
+        width: 237px;
+      }
+
+      @include onLargePhone {
+        width: 237px;
+      }
+
+      @include onSmallPhone {
+        width: 288px;
+      }
     }
   }
 
   &__specs {
     margin-top: 80px;
     grid-area: specs;
+    height: 296px;
+
+    @include onTablet {
+      margin-top: 56px;
+    }
+
+    @include onLargePhone {
+      margin-top: 40px;
+    }
+
+    @include onSmallPhone {
+      margin-top: 5px;
+    }
 
     &-title {
       height: 47px;
@@ -156,6 +327,18 @@
     margin-top: 80px;
     grid-area: about;
 
+    @include onTablet {
+      margin-top: 40px;
+    }
+
+    @include onLargePhone {
+      margin-top: 40px;
+    }
+
+    @include onSmallPhone {
+      margin-top: 35px;
+    }
+
     &-title {
       height: 47px;
       display: flex;
@@ -163,6 +346,12 @@
       font-weight: 800;
       color: var(--text-hover);
       border-bottom: 1px solid rgba(59, 62, 74, 0.406);
+
+      @include onSmallPhone {
+        height: 42px;
+
+        font-size: 20px;
+      }
     }
 
     &-content {
@@ -170,6 +359,7 @@
         flex-direction: column;
         gap: 32px;
         margin-top: 32px;
+
 
         &-main {
 
@@ -179,10 +369,14 @@
                 font-size: 20px;
                 font-weight: 700;
                 color: var(--text-hover);
+
+                @include onSmallPhone {
+                  font-size: 16px;
+                }
             }
 
             &-text {
-                margin-top: 16px;
+                margin-top: 13px;
                 text-align: left;
                 font-size: 14px;
                 font-weight: 500;

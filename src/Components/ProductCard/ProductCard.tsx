@@ -42,6 +42,8 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
       dispatch(deleteFromCart(cartItem));
     } else {
       dispatch(addToCart(cartItem));
+      const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
+      localStorage.setItem("cart", JSON.stringify([...cartItems, cartItem]));
     }
   };
 

@@ -40,6 +40,12 @@
     background-position: center;
     background-repeat: no-repeat;
 
+    &-double {
+      background-repeat: repeat-x;
+      background-position: center;
+      background-size: 11px;
+    }
+
     &:hover {
       border-color: var(--favorites-border-hover);
       background-color: var(--favorites-bg-hover);

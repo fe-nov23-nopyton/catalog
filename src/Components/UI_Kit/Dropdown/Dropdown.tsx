@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./Dropdown.scss";
+import classNames from "classnames";
 
 interface Props {
+  title?: string;
   list: string[];
-  handleClick: () => void;
+  handleClick: (param: string) => void;
 }
 
-export const Dropdown: React.FC<Props> = ({ list, handleClick }) => {
+export const Dropdown: React.FC<Props> = ({ list, handleClick, title }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [buttonContent, setButtonContent] = useState(list[0]);
 
@@ -25,14 +27,22 @@ export const Dropdown: React.FC<Props> = ({ list, handleClick }) => {
   };
 
   const handleOnClick = (item: string) => {
-    handleClick();
+    handleClick(item);
     setButtonContent(item);
     closeDropdown();
   };
 
   return (
     <div className="dropdown">
-      <button type="button" className="dropdown--button" onClick={toggleDropdown} onBlur={handleOnBlur}>
+      <div className="dropdown--title">{title}</div>
+      <button
+        type="button"
+        className={classNames("dropdown--button", {
+          "dropdown--button-isActive": isOpen
+        })}
+        onClick={toggleDropdown}
+        onBlur={handleOnBlur}
+      >
         {buttonContent}
       </button>
       {isOpen && (

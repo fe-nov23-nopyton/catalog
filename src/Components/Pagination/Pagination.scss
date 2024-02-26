@@ -1,12 +1,10 @@
-// .buttonStyle {
-//   width: 32px;
-//   height: 32px;
-//   background-color: transparent;
-//   border: 1px solid var(--elements-border);
-//   cursor: pointer;
-//   margin: 0 5px;
-//   color: black;
-// }
+@import '../../mixins/adaptive-rules.scss';
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 li {
   list-style-type: none;
 }
@@ -15,29 +13,37 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 40px 0 30px;
+
+  @include onTablet {
+    margin-bottom: 40px;
+  }
+
+  @include onSmallPhone {
+    margin-top: 24px;
+  }
 }
 
 .pagination__item {
-  margin: 0px 3px;
-}
+  margin-right: 8px;
 
-.pagination__link {
-  width: 32px;
-  height: 32px;
-  background-color: transparent;
-  border: 1px solid var(--elements-border);
-  cursor: pointer;
-}
+  &:nth-last-child(2) {
+    margin-right: 0;
+  }
 
-.pagination__link--arrow-right {
-  margin-right: 5px;
-}
+  &-reversed {
+    transform: rotate(180deg);
+  }
 
-.pagination__link--arrow-left {
-  margin-left: 5px;
-}
+  &-first {
+    margin-right: 16px;
+    display: flex;
+    gap: 16px;
+  }
 
-.pagination__item.active .pagination__link {
-  background-color: black;
-  color: white;
+  &-last {
+    display: flex;
+    gap: 16px;
+    margin-left: 16px;
+  }
 }

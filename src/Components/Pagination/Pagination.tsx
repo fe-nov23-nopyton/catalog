@@ -1,6 +1,7 @@
 import React from "react";
-import cn from "classnames";
 import "./Pagination.scss";
+import { Icon } from "../UI_Kit/Icon";
+import { IconContent } from "../../types/IconContent";
 
 type Props = {
   total: number;
@@ -59,52 +60,37 @@ export const Pagination: React.FC<Props> = ({ total, perPage, currentPage, onPag
 
   return (
     <ul className="pagination">
-      <li className={cn("pagination__item", { disabled: currentPage === 1 })}>
-        <button
-          className="pagination__link pagination__link--arrow-right"
-          disabled={currentPage === 1}
-          onClick={handleToTop}
-        >
-          &lt;&lt;
-        </button>
-
-        <button
-          className="pagination__link pagination__link--arrow-right"
-          disabled={currentPage === 1}
-          onClick={handlePrevPage}
-        >
-          &lt;
-        </button>
+      <li className="pagination__item-reversed pagination__item-first">
+        <Icon iconType={IconContent.Arrow} handleClick={handlePrevPage} isDisabled={currentPage === 1} />
+        <Icon
+          iconType={IconContent.Arrow}
+          handleClick={handleToTop}
+          isDisabled={currentPage === 1}
+          isDoubleArrow={true}
+        />
       </li>
       {visiblePagesHelper().map((page) => (
-        <li className={cn("pagination__item", { active: currentPage === page })} key={page}>
-          <button
-            className="pagination__link"
-            onClick={() => {
+        <li key={page} className="pagination__item">
+          <Icon
+            iconType={IconContent.Text}
+            handleClick={() => {
               if (currentPage !== page) {
                 onPageChange(page);
               }
             }}
-          >
-            {page}
-          </button>
+            isSelected={currentPage === page}
+            content={page.toString()}
+          />
         </li>
       ))}
-      <li className={cn("pagination__item", { disabled: currentPage === totalPages })}>
-        <button
-          className="pagination__link pagination__link--arrow-left"
-          disabled={currentPage === totalPages}
-          onClick={handleNextPage}
-        >
-          &gt;
-        </button>
-        <button
-          className="pagination__link pagination__link--arrow-left"
-          disabled={currentPage === totalPages}
-          onClick={handleToBottom}
-        >
-          &gt;&gt;
-        </button>
+      <li className="pagination__item-last">
+        <Icon iconType={IconContent.Arrow} handleClick={handleNextPage} isDisabled={currentPage === totalPages} />
+        <Icon
+          iconType={IconContent.Arrow}
+          handleClick={handleToBottom}
+          isDisabled={currentPage === totalPages}
+          isDoubleArrow={true}
+        />
       </li>
     </ul>
   );

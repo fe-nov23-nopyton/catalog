@@ -139,7 +139,11 @@ export const PhonesPage: React.FC = () => {
     }
     setSearchParams(params);
 
-    localStorage.setItem("query", newQuery);
+    if (newQuery === "") {
+      localStorage.removeItem("query");
+    } else {
+      localStorage.setItem("query", newQuery);
+    }
   };
   // #endregion
   const preparedPhones = prepareProducts(phones, sort, query);

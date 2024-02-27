@@ -91,10 +91,16 @@ export const Slider: React.FC<SliderProps> = ({ title, phones }) => {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <ProductCard phone={phones[currentPhoneIndex % phones.length]} />
-        <ProductCard phone={phones[(currentPhoneIndex + 1) % phones.length]} />
-        <ProductCard phone={phones[(currentPhoneIndex + 2) % phones.length]} />
-        <ProductCard phone={phones[(currentPhoneIndex + 3) % phones.length]} />
+        {phones[currentPhoneIndex % phones.length] && <ProductCard phone={phones[currentPhoneIndex % phones.length]} />}
+        {phones[(currentPhoneIndex + 1) % phones.length] && (
+          <ProductCard phone={phones[(currentPhoneIndex + 1) % phones.length]} />
+        )}
+        {phones[(currentPhoneIndex + 2) % phones.length] && (
+          <ProductCard phone={phones[(currentPhoneIndex + 2) % phones.length]} />
+        )}
+        {phones[(currentPhoneIndex + 3) % phones.length] && (
+          <ProductCard phone={phones[(currentPhoneIndex + 3) % phones.length]} />
+        )}
       </div>
     </>
   );

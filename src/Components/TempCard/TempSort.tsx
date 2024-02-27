@@ -3,7 +3,7 @@ import "./TempSort.scss";
 export const TempSort = () => (
   <div>
     <p className="skeleton__total-phones skeleton__bg" />
-    <div className="skeleton__dropdown-wrapper">
+    <div className="skeleton__dropdown">
       <div className="skeleton__dropdown-sortBy skeleton__bg">
         <div className="skeleton__dropdown-sortBy-item" />
       </div>

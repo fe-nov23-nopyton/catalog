@@ -9,9 +9,9 @@ interface Props {
 }
 
 export const Person: React.FC<Props> = ({ phone, name, email, photo }) => {
-  console.log("Person page");
+  console.log("Person");
   return (
-    <div className="person">
+    <div className="person animate">
       <div className="person__image-container">
         <img className="person__image" src={photo} alt={name} />
       </div>

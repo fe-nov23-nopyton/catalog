@@ -10,6 +10,9 @@ export const TempSort = () => (
       <div className="skeleton__dropdown-itemsOnPage skeleton__bg">
         <div className="skeleton__dropdown-itemsOnPage-item" />
       </div>
+      <div className="skeleton__dropdown-input skeleton__bg">
+        <div className="skeleton__dropdown-input-item" />
+      </div>
     </div>
   </div>
 );

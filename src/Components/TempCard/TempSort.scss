@@ -31,6 +31,15 @@
   }
 }
 
+.skeleton__dropdown-input {
+    width: 225px;
+    height: 59px;
+  
+    @include onSmallPhone {
+      width: 50%;
+    }
+  }
+
 .skeleton__bg {
     background: rgb(194, 194, 194);
     background: linear-gradient(

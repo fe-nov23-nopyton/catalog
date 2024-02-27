@@ -57,7 +57,7 @@
       background-image: var(--arrow-icon-disabled);
 
       &:hover {
-        cursor: not-allowed;
+        cursor: default;
         background-color: var(--bg);
         border-color: var(--favorites-border-selected);
       }
@@ -87,7 +87,7 @@
     &-disabled {
 
       &:hover {
-        cursor: not-allowed;
+        cursor: default;
         background-color: var(--text-icon-bg);
         border-color: var(--text-icon-border);
       }

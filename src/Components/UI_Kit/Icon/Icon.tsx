@@ -6,7 +6,7 @@ import { IconContent } from "../../../types/IconContent";
 interface Props {
   handleClick: () => void;
   iconType: IconContent;
-  color?: Colors; //required only for iconType === IconContent.Color
+  color?: string; //required only for iconType === IconContent.Color
   isSelected?: boolean; //required for all types, except iconType === IconContent.Arrow
   content?: string; //required only for iconType === IconContent.Text
   isDisabled?: boolean; //required only for iconType === IconContent.Arrow
@@ -44,11 +44,8 @@ export const Icon: React.FC<Props> = ({
   >
     <div
       className={classNames({
-        "icon--color": iconType === IconContent.Color,
-        "icon--color-black": iconType === IconContent.Color && color === Colors.Black,
-        "icon--color-rosegold": iconType === IconContent.Color && color === Colors.Rosegold,
-        "icon--color-gold": iconType === IconContent.Color && color === Colors.Gold,
-        "icon--color-silver": iconType === IconContent.Color && color === Colors.Silver
+        ["icon--color"]: iconType === IconContent.Color,
+        [`icon--color-${color}`]: iconType === IconContent.Color
       })}
     >
       {iconType === IconContent.Text && content}

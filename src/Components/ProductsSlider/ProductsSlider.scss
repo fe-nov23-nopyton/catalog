@@ -1,0 +1,41 @@
+@import '../../mixins/adaptive-rules.scss';
+.swiper-slide-active {
+    width: 300px;
+}
+// .productsSwiper {
+//     .swiper-container{
+//         width: 100%;
+//       }
+//       .swiper-wrapper {
+//         width: 50%;
+//       }
+//       .swiper-slide {
+//         text-align: center;
+//         width: auto;
+//       }
+//       .slide-image {
+//         height: 400px;
+//         width: auto;
+//       }
+//       .my-gallery figure {
+//         margin: 0px;
+//       }
+
+//       .banner__slide {
+//         @include onDesktop {
+//             width: 272px !important;
+//         }
+//         @include onTablet {
+//             min-width: 237px !important;
+//             max-width: 237px !important;
+//         }
+//         @include onLargePhone {
+//             width: 237px !important;
+//         }
+//         @include onSmallPhone {
+//             min-width: 212px !important;
+//             max-width: 212px !important;
+//         }
+//     }
+// }
+

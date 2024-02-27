@@ -23,7 +23,13 @@
   border: 1px solid var(--elements-border);
 
   @include onSmallPhone {
-    width: 288px;
+    min-width: 212px !important;
+    max-width: 212px !important;
+  }
+
+  @include onTablet {
+    min-width: 237px !important;
+    max-width: 237px !important;
   }
 
   &:hover {

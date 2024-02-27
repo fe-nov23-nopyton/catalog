@@ -8,10 +8,6 @@ import { Loader } from "../Components/Loader";
 import { Categories } from "../Components/Categories";
 import { getHotPrices } from "../utils/getHotPrices";
 import { getNewModels } from "../utils/getNewModels";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { response } from "express";
-import { sortItems } from "../utils/sortItems";
-import { Phone } from "../types/Phone";
 import { Banner } from "../Components/Banner/Banner";
 
 import "swiper/css";
@@ -21,6 +17,7 @@ import "swiper/css/scrollbar";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { ProductCard } from "../Components/ProductCard/ProductCard";
 import useWindowDimensions from "../hooks/ScreenWidth";
+import { ProductsSlider } from "../Components/ProductsSlider/ProductsSlider";
 
 export const HomePage: React.FC = () => {
   const { phones, loading } = useAppSelector((state) => state.catalog);
@@ -54,31 +51,10 @@ export const HomePage: React.FC = () => {
         <Loader />
       ) : (
         <>
-          <Banner />
-          {newModels.length !== 0 && (
-            <div className="banner">
-              <Swiper
-                pagination={pagination}
-                slidesPerView={4}
-                spaceBetween={30}
-                loop
-                modules={[Autoplay, Pagination, Navigation]}
-                autoplay={{
-                  delay: 2500,
-                  disableOnInteraction: false
-                }}
-                style={{ overflow: "hidden" }}
-              >
-                {newModels.map((item) => (
-                  <SwiperSlide key={item.id} className="banner__slide">
-                    <ProductCard phone={item} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          )}
-          <Categories amount={amountItems} />
-          {hotPrices.length !== 0 && <Slider title={"Hot prices"} phones={hotPrices} />}
+          {/* <Banner /> */}
+          <ProductsSlider items={newModels} />
+          {/* <Categories amount={amountItems} /> */}
+          {/* {hotPrices.length !== 0 && <Slider title={"Hot prices"} phones={hotPrices} />} */}
         </>
       )}
     </>

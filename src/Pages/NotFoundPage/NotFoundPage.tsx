@@ -1,10 +1,10 @@
 import React from "react";
-import { LookingGuy } from "../Components/LookingGuy/LookingGuy";
+import { LookingGuy } from "../../Components/LookingGuy/LookingGuy";
 
 import "../Pages/NotFoundPage.scss";
 import { NavLink } from "react-router-dom";
-import { Button } from "../Components/UI_Kit/Button";
-import { ButtonType } from "../types/ButtonType";
+import { Button } from "../../Components/UI_Kit/Button";
+import { ButtonType } from "../../types/ButtonType";
 
 export const NotFoundPage: React.FC = () => (
   <div className="not-found">

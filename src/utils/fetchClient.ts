@@ -18,7 +18,7 @@ export function getPhones() {
 }
 
 export function getPhoneData(pathname: string) {
-  return Promise.all([fetch(`/catalog/new/products/${pathname}.json`), wait(500)]).then(([response]) => {
+  return Promise.all([fetch(`/catalog/new/products/${pathname}.json`), wait(0)]).then(([response]) => {
     if (!response.ok) {
       throw new Error();
     }

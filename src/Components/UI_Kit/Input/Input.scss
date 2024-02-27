@@ -45,5 +45,9 @@
     &:hover {
       border-color: var(--dropdown-button-border-hover);
     }
+
+    &:focus {
+      cursor: auto;
+    }
   }
 }

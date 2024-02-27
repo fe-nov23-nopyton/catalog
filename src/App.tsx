@@ -13,8 +13,10 @@ export function App() {
       <div className={`App ${theme} App-wrapper`}>
         <Header />
 
-        <div className="content">
-          <Outlet />
+        <div className="main-wrapper">
+          <div className="content">
+            <Outlet />
+          </div>
         </div>
 
         <Footer theme={theme} />

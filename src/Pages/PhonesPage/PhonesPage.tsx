@@ -13,6 +13,7 @@ import { Loader } from "../../Components/Loader";
 import { Dropdown } from "../../Components/UI_Kit/Dropdown";
 import { Input } from "../../Components/UI_Kit/Input/Input";
 import { filterItems } from "../../utils/filterItems";
+import { LookingGuy } from "../../Components/LookingGuy/LookingGuy";
 
 const optionsForItemsOnPage = ["16", "8", "4", "All"];
 const optionsForSort = ["Cheapest", "Alphabetically", "Newest"];
@@ -199,7 +200,7 @@ export const PhonesPage: React.FC = () => {
                   )}
                 </>
               ) : (
-                <p className="title">There are no products</p>
+                <LookingGuy mainMessage="Sorry, There are not already yet any items"/>
               )}
             </>
           )}

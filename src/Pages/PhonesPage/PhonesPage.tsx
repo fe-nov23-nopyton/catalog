@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from "react";
 import "./PhonesPage.scss";
 import { ProductsList } from "../../Components/ProductsList/ProductsList";
@@ -20,8 +21,6 @@ export const PhonesPage: React.FC = () => {
   // #region redux
   const { phones, loading, errorMessage } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispatch();
-
-  const quantityPhones = phones.length;
 
   useEffect(() => {
     dispatch(fetchPhones());
@@ -46,12 +45,17 @@ export const PhonesPage: React.FC = () => {
     scrollToTop();
   };
 
-  const prepareProducts = (phones: Phone[], sortBy: string, changeVisible: string, query: string) => {
+  const prepareProducts = (phones: Phone[], sortBy: string, query: string) => {
     const filteredPhones = filterItems(phones, query);
     const sortedPhones = sortItems(filteredPhones, sortBy);
+    return sortedPhones;
+  };
+
+  const prepareVisiblePhones = (phones: Phone[], changeVisible: string) => {
     const start = (currentPage - 1) * perPage;
     const end = start + perPage;
-    return changeVisible === "All" ? sortedPhones : sortedPhones.slice(start, end);
+    const res = changeVisible === "All" ? phones : phones.slice(start, end);
+    return res;
   };
 
   const scrollToTop = () => {
@@ -138,12 +142,14 @@ export const PhonesPage: React.FC = () => {
     localStorage.setItem("query", newQuery);
   };
   // #endregion
+  const preparedPhones = prepareProducts(phones, sort, query);
+  const visiblePhones = prepareVisiblePhones(preparedPhones, itemsOnPage);
+
+  const quantityPhones = preparedPhones.length;
   return (
     <div>
       <Breadcrumbs path={pathname} />
-
       <h1 className="title">Mobile phones</h1>
-
       {loading ? (
         <Loader />
       ) : (
@@ -152,35 +158,38 @@ export const PhonesPage: React.FC = () => {
             (console.log(errorMessage), (<p className="title">{errorMessage}</p>))
           ) : (
             <>
-              {!!quantityPhones ? (
+              <p className="total-phones">{quantityPhones} models</p>
+              <div className="dropdown-wrapper">
+                <div className="dropdown-sortBy">
+                  <Dropdown 
+                    value={sort} 
+                    list={optionsForSort} 
+                    handleClick={handleSortBy} 
+                    title={"Sort by"} 
+                  />
+                </div>
+                <div className="dropdown-itemsOnPage">
+                  <Dropdown
+                    value={itemsOnPage}
+                    list={optionsForItemsOnPage}
+                    handleClick={handleItemsOnPage}
+                    title={"Items on page"}
+                  />
+                </div>
+                <div className="dropdown-input">
+                  <Input
+                    type="text"
+                    placeholder="Search..."
+                    value={query}
+                    onChange={handleChangeQuery}
+                    name="query"
+                    title="Search"
+                  />
+                </div>
+              </div>
+              {visiblePhones.length > 0 ? (
                 <>
-                  <p className="total-phones">{quantityPhones} models</p>
-
-                  <div className="dropdown-wrapper">
-                    <div className="dropdown-sortBy">
-                      <Dropdown value={sort} list={optionsForSort} handleClick={handleSortBy} title={"Sort by"} />
-                    </div>
-                    <div className="dropdown-itemsOnPage">
-                      <Dropdown
-                        value={itemsOnPage}
-                        list={optionsForItemsOnPage}
-                        handleClick={handleItemsOnPage}
-                        title={"Items on page"}
-                      />
-                    </div>
-                    <div className="dropdown-input">
-                      <Input
-                        type="text"
-                        placeholder="Search..."
-                        value={query}
-                        onChange={handleChangeQuery}
-                        name="query"
-                        title="Search"
-                      />
-                    </div>
-                  </div>
-
-                  <ProductsList phones={prepareProducts(phones, sort, itemsOnPage, query)} />
+                  <ProductsList phones={visiblePhones} />
                   {itemsOnPage !== "All" && (
                     <Pagination
                       total={quantityPhones}

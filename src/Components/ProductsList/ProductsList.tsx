@@ -9,7 +9,7 @@ interface Props {
 
 export const ProductsList: React.FC<Props> = ({ phones }) => {
   return (
-    <main className="grid">
+    <main className="grid grid-item">
       {phones.map((phone) => (
         <ProductCard key={phone.id} phone={phone} />
       ))}

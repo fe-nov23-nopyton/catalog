@@ -3,6 +3,8 @@ import { addQuantity, deleteFromCart, subtractQuantity } from "../../redux/featu
 import { useAppDispatch } from "../../redux/hooks";
 import "../../Pages/CartPage/CartPage.scss";
 import { Item } from "../../types/Item";
+import { Icon } from "../UI_Kit/Icon";
+import { IconContent } from "../../types/IconContent";
 
 interface Props {
   item: Item;
@@ -23,19 +25,24 @@ export const CartItem: React.FC<Props> = ({ item }) => {
 
   return (
     <div className="cart-item">
-      <div className="wrapper">
-        <button className="remove" onClick={handleDeleteItem} />
+      <div className="cart-item--wrapper">
+        <button className="cart-item--remove" onClick={handleDeleteItem} />
 
-        <img src={normalizedUrl} alt={item.product.name} />
+        <img className="cart-item--image" src={normalizedUrl} alt={item.product.name} />
 
-        <h2>{item.product.name}</h2>
+        <h2 className="cart-item--title">{item.product.name}</h2>
       </div>
 
-      <div className="wrapper">
-        <div className="quantity">
-          <button onClick={() => handleChangeQuantity("-")}>-</button>
-          <span>{item.quantity}</span>
-          <button onClick={() => handleChangeQuantity("+")}>+</button>
+      <div className="cart-item--wrapper cart-item--wrapper-amount">
+        <div className="cart-item--quantity">
+          <Icon
+            iconType={IconContent.Text}
+            handleClick={() => handleChangeQuantity("-")}
+            content="-"
+            isDisabled={item.quantity === 1}
+          />
+          <span className="cart-item--quantity-value">{item.quantity}</span>
+          <Icon iconType={IconContent.Text} handleClick={() => handleChangeQuantity("+")} content="+" />
         </div>
 
         <p className="price">${item.product.price}</p>

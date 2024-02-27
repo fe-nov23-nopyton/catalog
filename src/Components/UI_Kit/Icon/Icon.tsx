@@ -34,6 +34,7 @@ export const Icon: React.FC<Props> = ({
 
       "icon--text": iconType === IconContent.Text,
       "icon--text-selected": isSelected && iconType === IconContent.Text,
+      "icon--text-disabled": isDisabled && iconType === IconContent.Text,
 
       "icon--colors": iconType === IconContent.Color,
       "icon--colors-selected": isSelected && iconType === IconContent.Color

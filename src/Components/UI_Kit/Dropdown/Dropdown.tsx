@@ -1,16 +1,18 @@
 import { useState } from "react";
 import "./Dropdown.scss";
 import classNames from "classnames";
+import { generateRandomId } from "../../../utils/generateRandomId";
 
 interface Props {
+  value: string;
   title?: string;
   list: string[];
   handleClick: (param: string) => void;
 }
 
-export const Dropdown: React.FC<Props> = ({ list, handleClick, title }) => {
+export const Dropdown: React.FC<Props> = ({ value, list, handleClick, title }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [buttonContent, setButtonContent] = useState(list[0]);
+  const [buttonContent, setButtonContent] = useState(value || list[0]);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -32,10 +34,15 @@ export const Dropdown: React.FC<Props> = ({ list, handleClick, title }) => {
     closeDropdown();
   };
 
+  const id = generateRandomId();
+
   return (
     <div className="dropdown">
-      <div className="dropdown--title">{title}</div>
+      <label htmlFor={id} className="dropdown--title">
+        {title}
+      </label>
       <button
+        id={id}
         type="button"
         className={classNames("dropdown--button", {
           "dropdown--button-isActive": isOpen

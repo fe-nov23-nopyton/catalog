@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+// #region imports
 import { useLocation, useNavigate } from "react-router-dom";
 import { CardGalery } from "./CardGalery/CardGalery";
 import "./CardLayout.scss";
 import { CardSpec } from "./CardSpec/CardSpec";
 import { Breadcrumbs } from "../Breadcrumbs";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Button } from "../UI_Kit/Button";
 import { ButtonType } from "../../types/ButtonType";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -15,10 +16,15 @@ import { clickFavorite } from "../../redux/features/favoritesSlice";
 import { replacePart } from "../../utils/replacePath";
 import { Loader } from "../Loader";
 import { fetchPhone } from "../../redux/features/productDataSlice";
+import { Slider } from "../Slider";
+import { getRecommendModels } from "../../utils/getRecommendModels";
+import { fetchPhones } from "../../redux/features/catalogSlice";
+import { generateRandomId } from "../../utils/generateRandomId";
+// #endregion
 
 export const CardLayout = () => {
   // #region Fetching phone data
-  const { phoneData, loading, errorMessage } = useAppSelector((state) => state.phoneData);
+  const { phoneData, loading } = useAppSelector((state) => state.phoneData);
   const dispatch = useAppDispatch();
 
   const { pathname } = useLocation();
@@ -50,11 +56,6 @@ export const CardLayout = () => {
   // #region Navigation
   const navigate = useNavigate();
   const handleBack = () => navigate(-1);
-
-  useEffect(() => {
-    window.scrollTo({ top: 85, behavior: "smooth" });
-  }, [phoneData]);
-
   // #endregion
 
   // #region Selecting product
@@ -102,9 +103,20 @@ export const CardLayout = () => {
 
   // #endregion
 
+  // #region Slider
+  const { phones } = useAppSelector((state) => state.catalog);
+
+  useEffect(() => {
+    dispatch(fetchPhones());
+  }, []);
+
+  const phonesToSlider = useMemo(() => getRecommendModels(phones, 16), [phones]);
+  // #endregion
+
+  const loaded = !loading;
   return (
     <>
-      {!loading ? (
+      {loaded && Object.keys(phoneData).length > 0 ? (
         <>
           <Breadcrumbs path={pathname} />
           <div style={{ textAlign: "left" }}>
@@ -123,6 +135,7 @@ export const CardLayout = () => {
                 <div className="cardLayout__options-color-select">
                   {phoneData.colorsAvailable.map((availableColor) => (
                     <Icon
+                      key={availableColor}
                       handleClick={() => handleColor(availableColor)}
                       isSelected={availableColor === phoneData.color}
                       iconType={IconContent.Color}
@@ -137,6 +150,7 @@ export const CardLayout = () => {
                 <div className="cardLayout__options-capacity-select">
                   {phoneData.capacityAvailable.map((availableCapacity) => (
                     <Icon
+                      key={availableCapacity}
                       handleClick={() => handleCapacity(availableCapacity)}
                       isSelected={availableCapacity === phoneData.capacity}
                       iconType={IconContent.Text}
@@ -174,7 +188,7 @@ export const CardLayout = () => {
               <div className="cardLayout__about-title">About</div>
               <div className="cardLayout__about-content">
                 {phoneData.description.map((content) => (
-                  <div className="cardLayout__about-content-main">
+                  <div key={generateRandomId()} className="cardLayout__about-content-main">
                     <div className="cardLayout__about-content-main-title">{content.title}</div>
                     <div className="cardLayout__about-content-main-text">
                       {content.text.map((paragraph) => paragraph)}
@@ -184,10 +198,9 @@ export const CardLayout = () => {
               </div>
             </div>
           </div>
+          <Slider title="You may also like" phones={phonesToSlider} />
         </>
-      ) : (
-        <Loader />
-      )}
+      ) : null}
     </>
   );
 };

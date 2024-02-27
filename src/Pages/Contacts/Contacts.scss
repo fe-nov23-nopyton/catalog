@@ -1,0 +1,22 @@
+@import "../../App.scss";
+@import '../../mixins/adaptive-rules.scss';
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+
+  @include onSmallPhone {
+    flex-direction: column;
+  }
+
+  @include onLargePhone {
+    flex-wrap: wrap;
+  }
+
+  @include onTablet {
+    flex-wrap: wrap;
+  }
+}

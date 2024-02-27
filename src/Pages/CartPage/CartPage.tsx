@@ -6,9 +6,15 @@ import { totalQuantity } from "../../utils/totalQuantity";
 import { useEffect } from "react";
 import "./CartPage.scss";
 import { Item } from "../../types/Item";
+import { Button } from "../../Components/UI_Kit/Button";
+import { useNavigate } from "react-router";
+import { ButtonType } from "../../types/ButtonType";
 
 export const CartPage = () => {
   const items: Item[] = useAppSelector((state) => state.cart.cart);
+
+  const navigate = useNavigate();
+  const handleBack = () => navigate(-1);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(items));
@@ -23,7 +29,9 @@ export const CartPage = () => {
 
   return (
     <main className="cart">
-      {/* Back button */}
+      <div style={{ textAlign: "left" }}>
+        <Button handleClick={handleBack} buttonType={ButtonType.Navigation} buttonText="Back" />
+      </div>
       {!!itemsCount ? <h1 className="title">Cart</h1> : <h1 className="title">Your cart is empty</h1>}
       {/* {<Loader />} <!-- loading && (...) --> */}
       {!!itemsCount && (

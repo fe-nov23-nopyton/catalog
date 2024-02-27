@@ -29,12 +29,11 @@ export const HomePage: React.FC = () => {
 
   return (
     <>
-      <h1 className="title">Welcome to Nice Gadgets store!</h1>
-
       {loading ? (
         <Loader />
       ) : (
         <>
+          <h1 className="title">Welcome to Nice Gadgets store!</h1>
           <Banner />
           {newModels.length !== 0 && <Slider title={"Brand new models"} phones={newModels} />}
           <Categories amount={amountItems} />

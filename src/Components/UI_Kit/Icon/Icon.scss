@@ -57,6 +57,7 @@
       background-image: var(--arrow-icon-disabled);
 
       &:hover {
+        cursor: default;
         background-color: var(--bg);
         border-color: var(--favorites-border-selected);
       }
@@ -81,6 +82,15 @@
     &:hover {
       border-color: var(--text-icon-border-hover);
       background-color: var(--text-icon-bg-hover);
+    }
+    
+    &-disabled {
+
+      &:hover {
+        cursor: default;
+        background-color: var(--text-icon-bg);
+        border-color: var(--text-icon-border);
+      }
     }
     
     &-selected {

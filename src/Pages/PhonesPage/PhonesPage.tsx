@@ -54,8 +54,7 @@ export const PhonesPage: React.FC = () => {
   const prepareVisiblePhones = (phones: Phone[], changeVisible: string) => {
     const start = (currentPage - 1) * perPage;
     const end = start + perPage;
-    const res = changeVisible === "All" ? phones : phones.slice(start, end);
-    return res;
+    return changeVisible === "All" ? phones : phones.slice(start, end);
   };
 
   const scrollToTop = () => {

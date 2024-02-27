@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { App } from "./App";
 import { HomePage } from "./Pages/HomePage";
-import { NotFoundPage } from "./Pages/NotFoundPage";
+import { NotFoundPage } from "./Pages/NotFoundPage/NotFoundPage";
 import { PhonesPage } from "./Pages/PhonesPage/PhonesPage";
 import { TabletsPage } from "./Pages/TabletsPage";
 import { AccessoriesPage } from "./Pages/AccessoriesPage";

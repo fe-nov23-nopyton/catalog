@@ -2,6 +2,8 @@ import React from "react";
 import "./CheckoutSummary.scss";
 import { useAppDispatch } from "../../redux/hooks";
 import { deleteCartItems } from "../../redux/features/cartSlice";
+import { Button } from "../UI_Kit/Button";
+import { ButtonType } from "../../types/ButtonType";
 
 interface Props {
   totalPrice: number;
@@ -24,9 +26,9 @@ export const CheckoutSummary: React.FC<Props> = ({ totalPrice, itemsCount }) => 
       <span className="total-price">${totalPrice}</span>
       <div className="total-items">Total for {itemsCount} items</div>
       <div className="divider" />
-      <button className="checkout-button" onClick={handleCheckout}>
-        Checkout
-      </button>
+      <div className="checkout-button">
+        <Button buttonType={ButtonType.Primary} buttonText="Checkout" handleClick={handleCheckout} />
+      </div>
     </div>
   );
 };

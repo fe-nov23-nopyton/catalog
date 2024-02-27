@@ -10,7 +10,7 @@ export const ProductsList: React.FC<Props> = ({ phones }) => {
   console.log(phones);
 
   return (
-    <main className="grid">
+    <main className="grid grid-item">
       {phones.map((phone) => (
         <ProductCard key={phone.id} phone={phone} />
       ))}

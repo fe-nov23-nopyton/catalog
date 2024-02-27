@@ -191,24 +191,29 @@
   margin-block: 24px;
 }
 
+.main-wrapper {
+  padding: 24px 0;
+}
+
 .content {
+  box-sizing: border-box;
   margin: 0 auto;
-  max-width: 1136px;
+  max-width: 1200px;
   background-color: var(--bg);
 
   @include onDesktop {
-    padding: 50px;
-  }
-
-  @include onTablet {
-    padding: 24px;
+    padding: 0 36px;
   }
 
   @include onLargePhone {
-    padding: 24px;
+    padding: 0 36px;
+  }
+
+  @include onTablet {
+    padding: 0 24px;
   }
 
   @include onSmallPhone {
-    padding: 16px;
+    padding: 0 16px;
   }
 }

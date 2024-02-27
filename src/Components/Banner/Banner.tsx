@@ -18,7 +18,6 @@ export const Banner = () => {
   return (
     <div className="banner">
       <Swiper
-        spaceBetween={30}
         pagination={pagination}
         loop
         modules={[Autoplay, Pagination, Navigation]}

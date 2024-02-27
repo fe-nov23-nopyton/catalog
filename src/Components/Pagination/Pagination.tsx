@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const Pagination: React.FC<Props> = ({ total, perPage, currentPage, onPageChange }) => {
-  const totalPages = Math.ceil(total / perPage - 1);
+  const totalPages = Math.ceil(total / perPage);
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
   const navWindow = 5;
 

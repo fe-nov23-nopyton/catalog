@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import "./Header.scss";
 import { Burger } from "./Burger_menu/Burger";
 import { ButtonsHeader } from "./ButtonsHeader/ButtonsHeader";
-import { ToggleThemeButton } from "./toggleThemeButton/ToggleThemeButton";
 import { MenuNavigation } from "./Nav/MenuNavigation";
+import { Toggle } from "../Components/Toggle/Toggle";
 
 export const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -37,7 +37,7 @@ export const Header = () => {
           </div>
           <div className="header__controls-buttons">
             <div className="header__controls-buttons-theme">
-              <ToggleThemeButton />
+              <Toggle />
             </div>
             <div className="header__controls-buttons-fav">
               <ButtonsHeader />

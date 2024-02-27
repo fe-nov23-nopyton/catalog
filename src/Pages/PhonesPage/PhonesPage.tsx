@@ -13,6 +13,8 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Pagination } from "../../Components/Pagination/Pagination";
 import { Loader } from "../../Components/Loader";
 import { Dropdown } from "../../Components/UI_Kit/Dropdown";
+import { TempCard } from "../../Components/TempCard/TempCard";
+import { TempSort } from "../../Components/TempCard/TempSort";
 
 const optionsForItemsOnPage = ["16", "8", "4", "All"];
 const optionsForSort = ["Cheapest", "Alphabetically", "Newest"];
@@ -46,9 +48,9 @@ export const PhonesPage: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 275,
-      behavior: "smooth",
+      behavior: "smooth"
     });
-  }
+  };
 
   const handleItemsOnPage = (param: string) => {
     setItemsOnPage(param);
@@ -80,39 +82,46 @@ export const PhonesPage: React.FC = () => {
       <h1 className="title">Mobile phones</h1>
 
       {loading ? (
-        <Loader />
+        <>
+          <TempSort />
+          <main className="grid">
+            {[...Array(4)].map((_, index) => (
+              <TempCard key={index} />
+            ))}
+          </main>
+        </>
       ) : (
         <>
           {!!errorMessage ? (
-            console.log(errorMessage),
-            <p className="title">{errorMessage}</p>
+            (console.log(errorMessage), (<p className="title">{errorMessage}</p>))
           ) : (
             <>
-            {!!quantityPhones ? (
-            <>
-              <p className="total-phones">{quantityPhones} models</p>
+              {!!quantityPhones ? (
+                <>
+                  <p className="total-phones">{quantityPhones} models</p>
 
-              <div className="dropdown-wrapper">
-                <div className="dropdown-sortBy">
-                  <Dropdown list={optionsForSort} handleClick={handleSortBy} title={"Sort by"} />
-                </div>
-                <div className="dropdown-itemsOnPage">
-                  <Dropdown list={optionsForItemsOnPage} handleClick={handleItemsOnPage} title={"Items on page"} />
-                </div>
-              </div>
+                  <div className="dropdown-wrapper">
+                    <div className="dropdown-sortBy">
+                      <Dropdown list={optionsForSort} handleClick={handleSortBy} title={"Sort by"} />
+                    </div>
+                    <div className="dropdown-itemsOnPage">
+                      <Dropdown list={optionsForItemsOnPage} handleClick={handleItemsOnPage} title={"Items on page"} />
+                    </div>
+                  </div>
 
-              <ProductsList phones={prepareProducts(phones, sort, itemsOnPage)} />
-              {itemsOnPage !== "All" && <Pagination
-                total={quantityPhones}
-                perPage={perPage}
-                currentPage={currentPage}
-                onPageChange={handlePageChange}
-              />}
-              
-              </>
-            ) : (
-              <p className="title">There are no products</p>
-            )}
+                  <ProductsList phones={prepareProducts(phones, sort, itemsOnPage)} />
+                  {itemsOnPage !== "All" && (
+                    <Pagination
+                      total={quantityPhones}
+                      perPage={perPage}
+                      currentPage={currentPage}
+                      onPageChange={handlePageChange}
+                    />
+                  )}
+                </>
+              ) : (
+                <p className="title">There are no products</p>
+              )}
             </>
           )}
         </>

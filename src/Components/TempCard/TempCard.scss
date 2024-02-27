@@ -1,0 +1,148 @@
+@import "../../App.scss";
+@import "../../mixins/adaptive-rules.scss";
+
+.skeleton {
+  padding: 32px;
+  width: 1fr;
+  max-width: 272px;
+  height: 507px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+
+  line-height: 21px;
+  text-align: left;
+
+  transition: box-shadow 0.3s;
+  border: 1px solid var(--elements-border);
+
+  @include onSmallPhone {
+    width: 288px;
+  }
+
+  &:hover {
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  &__image {
+    margin: 0 auto;
+    height: 200px;
+
+    &-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+
+
+      width: 150px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    gap: 8px;
+
+    font-size: 22px;
+    line-height: 31px;
+    text-align: left;
+
+    &--actual {
+      height: 31px;
+      width: 50px;
+      margin: 0;
+    }
+
+    &--old {
+      height: 27px;
+      width: 50px;
+      margin: 0;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    width: 100%;
+  }
+
+  .skeleton__details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &-name {
+      min-height: 42px;
+      width: 200px;
+
+      font-size: 14px;
+      line-height: 21px;
+      text-align: left;
+    }
+  }
+  .skeleton__image {
+    box-sizing: border-box;
+    width: 150px;
+  }
+
+  .skeleton__details &__feature {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+
+    &-name {
+      
+      margin: 0;
+      width: 57px;
+      height: 15px;
+
+      text-align: left;
+    }
+
+    &-value {
+      margin: 0;
+
+      height: 15px;
+      width: 56px;
+      text-align: right;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+}
+
+.skeleton-button-add {
+    width: 168px;
+    height: 40px;
+}
+
+.skeleton-button-fav {
+    width: 40px;
+    height: 40px;
+}
+
+.skeleton__bg {
+  background: rgb(194, 194, 194);
+  background: linear-gradient(
+    90deg,
+    rgba(194, 194, 194, 0.6867121848739496) 0%,
+    rgba(217, 217, 217, 0.8547794117647058) 100%
+  );
+  animation: animation 0.5s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes animation {
+0% {
+  background-position: 200%;
+}
+100% {
+  background-position: 0%;
+}
+}

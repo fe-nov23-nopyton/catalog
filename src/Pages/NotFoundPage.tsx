@@ -1,17 +1,18 @@
 import React from "react";
+import { LookingGuy } from "../Components/LookingGuy/LookingGuy";
 
 import "../Pages/NotFoundPage.scss";
+import { NavLink } from "react-router-dom";
+import { Button } from "../Components/UI_Kit/Button";
+import { ButtonType } from "../types/ButtonType";
 
 export const NotFoundPage: React.FC = () => (
   <div className="not-found">
-    <div className="looking-guy forward">
-      <div className="eye left-eye" />
-      <div className="eye right-eye" />
+    <LookingGuy mainMessage="404 - Page not found" secondMessage="Oops! It seems like you got lost..." />
+    <div className="not-found__button">
+      <NavLink to="/catalog/home">
+        <Button buttonType={ButtonType.Primary} buttonText="Go back to home" />
+      </NavLink>
     </div>
-    <h1 className="not-found__title">404 - Page not found</h1>
-    <p className="not-found__message">Oops! It seems like you got lost...</p>
-    <a href="/catalog/home" className="not-found__home-link">
-      Go back to Home
-    </a>
   </div>
 );

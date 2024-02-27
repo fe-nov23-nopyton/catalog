@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const URL = "./new/products.json";
-
 function wait(delay: number) {
   return new Promise((resolve) => {
     setTimeout(resolve, delay);
@@ -8,7 +6,7 @@ function wait(delay: number) {
 }
 
 export function getPhones() {
-  return Promise.all([fetch(URL), wait(500)]).then(([response]) => {
+  return Promise.all([fetch("/catalog/new/products.json"), wait(500)]).then(([response]) => {
     if (!response.ok) {
       throw new Error();
     }

@@ -24,8 +24,7 @@ import { generateRandomId } from "../../utils/generateRandomId";
 
 export const CardLayout = () => {
   // #region Fetching phone data
-  const { phoneData, loading, errorMessage } = useAppSelector((state) => state.phoneData);
-  console.log("phoneData", phoneData);
+  const { phoneData, loading } = useAppSelector((state) => state.phoneData);
   const dispatch = useAppDispatch();
 
   const { pathname } = useLocation();
@@ -57,11 +56,6 @@ export const CardLayout = () => {
   // #region Navigation
   const navigate = useNavigate();
   const handleBack = () => navigate(-1);
-
-  // useEffect(() => {
-  //   window.scrollTo({ top: 85, behavior: "smooth" });
-  // }, [phoneData]);
-
   // #endregion
 
   // #region Selecting product
@@ -110,18 +104,16 @@ export const CardLayout = () => {
   // #endregion
 
   // #region Slider
-  const { phones, loading: loadingSlider } = useAppSelector((state) => state.catalog);
-  console.log("phones", phones);
+  const { phones } = useAppSelector((state) => state.catalog);
 
   useEffect(() => {
     dispatch(fetchPhones());
-  }, [phones]);
+  }, []);
 
   const phonesToSlider = useMemo(() => getRecommendModels(phones, 16), [phones]);
-  // console.log("phonesToSlider", phonesToSlider);
   // #endregion
 
-  const loaded = !loading; ////test
+  const loaded = !loading;
   return (
     <>
       {loaded && Object.keys(phoneData).length > 0 ? (
@@ -206,7 +198,7 @@ export const CardLayout = () => {
               </div>
             </div>
           </div>
-          {<Slider title="You may also like" phones={phonesToSlider} />}
+          <Slider title="You may also like" phones={phonesToSlider} />
         </>
       ) : null}
     </>

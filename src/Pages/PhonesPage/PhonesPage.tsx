@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from "react";
 import "./PhonesPage.scss";
 import { ProductsList } from "../../Components/ProductsList/ProductsList";
@@ -20,39 +17,34 @@ const optionsForItemsOnPage = ["16", "8", "4", "All"];
 const optionsForSort = ["Cheapest", "Alphabetically", "Newest"];
 
 export const PhonesPage: React.FC = () => {
+  // #region redux
   const { phones, loading, errorMessage } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispatch();
 
-  // #region url params 
-  const { pathname } = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const sort = searchParams.get('sort') || '';
-  const itemsOnPage = searchParams.get('itemsOnPage') || '';
-  const query = searchParams.get('query') || '';
-  // #endregion
+  const quantityPhones = phones.length;
 
   useEffect(() => {
     dispatch(fetchPhones());
-
-    const valueSort = localStorage.getItem('sort');
-    console.log("1 console", valueSort);
-    const valueItemsOnPage = localStorage.getItem('itemsOnPage');
-
-    if (valueSort) {
-      const params = new URLSearchParams(searchParams);
-      params.set('sort', valueSort);
-      setSearchParams(params);
-    }
-    if (valueItemsOnPage) {
-      const params = new URLSearchParams(searchParams);
-      params.set('itemsOnPage', valueItemsOnPage);
-      setSearchParams(params);
-    }
   }, []);
+  // #endregion
 
+  // #region url params
+  const { pathname } = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const sort = searchParams.get("sort") || "";
+  const itemsOnPage = searchParams.get("itemsOnPage") || "";
+  const query = searchParams.get("query") || "";
+  // #endregion
+
+  // #region pagination
   const [currentPage, setCurrentPage] = useState(1);
   const perPage = parseInt(itemsOnPage) || phones.length;
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    scrollToTop();
+  };
 
   const prepareProducts = (phones: Phone[], sortBy: string, changeVisible: string, query: string) => {
     const filteredPhones = filterItems(phones, query);
@@ -65,48 +57,87 @@ export const PhonesPage: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 300,
-      behavior: "smooth",
+      behavior: "smooth"
     });
-  }
+  };
+  // #endregion
 
+  // #region search params
   const handleItemsOnPage = (param: string) => {
     const params = new URLSearchParams(searchParams);
-    params.set('itemsOnPage', param);
+    params.set("itemsOnPage", param);
     setSearchParams(params);
 
     setCurrentPage(1);
 
-    localStorage.setItem('itemsOnPage', param);
+    localStorage.setItem("itemsOnPage", param);
   };
 
   const handleSortBy = (sortBy: string) => {
     const params = new URLSearchParams(searchParams);
-    params.set('sort', sortBy);
+    params.set("sort", sortBy);
     setSearchParams(params);
 
-    localStorage.setItem('sort', sortBy);
+    localStorage.setItem("sort", sortBy);
   };
+
+  useEffect(() => {
+    const valueSort = localStorage.getItem("sort");
+    const valueItemsOnPage = localStorage.getItem("itemsOnPage");
+    const valueQuery = localStorage.getItem("query");
+
+    const params = new URLSearchParams(searchParams);
+
+    if (valueSort !== null) {
+      params.set("sort", valueSort);
+    }
+    if (valueItemsOnPage !== null) {
+      params.set("itemsOnPage", valueItemsOnPage);
+    }
+    if (valueQuery !== null) {
+      params.set("query", valueQuery);
+    }
+
+    setSearchParams(params);
+  }, []);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const valueSort = localStorage.getItem("sort");
+      const valueItemsOnPage = localStorage.getItem("itemsOnPage");
+
+      if (valueSort !== null) {
+        const params = new URLSearchParams(searchParams);
+        params.set("sort", valueSort);
+        setSearchParams(params);
+      }
+      if (valueItemsOnPage !== null) {
+        const params = new URLSearchParams(searchParams);
+        params.set("itemsOnPage", valueItemsOnPage);
+        setSearchParams(params);
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, [searchParams, setSearchParams]);
 
   const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newQuery = event.target.value;
     const params = new URLSearchParams(searchParams);
     if (newQuery) {
-      params.set('query', newQuery);
+      params.set("query", newQuery);
     } else {
-      params.delete('query');
+      params.delete("query");
     }
     setSearchParams(params);
 
-    localStorage.setItem('query', newQuery);
+    localStorage.setItem("query", newQuery);
   };
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    scrollToTop();
-  };
-
-  const quantityPhones = phones.length;
-
+  // #endregion
   return (
     <div>
       <Breadcrumbs path={pathname} />
@@ -118,38 +149,50 @@ export const PhonesPage: React.FC = () => {
       ) : (
         <>
           {!!errorMessage ? (
-            console.log(errorMessage),
-            <p className="title">{errorMessage}</p>
+            (console.log(errorMessage), (<p className="title">{errorMessage}</p>))
           ) : (
             <>
-            {!!quantityPhones ? (
-            <>
-              <p className="total-phones">{quantityPhones} models</p>
+              {!!quantityPhones ? (
+                <>
+                  <p className="total-phones">{quantityPhones} models</p>
 
-              <div className="dropdown-wrapper">
-                <div className="dropdown-sortBy">
-                  <Dropdown value={sort} list={optionsForSort} handleClick={handleSortBy} title={"Sort by"} />
-                </div>
-                <div className="dropdown-itemsOnPage">
-                  <Dropdown value={itemsOnPage} list={optionsForItemsOnPage} handleClick={handleItemsOnPage} title={"Items on page"} />
-                </div>
-                <div className="dropdown-input">
-                  <Input type="text" placeholder="Search..." value={query} onChange={handleChangeQuery} name="query" title="Search" />
-                </div>
-              </div>
+                  <div className="dropdown-wrapper">
+                    <div className="dropdown-sortBy">
+                      <Dropdown value={sort} list={optionsForSort} handleClick={handleSortBy} title={"Sort by"} />
+                    </div>
+                    <div className="dropdown-itemsOnPage">
+                      <Dropdown
+                        value={itemsOnPage}
+                        list={optionsForItemsOnPage}
+                        handleClick={handleItemsOnPage}
+                        title={"Items on page"}
+                      />
+                    </div>
+                    <div className="dropdown-input">
+                      <Input
+                        type="text"
+                        placeholder="Search..."
+                        value={query}
+                        onChange={handleChangeQuery}
+                        name="query"
+                        title="Search"
+                      />
+                    </div>
+                  </div>
 
-              <ProductsList phones={prepareProducts(phones, sort, itemsOnPage, query)} />
-              {itemsOnPage !== "All" && <Pagination
-                total={quantityPhones}
-                perPage={perPage}
-                currentPage={currentPage}
-                onPageChange={handlePageChange}
-              />}
-              
-              </>
-            ) : (
-              <p className="title">There are no products</p>
-            )}
+                  <ProductsList phones={prepareProducts(phones, sort, itemsOnPage, query)} />
+                  {itemsOnPage !== "All" && (
+                    <Pagination
+                      total={quantityPhones}
+                      perPage={perPage}
+                      currentPage={currentPage}
+                      onPageChange={handlePageChange}
+                    />
+                  )}
+                </>
+              ) : (
+                <p className="title">There are no products</p>
+              )}
             </>
           )}
         </>

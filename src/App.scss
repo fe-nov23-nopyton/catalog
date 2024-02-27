@@ -80,17 +80,27 @@
   --tablets-color-category: rgb(146, 141, 141);
   --accessories-color-category: rgba(213, 60, 81, 1);
 
-  --red--icons: rgba(235, 87, 87, 1);
   --accent-hover: rgba(144, 91, 255, 1);
 
   --primary-button-box-shadow-hover: rgba(23, 32, 49, 0.4);
   --primary-button-bg-hover-dark: rgba(163, 120, 255, 1);
   --gray-surface-one: rgba(22, 24, 39, 1);
+
+  /* #region COLORS */
   --black: rgba(76, 76, 76, 1);
   --rosegold: rgba(183, 110, 121, 1);
   --gold: rgba(252, 219, 193, 1);
   --silver: rgba(95, 113, 112, 1);
+  --spacegray: #808080;
+  --green: #008000;
+  --purple: #800080;
+  --red: rgba(235, 87, 87, 1);
+  --white: rgba(255, 255, 255, 1);
+  --yellow: rgba(255, 255, 0, 1);
+  --midnightgreen: rgba(0, 73, 83, 1);
+  --coral: rgba(255, 127, 80, 1);
 
+  /* #endregion */
   --dropdown-item-bg-hover-light: rgba(250, 251, 252, 1);
 }
 

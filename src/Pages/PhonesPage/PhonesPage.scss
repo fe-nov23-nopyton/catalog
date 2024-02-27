@@ -22,6 +22,7 @@
 
 .dropdown-wrapper {
   margin-bottom: 24px;
+  flex-wrap: wrap;
   display: flex;
   gap: 16px;
 }
@@ -47,3 +48,11 @@
 // .grid-item {
 // justify-items: center;
 // }
+
+.dropdown-input {
+  width: 225px;
+
+  @include onSmallPhone {
+    width: 50%;
+  }
+}

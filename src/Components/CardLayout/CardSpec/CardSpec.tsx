@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 import classNames from "classnames";
-import { PhoneFull } from "../PhoneFull";
-import { PhoneShort } from "../PhoneShort";
 import "./CardSpec.scss";
+import { SelectedPhone } from "../../../types/SelectedPhone";
 
 interface CardSpecProps {
-  spec: PhoneFull | PhoneShort;
-  isTrimed: boolean;
+  spec: SelectedPhone;
+  isTrimmed: boolean;
 }
 
 type typeSpecPropTitle = {
@@ -34,7 +33,7 @@ const specPropTitle = {
 
 const propsOfItem = ["screen", "resolution", "processor", "ram", "capacity", "camera", "zoom", "cell"];
 
-export const CardSpec: React.FC<CardSpecProps> = ({ spec, isTrimed }) => {
+export const CardSpec: React.FC<CardSpecProps> = ({ spec, isTrimmed }) => {
   const specKeys = Object.keys(spec);
 
   const preparedSpecOrder = {
@@ -51,10 +50,10 @@ export const CardSpec: React.FC<CardSpecProps> = ({ spec, isTrimed }) => {
   let renderFields: string[];
 
   switch (true) {
-    case specKeys.length > 13 && isTrimed:
+    case specKeys.length > 13 && isTrimmed:
       renderFields = propsOfItem.slice(0, 4);
       break;
-    case specKeys.length > 13 && !isTrimed:
+    case specKeys.length > 13 && !isTrimmed:
       renderFields = [...propsOfItem];
       break;
     case specKeys.length <= 13:
@@ -66,7 +65,7 @@ export const CardSpec: React.FC<CardSpecProps> = ({ spec, isTrimed }) => {
   }
 
   return (
-    <div className={classNames("spec", { full__spec: !isTrimed })}>
+    <div className={classNames("spec", { full__spec: !isTrimmed })}>
       {Object.entries(preparedSpecOrder)
         .filter((specEntrie) => renderFields.includes(specEntrie[0]))
         .map((specEntrie) => (

@@ -1,0 +1,71 @@
+.modal {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  font-family: 'Mont-Regular';
+  background-color: rgba(0, 0, 0, 0.4);
+
+  &.active {
+    opacity: 1;
+  }
+
+  &__content {
+    padding: 40px;
+    width: 40vw;
+    border: 1px solid var(--elements-border);
+    background-color: white;
+    transform: scale(0.5);
+    transition: 0.4s all;
+
+    &.active {
+      transform: scale(1);
+    }
+  }
+
+  &__title {
+    color: rgb(0, 192, 0);
+    font-size: 24px;
+  }
+
+  &__image {
+    width: 80px;
+    height: 80px;
+    background-image: url(../../images/icons/check-mark.svg);
+    margin: 0 auto;
+  }
+
+  &__thanks {
+    font-family: 'Mont-Bold';
+    font-weight: bold;
+  }
+}
+
+.dark-theme {
+  .modal {
+    background-color: rgba(255, 255, 255, 0.4); 
+
+    &__content {
+      background-color: #070025; 
+    }
+
+    &__title {
+      color: white;
+    }
+
+    &__thanks {
+      color: white;
+    }
+
+    &__subtitle {
+      color: white;
+    }
+  }
+}

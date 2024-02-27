@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CheckoutSummary.scss";
-import { useAppDispatch } from "../../redux/hooks";
-import { deleteCartItems } from "../../redux/features/cartSlice";
 import { Button } from "../UI_Kit/Button";
 import { ButtonType } from "../../types/ButtonType";
+import { Modal } from "../Modal/Modal";
 
 interface Props {
   totalPrice: number;
@@ -11,15 +10,7 @@ interface Props {
 }
 
 export const CheckoutSummary: React.FC<Props> = ({ totalPrice, itemsCount }) => {
-  const dispatch = useAppDispatch();
-
-  const handleCheckout = () => {
-    const userConfirmation = window.confirm("Checkout is not implemented yet. Do you want to clear the Cart?");
-
-    if (userConfirmation) {
-      dispatch(deleteCartItems());
-    }
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="checkout-summary">
@@ -27,8 +18,9 @@ export const CheckoutSummary: React.FC<Props> = ({ totalPrice, itemsCount }) => 
       <div className="total-items">Total for {itemsCount} items</div>
       <div className="divider" />
       <div className="checkout-button">
-        <Button buttonType={ButtonType.Primary} buttonText="Checkout" handleClick={handleCheckout} />
+        <Button buttonType={ButtonType.Primary} buttonText="Checkout" handleClick={() => setIsModalOpen(true)} />
       </div>
+      {isModalOpen && <Modal />}
     </div>
   );
 };

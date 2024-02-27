@@ -218,8 +218,10 @@
       }
 
       &-select {
-        margin-top: 8px;
         display: flex;
+        gap: 8px;
+        margin-top: 8px;
+
         width: 195px;
         height: 32px;
       }
@@ -267,7 +269,10 @@
       }
 
       &-controls {
+        width: 100%;
+        display: flex;
         margin-top: 16px;
+        gap: 8px;
       }
     }
 

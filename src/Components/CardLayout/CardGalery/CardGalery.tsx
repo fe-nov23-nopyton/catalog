@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "./CardGalery.scss";
 import classNames from "classnames";
+
+import "./CardGalery.scss";
 
 interface GaleryProps {
   images: string[];

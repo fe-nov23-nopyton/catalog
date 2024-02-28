@@ -5,13 +5,12 @@
 }
 
 .category-title {
-  font-family: Mont-Bold;
+  margin-bottom: 24px;
+
   font-size: 32px;
   line-height: 41px;
   font-weight: 800;
   color: var(--text-hover);
-
-  margin-bottom: 24px;
 }
 
 .wrapper {
@@ -26,14 +25,17 @@
       align-items: center;
     }
   }
-
 }
 
 .image-container {
   width: 368px;
   height: 368px;
-
+  margin-bottom: 24px;
+  background-size: cover;
   background-repeat: no-repeat;
+
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
 
   @include onTablet {
     width: 187px;
@@ -48,15 +50,9 @@
     width: 288px;
     height: 288px;
   }
-  margin-bottom: 24px;
-
-  background-size: cover;
-
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
 
   &:hover {
-    transform: scale(0.99);
+    transform: scale(1.01);
   }
 }
 

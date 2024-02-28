@@ -1,10 +1,10 @@
 @import "/src/mixins/adaptive-rules.scss";
 
 .cardLayout {
+  width: 1136px;
   margin: 0 auto;
   box-sizing: border-box;
   display: grid;
-  width: 1136px;
   column-gap: 64px;
   grid-template-areas:
     "title title"
@@ -123,16 +123,15 @@
       "info";
 
       width: 288px;
-
       padding-top: 0;
     }
 
     &-color {
+      width: 320px;
       grid-area: color;
       display: flex;
       flex-direction: column;
-      width: 320px;
-      border-bottom: 1px solid rgba(59, 62, 74, 0.406);
+      border-bottom: 1px solid var(--elements-border-bottom);
 
       @include onTablet {
         width: 237px;
@@ -154,22 +153,22 @@
       }
 
       &-select {
+        width: 152px;
+        height: 32px;
         margin-top: 8px;
         display: flex;
         gap: 8px;
-        width: 152px;
-        height: 32px;
       }
     }
 
     &-id {
       grid-area: id;
       margin-top: -25px;
-      color: var(--main-text);
       display: flex;
       justify-content: flex-end;
       font-weight: 700;
       font-size: 12px;
+      color: var(--main-text);
 
       @include onTablet {
         position: absolute;
@@ -193,13 +192,13 @@
     }
 
     &-capacity {
+      width: 320px;
       grid-area: capacity;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      width: 320px;
-      border-bottom: 1px solid rgba(59, 62, 74, 0.406);
+      border-bottom: 1px solid var(--elements-border-bottom);
 
       @include onTablet {
         width: 237px;
@@ -221,12 +220,11 @@
       }
 
       &-select {
+        width: 195px;
+        height: 32px;
         display: flex;
         gap: 8px;
         margin-top: 8px;
-
-        width: 195px;
-        height: 32px;
       }
     }
 
@@ -238,7 +236,6 @@
       justify-content: center;
       align-items: flex-start;
 
-      
       @include onTablet {
         width: 237px;
       }
@@ -285,7 +282,6 @@
       width: 320px;
       display: flex;
 
-      
       @include onTablet {
         width: 237px;
       }
@@ -323,7 +319,7 @@
       font-size: 22px;
       font-weight: 800;
       color: var(--text-hover);
-      border-bottom: 1px solid rgba(59, 62, 74, 0.406);
+      border-bottom: 1px solid var(--elements-border-bottom);
     }
 
     &-info {
@@ -353,11 +349,10 @@
       font-size: 22px;
       font-weight: 800;
       color: var(--text-hover);
-      border-bottom: 1px solid rgba(59, 62, 74, 0.406);
+      border-bottom: 1px solid var(--elements-border-bottom);
 
       @include onSmallPhone {
         height: 42px;
-
         font-size: 20px;
       }
     }
@@ -367,7 +362,6 @@
         flex-direction: column;
         gap: 32px;
         margin-top: 32px;
-
 
         &-main {
 

@@ -7,12 +7,13 @@ interface Props {
   secondMessage?: string;
 }
 
+const directions = ["forward", "left", "right", "up", "down"];
+
 export const LookingGuy: React.FC<Props> = ({ mainMessage, secondMessage }) => {
   const [lookingDirection, setLookingDirection] = useState("forward");
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const directions = ["forward", "left", "right", "up", "down"];
       const randomDirection = directions[Math.floor(Math.random() * directions.length)];
       setLookingDirection(randomDirection);
     }, 2000);

@@ -16,6 +16,10 @@
     width: 100px;
     height: 100px;
 
+    background-color: var(--text-hover);
+    border-radius: 50%;
+    position: relative;
+
     @include onLargePhone {
       width: 75px;
       height: 75px;
@@ -25,15 +29,17 @@
       width: 50px;
       height: 50px;
     }
-
-    background-color: var(--text-hover);
-    border-radius: 50%;
-    position: relative;
   }
   
   .eye {
     width: 15px;
     height: 15px;
+    top: 40%;
+
+    background-color: var(--bg);
+    border-radius: 50%;
+    position: absolute;
+    animation: moveEyes 0.5s infinite alternate;
 
     @include onLargePhone {
       width: 8px;
@@ -44,11 +50,6 @@
       width: 8px;
       height: 8px;
     }
-    background-color: var(--bg);
-    border-radius: 50%;
-    position: absolute;
-    top: 40%;
-    animation: moveEyes 0.5s infinite alternate;
   }
   
   .left-eye {

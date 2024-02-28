@@ -3,13 +3,14 @@
 .dropdown {
   width: 100%;
 
-  color: var(--text-hover);
   font-family: 'Mont-SemiBold';
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
   letter-spacing: 0em;
   text-align: left;
+
+  color: var(--text-hover);
 
   &--title {
     margin-bottom: 4px;

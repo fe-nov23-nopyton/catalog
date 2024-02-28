@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { fetchPhones } from "../redux/features/catalogSlice";
 
-import { Slider } from "../Components/Slider";
 import { Loader } from "../Components/Loader";
 import { Categories } from "../Components/Categories";
 import { Banner } from "../Components/Banner/Banner";
 
 import { getHotPrices } from "../utils/getHotPrices";
 import { getNewModels } from "../utils/getNewModels";
+import { Recommends } from "../Components/Recommends/Recommends";
 
 export const HomePage: React.FC = () => {
   const { phones, loading } = useAppSelector((state) => state.catalog);
@@ -33,9 +33,9 @@ export const HomePage: React.FC = () => {
         <>
           <h1 className="title">Welcome to Nice Gadgets store!</h1>
           <Banner />
-          {newModels.length !== 0 && <Slider title={"Brand new models"} phones={newModels} />}
+          {newModels.length !== 0 && <Recommends phones={newModels} title="New Models" />}
           <Categories amount={amountItems} />
-          {hotPrices.length !== 0 && <Slider title={"Hot prices"} phones={hotPrices} />}
+          {hotPrices.length !== 0 && <Recommends phones={hotPrices} title="Hot Prices" />}
         </>
       )}
     </>

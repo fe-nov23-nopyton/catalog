@@ -31,9 +31,9 @@
   }
 
   &__image {
-    margin: 0 auto;
     height: 200px;
     width: auto;
+    margin: 0 auto;
 
     &-container {
       display: flex;
@@ -119,6 +119,7 @@
   &__buttons {
     display: flex;
     gap: 8px;
+
     &-add-to-cart {
       height: 40px;
       flex-grow: 1;

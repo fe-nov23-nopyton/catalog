@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Modal.scss";
 import { useAppDispatch } from "../../redux/hooks";
 import { deleteCartItems } from "../../redux/features/cartSlice";
 import { ThemeContext } from "../../ThemeContext/ThemeContext";
+
+import "./Modal.scss";
 
 export const Modal = () => {
   const dispatch = useAppDispatch();

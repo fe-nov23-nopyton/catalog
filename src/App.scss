@@ -68,6 +68,7 @@
 
   --elements-border-light: rgba(226, 230, 233, 1);
   --elements-border-dark: rgba(59, 62, 74, 1);
+  --elements-border-bottom: rgba(59, 62, 74, 0.406);
 
   --icons-light: rgba(180, 189, 195, 1);
   --icons-dark: rgba(50, 53, 66, 1);
@@ -189,14 +190,21 @@
 }
 
 .title {
-  font-family: Mont-Bold;
+  margin-block: 24px;
+
+  font-family: "Mont-Bold";
   text-align: left;
   font-size: 48px;
   font-weight: 800;
   line-height: 56px;
   color: var(--text-hover);
 
-  margin-block: 24px;
+  line-height: 56px;
+
+  @include onSmallPhone {
+    font-size: 32px;
+    line-height: 41px;
+  }
 }
 
 .position-center {

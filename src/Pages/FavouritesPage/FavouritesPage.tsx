@@ -3,6 +3,7 @@ import { useAppSelector } from "../../redux/hooks";
 import { ProductsList } from "../../Components/ProductsList/ProductsList";
 import { Breadcrumbs } from "../../Components/Breadcrumbs/Breadcrumbs";
 import { useLocation } from "react-router-dom";
+import { LookingGuy } from "../../Components/LookingGuy/LookingGuy";
 
 export const FavoritesPage: React.FC = () => {
   const items = useAppSelector((state) => state.favorites.favorites);
@@ -30,7 +31,7 @@ export const FavoritesPage: React.FC = () => {
           <ProductsList phones={items} />
         </>
       ) : (
-        <h1 className="title">Favorites is empty</h1>
+        <LookingGuy mainMessage="There are no products yet..." />
       )}
 
       {/* {<Loader />} <!-- loading && (...) --> */}

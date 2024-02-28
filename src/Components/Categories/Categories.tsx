@@ -25,7 +25,7 @@ export const Categories: React.FC<Props> = ({ amount }) => {
     <section className="container">
       <h2 className="category-title">Shop by category</h2>
 
-      <div className="wrapper">
+      <div className="wrapper wrapper-categories">
         {categories.map((category) => (
           <article className="box" key={category.link}>
             <div className={`image-container ${category.cssClass}`}>

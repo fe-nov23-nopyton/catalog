@@ -119,7 +119,7 @@ export const CardLayout = () => {
       {loaded && Object.keys(phoneData).length > 0 ? (
         <>
           <Breadcrumbs path={pathname} />
-          <div style={{ textAlign: "left" }}>
+          <div style={{ textAlign: "left", margin: "40px 0 0 0" }}>
             <Button handleClick={handleBack} buttonType={ButtonType.Navigation} buttonText="Back" />
           </div>
 

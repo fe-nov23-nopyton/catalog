@@ -20,7 +20,9 @@ export const Footer: React.FC<Props> = ({ theme }) => (
         <a href="https://github.com/fe-nov23-nopyton/catalog" target="_blank" className="footer__list-item">
           Github
         </a>
-        <li className="footer__list-item">Contacts</li>
+        <Link to="/catalog/contacts" className="footer__list-item">
+          Contacts
+        </Link>
         <li className="footer__list-item">Rights</li>
       </ul>
 

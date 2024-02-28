@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useAppDispatch } from "../../redux/hooks";
 import { deleteCartItems } from "../../redux/features/cartSlice";
 import { ThemeContext } from "../../ThemeContext/ThemeContext";
+import { useNavigate } from "react-router-dom";
 
 import "./Modal.scss";
 

@@ -61,7 +61,7 @@ export const PhonesPage: React.FC = () => {
 
   const scrollToTop = () => {
     window.scrollTo({
-      top: 300,
+      top: 260,
       behavior: "smooth"
     });
   };

@@ -5,6 +5,7 @@ import { Phone } from "../../types/Phone";
 import { ProductCard } from "../ProductCard/ProductCard";
 
 import "./Recommends.scss";
+import "../Slider/Slider.scss";
 
 interface Props {
   phones: Phone[];

@@ -30,7 +30,9 @@ export const HomePage: React.FC = () => {
   return (
     <>
       {loading ? (
-        <Loader />
+        <div className="position-center">
+          <Loader />
+        </div>
       ) : (
         <>
           <h1 className="title">Welcome to Nice Gadgets store!</h1>

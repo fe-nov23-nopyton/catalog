@@ -189,14 +189,21 @@
 }
 
 .title {
-  font-family: Mont-Bold;
+  margin-block: 24px;
+
+  font-family: "Mont-Bold";
   text-align: left;
   font-size: 48px;
   font-weight: 800;
   line-height: 56px;
   color: var(--text-hover);
 
-  margin-block: 24px;
+  line-height: 56px;
+
+  @include onSmallPhone {
+    font-size: 32px;
+    line-height: 41px;
+  }
 }
 
 .position-center {

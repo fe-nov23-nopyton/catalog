@@ -26,17 +26,16 @@ export const FavoritesPage: React.FC = () => {
           <h1 className="title" style={{ marginBottom: "8px" }}>
             Favorites
           </h1>
+
           <div className="total-phones">{itemsCount} items</div>
 
           <ProductsList phones={items} />
         </>
       ) : (
         <div className="position-center">
-          <LookingGuy mainMessage="There are no products yet..." />
+          <LookingGuy mainMessage="There are no products yet..." secondMessage="Did you not like anything?" />
         </div>
       )}
-
-      {/* {<Loader />} <!-- loading && (...) --> */}
     </main>
   );
 };

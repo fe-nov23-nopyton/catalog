@@ -1,5 +1,6 @@
 import React from "react";
 import { LookingGuy } from "../Components/LookingGuy/LookingGuy";
+
 import "../App.scss";
 
 export const TabletsPage: React.FC = () => (

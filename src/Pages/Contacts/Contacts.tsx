@@ -1,4 +1,6 @@
 import React from "react";
+import { Person } from "./Person/Person";
+
 import NazariiPhoto from "./fotos/Nazarii.png";
 import Vadym from "./fotos/Vadym.png";
 import Oleksandr from "./fotos/3.png";
@@ -6,7 +8,6 @@ import Maksym from "./fotos/4.png";
 import Ivan from "./fotos/ivan.png";
 
 import "./Contacts.scss";
-import { Person } from "./Person/Person";
 
 const contacts = [
   {

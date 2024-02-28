@@ -1,15 +1,15 @@
-// import { Loader } from "../../Components/Loader";
-import { CartList } from "../../Components/CartList/CartList";
-import { CheckoutSummary } from "../../Components/СheckoutSummary";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import { useAppSelector } from "../../redux/hooks";
 import { totalQuantity } from "../../utils/totalQuantity";
-import { useEffect } from "react";
-import "./CartPage.scss";
 import { Item } from "../../types/Item";
+import { CartList } from "../../Components/CartList/CartList";
+import { CheckoutSummary } from "../../Components/СheckoutSummary";
 import { Button } from "../../Components/UI_Kit/Button";
-import { useNavigate } from "react-router";
 import { ButtonType } from "../../types/ButtonType";
 import { LookingGuy } from "../../Components/LookingGuy/LookingGuy";
+
+import "./CartPage.scss";
 
 export const CartPage = () => {
   const items: Item[] = useAppSelector((state) => state.cart.cart);
@@ -25,6 +25,7 @@ export const CartPage = () => {
 
   const totalPrice = items.reduce((acc, item) => {
     const price = item.product.price * item.quantity;
+
     return acc + Math.round(price);
   }, 0);
 
@@ -40,7 +41,6 @@ export const CartPage = () => {
           <LookingGuy mainMessage="There are no products yet..." secondMessage="... but you can add them)" />
         </div>
       )}
-      {/* {<Loader />} <!-- loading && (...) --> */}
       {!!itemsCount && (
         <div className="cart-wrapper">
           <CartList items={items} />

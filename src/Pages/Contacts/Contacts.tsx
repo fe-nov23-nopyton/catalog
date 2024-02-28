@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NazariiPhoto from "./fotos/Nazarii.png";
 import Vadym from "./fotos/Vadym.png";
 import Oleksandr from "./fotos/3.png";
@@ -46,10 +46,16 @@ const contacts = [
   }
 ];
 
-export const Contacts: React.FC = () => (
-  <div className="contacts">
-    {contacts.map((person) => (
-      <Person key={person.id} photo={person.photo} name={person.name} email={person.email} phone={person.phone} />
-    ))}
-  </div>
-);
+export const Contacts: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="contacts">
+      {contacts.map((person) => (
+        <Person key={person.id} photo={person.photo} name={person.name} email={person.email} phone={person.phone} />
+      ))}
+    </div>
+  );
+};

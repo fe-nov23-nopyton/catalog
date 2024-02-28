@@ -45,12 +45,16 @@
 
 
 
-// .grid-item {
-// justify-items: center;
-// }
+.grid-item {
+justify-items: center;
+}
 
 .dropdown-input {
   width: 225px;
+
+  &:focus {
+    display: none;
+  }
 
   @include onSmallPhone {
     width: 50%;

@@ -46,7 +46,7 @@ export const Recommends: React.FC<Props> = ({ phones, title }) => (
         }}
       >
         {phones.map((phone) => (
-          <SwiperSlide>
+          <SwiperSlide key={phone.id}>
             <ProductCard phone={phone} />
           </SwiperSlide>
         ))}

@@ -1,10 +1,11 @@
 import React from "react";
 import { addQuantity, deleteFromCart, subtractQuantity } from "../../redux/features/cartSlice";
 import { useAppDispatch } from "../../redux/hooks";
-import "../../Pages/CartPage/CartPage.scss";
 import { Item } from "../../types/Item";
 import { Icon } from "../UI_Kit/Icon";
 import { IconContent } from "../../types/IconContent";
+
+import "../../Pages/CartPage/CartPage.scss";
 
 interface Props {
   item: Item;

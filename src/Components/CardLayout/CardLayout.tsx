@@ -1,26 +1,32 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// #region imports
+// React imports
+import React, { useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
+// Component imports
 import { CardGalery } from "./CardGalery/CardGalery";
-import "./CardLayout.scss";
 import { CardSpec } from "./CardSpec/CardSpec";
 import { Breadcrumbs } from "../Breadcrumbs";
-import { useEffect, useMemo } from "react";
+import { Slider } from "../Slider";
 import { Button } from "../UI_Kit/Button";
-import { ButtonType } from "../../types/ButtonType";
+import { Icon } from "../UI_Kit/Icon";
+
+// Redux imports
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { addToCart, deleteFromCart } from "../../redux/features/cartSlice";
-import { Icon } from "../UI_Kit/Icon";
-import { IconContent } from "../../types/IconContent";
 import { clickFavorite } from "../../redux/features/favoritesSlice";
-import { replacePart } from "../../utils/replacePath";
-import { Loader } from "../Loader";
 import { fetchPhone } from "../../redux/features/productDataSlice";
-import { Slider } from "../Slider";
-import { getRecommendModels } from "../../utils/getRecommendModels";
 import { fetchPhones } from "../../redux/features/catalogSlice";
+
+// Type imports
+import { ButtonType } from "../../types/ButtonType";
+import { IconContent } from "../../types/IconContent";
+
+// Utility imports
+import { replacePart } from "../../utils/replacePath";
+import { getRecommendModels } from "../../utils/getRecommendModels";
 import { generateRandomId } from "../../utils/generateRandomId";
-// #endregion
+
+import "./CardLayout.scss";
 
 export const CardLayout = () => {
   // #region Fetching phone data
@@ -122,7 +128,6 @@ export const CardLayout = () => {
           <div style={{ textAlign: "left", margin: "40px 0 0 0" }}>
             <Button handleClick={handleBack} buttonType={ButtonType.Navigation} buttonText="Back" />
           </div>
-
           <div className="cardLayout">
             <div className="cardLayout__header">{phoneData.name}</div>
             <div className="cardLayout__pictures">
@@ -144,9 +149,9 @@ export const CardLayout = () => {
                   ))}
                 </div>
               </div>
-
               <div className="cardLayout__options-capacity">
                 <div className="cardLayout__options-capacity-text">Select capacity</div>
+
                 <div className="cardLayout__options-capacity-select">
                   {phoneData.capacityAvailable.map((availableCapacity) => (
                     <Icon

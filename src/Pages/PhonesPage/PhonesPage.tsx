@@ -9,7 +9,6 @@ import { Phone } from "../../types/Phone";
 import { Breadcrumbs } from "../../Components/Breadcrumbs";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { Pagination } from "../../Components/Pagination/Pagination";
-import { Loader } from "../../Components/Loader";
 import { Dropdown } from "../../Components/UI_Kit/Dropdown";
 import { TempCard } from "../../Components/TempCard/TempCard";
 import { TempSort } from "../../Components/TempCard/TempSort";

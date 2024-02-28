@@ -36,7 +36,9 @@ export const CartPage = () => {
       {!!itemsCount ? (
         <h1 className="title">Cart</h1>
       ) : (
-        <LookingGuy mainMessage="There are no products yet..." secondMessage="... but you can add them)" />
+        <div className="position-center">
+          <LookingGuy mainMessage="There are no products yet..." secondMessage="... but you can add them)" />
+        </div>
       )}
       {/* {<Loader />} <!-- loading && (...) --> */}
       {!!itemsCount && (

@@ -31,7 +31,9 @@ export const FavoritesPage: React.FC = () => {
           <ProductsList phones={items} />
         </>
       ) : (
-        <LookingGuy mainMessage="There are no products yet..." />
+        <div className="position-center">
+          <LookingGuy mainMessage="There are no products yet..." />
+        </div>
       )}
 
       {/* {<Loader />} <!-- loading && (...) --> */}

@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState, useRef } from "react";
 import { ProductCard } from "../ProductCard/ProductCard";
 import { Phone } from "../../types/Phone";
-import "./Slider.scss";
 import { Icon } from "../UI_Kit/Icon";
 import { IconContent } from "../../types/IconContent";
+
+import "./Slider.scss";
 
 interface SliderProps {
   title: string;

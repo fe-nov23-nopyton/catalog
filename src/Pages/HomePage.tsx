@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { Slider } from "../Components/Slider";
 import { fetchPhones } from "../redux/features/catalogSlice";
@@ -8,10 +6,6 @@ import { Loader } from "../Components/Loader";
 import { Categories } from "../Components/Categories";
 import { getHotPrices } from "../utils/getHotPrices";
 import { getNewModels } from "../utils/getNewModels";
-import Swiper from "../Components/Slider/Swiper";
-import { response } from "express";
-import { sortItems } from "../utils/sortItems";
-import { Phone } from "../types/Phone";
 import { Banner } from "../Components/Banner/Banner";
 
 export const HomePage: React.FC = () => {

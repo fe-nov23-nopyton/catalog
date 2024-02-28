@@ -1,0 +1,351 @@
+@import "/src/mixins/adaptive-rules.scss";
+
+.skeleton__cardLayout {
+  width: 1136px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: grid;
+  column-gap: 64px;
+  grid-template-areas:
+    "title title"
+    "pictures option"
+    "about specs";
+  background-color: var(--bg);
+
+  @include onTablet {
+    width: 592px;
+
+    grid-template-areas:
+      "title title"
+      "pictures option"
+      "about about"
+      "specs specs";
+
+    column-gap: 16px;
+  }
+
+  @include onLargePhone {
+    width: 592px;
+
+    grid-template-areas:
+      "title title"
+      "pictures option"
+      "about about"
+      "specs specs";
+
+    column-gap: 16px;
+  }
+
+  @include onSmallPhone {
+    width: 288px;
+
+    grid-template-areas:
+      "title"
+      "pictures"
+      "option"
+      "about"
+      "specs";
+
+    column-gap: 0px;
+    row-gap: 40px;
+  }
+
+  &__header {
+    grid-area: title;
+    margin-top: 24px;
+    display: flex;
+    height: 47px;
+    width: 500px;
+
+    @include onTablet {
+      margin-top: 35px;
+      height: 40px;
+      width: 338px;
+    }
+
+    @include onLargePhone {
+      margin-top: 28px;
+      width: 338px;
+      height: 32px;
+    }
+
+    @include onSmallPhone {
+      margin: 0 auto;
+      width: 250px;
+      height: 100px;
+      margin-top: 24px;
+    }
+  }
+
+  &__pictures {
+    padding-top: 35px;
+    grid-area: pictures;
+    width: 560px;
+    height: 464px;
+
+    @include onTablet {
+      padding-top: 30px;
+      width: 338px;
+    }
+
+    @include onLargePhone {
+      padding-top: 30px;
+      width: 338px;
+    }
+
+    @include onSmallPhone {
+      padding-top: 30px;
+      width: 288px;
+      height: 353px;
+    }
+  }
+
+  &__options {
+    width: 512px;
+    padding-top: 35px;
+    grid-area: option;
+    display: grid;
+    grid-template-rows: 80px 103px 105px 84px;
+    grid-template-areas:
+      "color id"
+      "capacity ."
+      "price ."
+      "info .";
+
+    @include onTablet {
+      padding-top: 30px;
+      position: relative;
+      grid-template-areas:
+        "color"
+        "capacity"
+        "price"
+        "info";
+
+      width: 237px;
+    }
+
+    @include onLargePhone {
+      padding-top: 30px;
+      position: relative;
+      grid-template-areas:
+        "color"
+        "capacity"
+        "price"
+        "info";
+
+      width: 237px;
+    }
+
+    @include onSmallPhone {
+      padding-top: 30px;
+      position: relative;
+      grid-template-areas:
+        "color"
+        "capacity"
+        "price"
+        "info";
+
+      width: 288px;
+      padding-top: 0;
+    }
+
+    &-color {
+      width: 320px;
+      grid-area: color;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid var(--elements-border-bottom);
+
+      @include onTablet {
+        margin-top: 10px;
+        width: 237px;
+      }
+
+      @include onLargePhone {
+        width: 237px;
+      }
+
+      @include onSmallPhone {
+        width: 288px;
+      }
+
+      &-text {
+        display: flex;
+        height: 16px;
+        width: 150px;
+      }
+
+      &-select {
+        width: 152px;
+        height: 32px;
+        margin-top: 8px;
+        display: flex;
+        gap: 8px;
+
+        &__icons {
+          margin-top: 2px;
+          width: 28px;
+          height: 28px;
+          border: 1px solid gray;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    &-id {
+      box-sizing: border-box;
+      width: 150px;
+      height: 16px;
+      grid-area: id;
+      margin-top: -25px;
+      display: flex;
+      justify-content: flex-end;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onLargePhone {
+        display: none;
+      }
+
+      @include onSmallPhone {
+        display: none;
+      }
+    }
+
+    &-capacity {
+      width: 320px;
+      grid-area: capacity;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--elements-border-bottom);
+
+      @include onTablet {
+        width: 237px;
+      }
+
+      @include onLargePhone {
+        width: 237px;
+      }
+
+      @include onSmallPhone {
+        width: 288px;
+      }
+
+      &-text {
+        display: flex;
+        width: 100px;
+        height: 16px;
+      }
+
+      &-select {
+        width: 195px;
+        height: 32px;
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+
+        &__ram {
+          width: 49px;
+          height: 32px;
+        }
+      }
+    }
+
+    &-price {
+      grid-area: price;
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      @include onTablet {
+        width: 237px;
+      }
+
+      @include onLargePhone {
+        width: 237px;
+      }
+
+      @include onSmallPhone {
+        width: 288px;
+      }
+
+      &-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
+
+      &-regular {
+        width: 77px;
+        height: 40px;
+      }
+
+      &-disc {
+        width: 60px;
+        height: 30px;
+      }
+
+      &-controls {
+        width: 100%;
+        display: flex;
+        margin-top: 16px;
+        gap: 8px;
+
+        &-add {
+          width: 270px;
+          height: 40px;
+
+          @include onTablet {
+            width: 189px;
+          }
+
+          @include onSmallPhone {
+            width: 240px;
+          }
+        }
+
+        &-fav {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+
+    &-info {
+      margin-top: 32px;
+      grid-area: info;
+      height: 100px;
+      width: 320px;
+      display: flex;
+
+      @include onTablet {
+        width: 237px;
+      }
+
+      @include onLargePhone {
+        width: 237px;
+      }
+
+      @include onSmallPhone {
+        width: 288px;
+      }
+    }
+  }
+
+  &__breadCrumbs {
+    height: 16px;
+    width: 150px;
+  }
+
+  &__button-home {
+    height: 14px;
+    width: 57px;
+  }
+}

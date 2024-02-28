@@ -22,6 +22,7 @@ import { getRecommendModels } from "../../utils/getRecommendModels";
 import { generateRandomId } from "../../utils/generateRandomId";
 
 import "./CardLayout.scss";
+import { TempCardLayout } from "../TempCard/TempCardLayout";
 
 export const CardLayout = () => {
   // #region Fetching phone data
@@ -199,7 +200,9 @@ export const CardLayout = () => {
           </div>
           <Slider title="You may also like" phones={phonesToSlider} />
         </>
-      ) : null}
+      ) : (
+        <TempCardLayout />
+      )}
     </>
   );
 };

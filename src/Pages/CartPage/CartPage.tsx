@@ -9,6 +9,7 @@ import { Item } from "../../types/Item";
 import { Button } from "../../Components/UI_Kit/Button";
 import { useNavigate } from "react-router";
 import { ButtonType } from "../../types/ButtonType";
+import { LookingGuy } from "../../Components/LookingGuy/LookingGuy";
 
 export const CartPage = () => {
   const items: Item[] = useAppSelector((state) => state.cart.cart);
@@ -32,7 +33,11 @@ export const CartPage = () => {
       <div style={{ textAlign: "left" }}>
         <Button handleClick={handleBack} buttonType={ButtonType.Navigation} buttonText="Back" />
       </div>
-      {!!itemsCount ? <h1 className="title">Cart</h1> : <h1 className="title">Your cart is empty</h1>}
+      {!!itemsCount ? (
+        <h1 className="title">Cart</h1>
+      ) : (
+        <LookingGuy mainMessage="There are no products yet..." secondMessage="... but you can add them)" />
+      )}
       {/* {<Loader />} <!-- loading && (...) --> */}
       {!!itemsCount && (
         <div className="cart-wrapper">

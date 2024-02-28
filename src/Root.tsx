@@ -8,6 +8,7 @@ import { AccessoriesPage } from "./Pages/AccessoriesPage";
 import { CartPage } from "./Pages/CartPage";
 import { FavoritesPage } from "./Pages/FavouritesPage/FavouritesPage";
 import { CardLayout } from "./Components/CardLayout/CardLayout";
+import { Contacts } from "./Pages/Contacts/Contacts";
 
 export const Root = () => (
   <Router>
@@ -38,6 +39,10 @@ export const Root = () => (
 
         <Route path="cart">
           <Route index element={<CartPage />} />
+        </Route>
+
+        <Route path="contacts">
+          <Route index element={<Contacts />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />

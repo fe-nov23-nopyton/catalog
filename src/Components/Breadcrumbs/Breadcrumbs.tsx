@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Breadcrumbs.scss";
 import { Button } from "../UI_Kit/Button";
 import { ButtonType } from "../../types/ButtonType";
+
+import "./Breadcrumbs.scss";
 
 interface Props {
   path: string;

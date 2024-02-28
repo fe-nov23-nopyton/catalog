@@ -14,6 +14,7 @@ export const CardGalery: React.FC<GaleryProps> = React.memo(({ images }) => {
       <div className="card__galery-main">
         <img className="card__galery-main-img" src={`/catalog/new/${img}`} alt="1" />
       </div>
+
       <div className="card__galery-sidebar">
         {images?.map((item) => (
           <img

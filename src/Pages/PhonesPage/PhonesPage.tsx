@@ -11,6 +11,8 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import { Pagination } from "../../Components/Pagination/Pagination";
 import { Loader } from "../../Components/Loader";
 import { Dropdown } from "../../Components/UI_Kit/Dropdown";
+import { TempCard } from "../../Components/TempCard/TempCard";
+import { TempSort } from "../../Components/TempCard/TempSort";
 import { Input } from "../../Components/UI_Kit/Input/Input";
 import { filterItems } from "../../utils/filterItems";
 import { LookingGuy } from "../../Components/LookingGuy/LookingGuy";
@@ -155,7 +157,14 @@ export const PhonesPage: React.FC = () => {
       <Breadcrumbs path={pathname} />
       <h1 className="title">Mobile phones</h1>
       {loading ? (
-        <Loader />
+        <>
+          <TempSort />
+          <main className="grid">
+            {[...Array(4)].map((_, index) => (
+              <TempCard key={index} />
+            ))}
+          </main>
+        </>
       ) : (
         <>
           {!!errorMessage ? (

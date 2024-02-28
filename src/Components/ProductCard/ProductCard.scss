@@ -1,9 +1,9 @@
-@import "../../App.scss";
+ @import "../../App.scss";
 @import '../../mixins/adaptive-rules.scss';
 
 .card {
   padding: 32px;
-  width: 1fr;
+  width: 100%;
   max-width: 288px;
   height: 507px;
 

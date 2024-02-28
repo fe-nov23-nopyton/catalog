@@ -1,6 +1,7 @@
 @import "/src/mixins/adaptive-rules.scss";
 
 .cardLayout {
+  margin: 0 auto;
   box-sizing: border-box;
   display: grid;
   width: 1136px;
@@ -155,6 +156,7 @@
       &-select {
         margin-top: 8px;
         display: flex;
+        gap: 8px;
         width: 152px;
         height: 32px;
       }
@@ -162,6 +164,7 @@
 
     &-id {
       grid-area: id;
+      margin-top: -25px;
       color: var(--main-text);
       display: flex;
       justify-content: flex-end;

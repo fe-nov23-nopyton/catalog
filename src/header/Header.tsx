@@ -4,6 +4,7 @@ import { Burger } from "./Burger_menu/Burger";
 import { ButtonsHeader } from "./ButtonsHeader/ButtonsHeader";
 import { MenuNavigation } from "./Nav/MenuNavigation";
 import { Toggle } from "../Components/Toggle/Toggle";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -23,9 +24,11 @@ export const Header = () => {
 
   return (
     <header className="header">
-      <div className="header__logo">
-        <div className="header__logo-img" />
-      </div>
+      <Link to="home">
+        <div className="header__logo">
+          <div className="header__logo-img" />
+        </div>
+      </Link>
       {isMobile ? (
         <div className="burger__layuot">
           <Burger />

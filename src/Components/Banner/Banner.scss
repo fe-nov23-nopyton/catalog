@@ -1,12 +1,14 @@
 @import '../../mixins/adaptive-rules.scss';
 
 .banner {
-  border-radius: 9px;
-  overflow-x: hidden;
+  position: relative;
+
+  margin-bottom: 56px;
   width: 100%;
   max-width: 1136px;
-  margin-bottom: 56px;
-  position: relative;
+  overflow-x: hidden;
+
+  border-radius: 9px;
 
   @include onTablet {
     margin-bottom: 64px;
@@ -15,7 +17,6 @@
   &__photo {
     width: 100%;
     content: url('../../images/banner.png');
-
 
     @include onSmallPhone {
       content: url('../../images/image_small_phone.png');
@@ -28,16 +29,16 @@
   align-items: center;
 
   .swiper-button {
-    top: 50%;
     z-index: 1;
+    top: 50%;
+    height: 100%;
     transform: translateY(-50%);
     cursor: pointer;
-    height: 100%;
 
     &-prev,
     &-next {
-      color: white;
       width: 15px;
+      color: white;
 
       @include onSmallPhone {
         display: none;

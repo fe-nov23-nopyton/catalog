@@ -1,23 +1,30 @@
-/* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from "react";
-import "./PhonesPage.scss";
-import { ProductsList } from "../../Components/ProductsList/ProductsList";
+import { useLocation, useSearchParams } from "react-router-dom";
+
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPhones } from "../../redux/features/catalogSlice";
-import { sortItems } from "../../utils/sortItems";
-import { Phone } from "../../types/Phone";
+
+import { ProductsList } from "../../Components/ProductsList/ProductsList";
 import { Breadcrumbs } from "../../Components/Breadcrumbs";
-import { useLocation, useSearchParams } from "react-router-dom";
 import { Pagination } from "../../Components/Pagination/Pagination";
 import { Dropdown } from "../../Components/UI_Kit/Dropdown";
 import { TempCard } from "../../Components/TempCard/TempCard";
 import { TempSort } from "../../Components/TempCard/TempSort";
 import { Input } from "../../Components/UI_Kit/Input/Input";
-import { filterItems } from "../../utils/filterItems";
 import { LookingGuy } from "../../Components/LookingGuy/LookingGuy";
 
-const optionsForItemsOnPage = ["16", "8", "4", "All"];
-const optionsForSort = ["Cheapest", "Alphabetically", "Newest"];
+import { sortItems } from "../../utils/sortItems";
+import { filterItems } from "../../utils/filterItems";
+
+import { Phone } from "../../types/Phone";
+import { SortOptions } from "../../types/OptionsForSort";
+
+import "./PhonesPage.scss";
+import { ItemsOnPage } from "../../types/ItemsOnPage";
+import { SearchParams } from "../../types/SearchParams";
+
+const optionsForItemsOnPage = [ItemsOnPage.Sixteen, ItemsOnPage.Eight, ItemsOnPage.Four, ItemsOnPage.All];
+const optionsForSort = [SortOptions.Cheapest, SortOptions.Alphabetically, SortOptions.Newest];
 
 export const PhonesPage: React.FC = () => {
   // #region redux
@@ -33,9 +40,9 @@ export const PhonesPage: React.FC = () => {
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const sort = searchParams.get("sort") || "";
-  const itemsOnPage = searchParams.get("itemsOnPage") || "";
-  const query = searchParams.get("query") || "";
+  const sort = searchParams.get(SearchParams.Sort) || "";
+  const itemsOnPage = searchParams.get(SearchParams.ItemsOnPage) || "";
+  const query = searchParams.get(SearchParams.Query) || "";
   // #endregion
 
   // #region pagination
@@ -49,14 +56,15 @@ export const PhonesPage: React.FC = () => {
 
   const prepareProducts = (phones: Phone[], sortBy: string, query: string) => {
     const filteredPhones = filterItems(phones, query);
-    const sortedPhones = sortItems(filteredPhones, sortBy);
-    return sortedPhones;
+
+    return sortItems(filteredPhones, sortBy);
   };
 
   const prepareVisiblePhones = (phones: Phone[], changeVisible: string) => {
     const start = (currentPage - 1) * perPage;
     const end = start + perPage;
-    return changeVisible === "All" ? phones : phones.slice(start, end);
+
+    return changeVisible === ItemsOnPage.All ? phones : phones.slice(start, end);
   };
 
   const scrollToTop = () => {
@@ -70,37 +78,37 @@ export const PhonesPage: React.FC = () => {
   // #region search params
   const handleItemsOnPage = (param: string) => {
     const params = new URLSearchParams(searchParams);
-    params.set("itemsOnPage", param);
+    params.set(SearchParams.ItemsOnPage, param);
     setSearchParams(params);
 
     setCurrentPage(1);
 
-    localStorage.setItem("itemsOnPage", param);
+    localStorage.setItem(SearchParams.ItemsOnPage, param);
   };
 
   const handleSortBy = (sortBy: string) => {
     const params = new URLSearchParams(searchParams);
-    params.set("sort", sortBy);
+    params.set(SearchParams.Sort, sortBy);
     setSearchParams(params);
 
-    localStorage.setItem("sort", sortBy);
+    localStorage.setItem(SearchParams.Sort, sortBy);
   };
 
   useEffect(() => {
-    const valueSort = localStorage.getItem("sort");
-    const valueItemsOnPage = localStorage.getItem("itemsOnPage");
-    const valueQuery = localStorage.getItem("query");
+    const valueSort = localStorage.getItem(SearchParams.Sort);
+    const valueItemsOnPage = localStorage.getItem(SearchParams.ItemsOnPage);
+    const valueQuery = localStorage.getItem(SearchParams.Query);
 
     const params = new URLSearchParams(searchParams);
 
     if (valueSort !== null) {
-      params.set("sort", valueSort);
+      params.set(SearchParams.Sort, valueSort);
     }
     if (valueItemsOnPage !== null) {
-      params.set("itemsOnPage", valueItemsOnPage);
+      params.set(SearchParams.ItemsOnPage, valueItemsOnPage);
     }
     if (valueQuery !== null) {
-      params.set("query", valueQuery);
+      params.set(SearchParams.Query, valueQuery);
     }
 
     setSearchParams(params);
@@ -108,17 +116,17 @@ export const PhonesPage: React.FC = () => {
 
   useEffect(() => {
     const handleStorageChange = () => {
-      const valueSort = localStorage.getItem("sort");
-      const valueItemsOnPage = localStorage.getItem("itemsOnPage");
+      const valueSort = localStorage.getItem(SearchParams.Sort);
+      const valueItemsOnPage = localStorage.getItem(SearchParams.ItemsOnPage);
 
       if (valueSort !== null) {
         const params = new URLSearchParams(searchParams);
-        params.set("sort", valueSort);
+        params.set(SearchParams.Sort, valueSort);
         setSearchParams(params);
       }
       if (valueItemsOnPage !== null) {
         const params = new URLSearchParams(searchParams);
-        params.set("itemsOnPage", valueItemsOnPage);
+        params.set(SearchParams.ItemsOnPage, valueItemsOnPage);
         setSearchParams(params);
       }
     };
@@ -134,16 +142,16 @@ export const PhonesPage: React.FC = () => {
     const newQuery = event.target.value;
     const params = new URLSearchParams(searchParams);
     if (newQuery) {
-      params.set("query", newQuery);
+      params.set(SearchParams.Query, newQuery);
     } else {
-      params.delete("query");
+      params.delete(SearchParams.Query);
     }
     setSearchParams(params);
 
     if (newQuery === "") {
-      localStorage.removeItem("query");
+      localStorage.removeItem(SearchParams.Query);
     } else {
-      localStorage.setItem("query", newQuery);
+      localStorage.setItem(SearchParams.Query, newQuery);
     }
   };
   // #endregion
@@ -167,18 +175,13 @@ export const PhonesPage: React.FC = () => {
       ) : (
         <>
           {!!errorMessage ? (
-            (console.log(errorMessage), (<p className="title">{errorMessage}</p>))
+            <p className="title">{errorMessage}</p>
           ) : (
             <>
               <p className="total-phones">{quantityPhones} models</p>
               <div className="dropdown-wrapper">
                 <div className="dropdown-sortBy">
-                  <Dropdown 
-                    value={sort} 
-                    list={optionsForSort} 
-                    handleClick={handleSortBy} 
-                    title={"Sort by"} 
-                  />
+                  <Dropdown value={sort} list={optionsForSort} handleClick={handleSortBy} title={"Sort by"} />
                 </div>
                 <div className="dropdown-itemsOnPage">
                   <Dropdown
@@ -202,7 +205,7 @@ export const PhonesPage: React.FC = () => {
               {visiblePhones.length > 0 ? (
                 <>
                   <ProductsList phones={visiblePhones} />
-                  {itemsOnPage !== "All" && (
+                  {itemsOnPage !== ItemsOnPage.All && (
                     <Pagination
                       total={quantityPhones}
                       perPage={perPage}
@@ -212,7 +215,9 @@ export const PhonesPage: React.FC = () => {
                   )}
                 </>
               ) : (
-                <LookingGuy mainMessage="Sorry, There are not already yet any items"/>
+                <div style={{ paddingTop: "50px" }}>
+                  <LookingGuy mainMessage="Sorry, There are not already yet any items" />
+                </div>
               )}
             </>
           )}

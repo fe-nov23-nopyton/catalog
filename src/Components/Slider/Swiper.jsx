@@ -6,8 +6,6 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 export default ({ images }) => (
-  // console.log(Swiper);
-
   <Swiper
     modules={[Navigation, Pagination, Scrollbar, A11y]}
     spaceBetween={50}

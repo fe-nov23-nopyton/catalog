@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { CardGalery } from "./CardGalery/CardGalery";
 import { CardSpec } from "./CardSpec/CardSpec";
 import { Breadcrumbs } from "../Breadcrumbs";
-import { Slider } from "../Slider";
 import { Button } from "../UI_Kit/Button";
 import { Icon } from "../UI_Kit/Icon";
 
@@ -16,6 +15,7 @@ import { fetchPhones } from "../../redux/features/catalogSlice";
 
 import { ButtonType } from "../../types/ButtonType";
 import { IconContent } from "../../types/IconContent";
+import { Recommends } from "../Recommends/Recommends";
 
 import { replacePart } from "../../utils/replacePath";
 import { getRecommendModels } from "../../utils/getRecommendModels";
@@ -197,7 +197,7 @@ export const CardLayout = () => {
               </div>
             </div>
           </div>
-          <Slider title="You may also like" phones={phonesToSlider} />
+          <Recommends title="You may also like" phones={phonesToSlider} />
         </>
       ) : null}
     </>

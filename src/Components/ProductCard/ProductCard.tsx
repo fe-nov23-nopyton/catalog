@@ -1,11 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
-/* eslint-disable arrow-body-style */
 import React from "react";
 import { Phone } from "../../types/Phone";
-
-import "./ProductCard.scss";
-import { HeartLikeIcon } from "../../images/icons";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { clickFavorite } from "../../redux/features/favoritesSlice";
@@ -14,6 +8,8 @@ import { Button } from "../UI_Kit/Button";
 import { ButtonType } from "../../types/ButtonType";
 import { Icon } from "../UI_Kit/Icon";
 import { IconContent } from "../../types/IconContent";
+
+import "./ProductCard.scss";
 
 interface Props {
   phone: Phone;

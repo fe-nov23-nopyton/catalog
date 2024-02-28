@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 // #region imports
 import { useLocation, useNavigate } from "react-router-dom";
 import { CardGalery } from "./CardGalery/CardGalery";
-import "./CardLayout.scss";
 import { CardSpec } from "./CardSpec/CardSpec";
 import { Breadcrumbs } from "../Breadcrumbs";
 import { useEffect, useMemo } from "react";
@@ -14,12 +12,13 @@ import { Icon } from "../UI_Kit/Icon";
 import { IconContent } from "../../types/IconContent";
 import { clickFavorite } from "../../redux/features/favoritesSlice";
 import { replacePart } from "../../utils/replacePath";
-import { Loader } from "../Loader";
 import { fetchPhone } from "../../redux/features/productDataSlice";
 import { Slider } from "../Slider";
 import { getRecommendModels } from "../../utils/getRecommendModels";
 import { fetchPhones } from "../../redux/features/catalogSlice";
 import { generateRandomId } from "../../utils/generateRandomId";
+
+import "./CardLayout.scss";
 // #endregion
 
 export const CardLayout = () => {

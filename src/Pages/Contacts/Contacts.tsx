@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
-/* eslint-disable arrow-body-style */
 import React from "react";
 import NazariiPhoto from "./fotos/Nazarii.png";
 import Vadym from "./fotos/Vadym.png";

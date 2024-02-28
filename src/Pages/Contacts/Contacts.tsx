@@ -3,6 +3,10 @@
 /* eslint-disable arrow-body-style */
 import React from "react";
 import NazariiPhoto from "./fotos/Nazarii.png";
+import Vadym from "./fotos/Vadym.png";
+import Oleksandr from "./fotos/3.png";
+import Maksym from "./fotos/4.png";
+import Ivan from "./fotos/ivan.png";
 
 import "./Contacts.scss";
 import { Person } from "./Person/Person";
@@ -17,28 +21,28 @@ const contacts = [
   },
   {
     id: 2,
-    photo: NazariiPhoto,
+    photo: Vadym,
     name: "Vadym Sainiuk",
     email: "ddv@efv.com",
     phone: "+380 77 77 77 777"
   },
   {
     id: 3,
-    photo: NazariiPhoto,
+    photo: Oleksandr,
     name: "Rezanov Oleksandr",
     email: "fsdv@rfvr.com",
     phone: "+380 88 88 88 888"
   },
   {
     id: 4,
-    photo: NazariiPhoto,
+    photo: Maksym,
     name: "Kalashnyk Maksym",
     email: "umojh@vrfcom",
     phone: "+380 99 99 99 999"
   },
   {
     id: 5,
-    photo: NazariiPhoto,
+    photo: Ivan,
     name: "Kulikovskyi Ivan",
     email: "vosdpcj@vprlf.com",
     phone: "+380 11 11 11 111"

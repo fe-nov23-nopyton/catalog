@@ -51,7 +51,9 @@ export const PhonesPage: React.FC = () => {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    scrollToTop();
+    setTimeout(() => {
+      scrollToTop();
+    }, 0);
   };
 
   const prepareProducts = (phones: Phone[], sortBy: string, query: string) => {

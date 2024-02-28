@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Pagination.scss";
 import { Icon } from "../UI_Kit/Icon";
 import { IconContent } from "../../types/IconContent";
@@ -11,12 +11,27 @@ type Props = {
 };
 
 export const Pagination: React.FC<Props> = ({ total, perPage, currentPage, onPageChange }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 640);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const totalPages = Math.ceil(total / perPage);
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
-  const navWindow = 5;
+  const navWindow = isMobile ? 3 : 5;
 
   function visiblePagesHelper() {
-    if (totalPages <= 5) {
+    if (totalPages <= navWindow) {
       return pages;
     }
 

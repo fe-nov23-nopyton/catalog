@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { Slider } from "../Components/Slider";
 import { fetchPhones } from "../redux/features/catalogSlice";
+
+import { Slider } from "../Components/Slider";
 import { Loader } from "../Components/Loader";
 import { Categories } from "../Components/Categories";
+import { Banner } from "../Components/Banner/Banner";
+
 import { getHotPrices } from "../utils/getHotPrices";
 import { getNewModels } from "../utils/getNewModels";
-import { Banner } from "../Components/Banner/Banner";
 
 export const HomePage: React.FC = () => {
   const { phones, loading } = useAppSelector((state) => state.catalog);

@@ -41,12 +41,13 @@
   }
 
   &-sidebar {
+    width: 80px;
+    height: 464px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     grid-area: slider;
-    width: 80px;
-    height: 464px;
 
     @include onTablet {
       width: 35px;
@@ -65,11 +66,11 @@
     }
 
     &-item {
-      cursor: pointer;
       width: 80px;
       height: 80px;
       margin-bottom: 16px;
       object-fit: contain;
+      cursor: pointer;
 
       @include onTablet {
         width: 35px;

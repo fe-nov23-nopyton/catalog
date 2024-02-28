@@ -1,6 +1,7 @@
 import classNames from "classnames";
-import "./Button.scss";
 import { ButtonType } from "../../../types/ButtonType";
+
+import "./Button.scss";
 
 interface Props {
   handleClick?: () => void;

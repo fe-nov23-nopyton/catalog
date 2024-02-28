@@ -6,12 +6,13 @@
   cursor: pointer;
 
   &-primary {
+    height: 40px;
+    flex-grow: 1;
+
     font-size: 14px;
     font-weight: 700;
     line-height: 21px;
   
-    height: 40px;
-    flex-grow: 1;
     color: var(--bg-light);
     background-color: var(--primary-button-bg);
     border: none;
@@ -37,10 +38,12 @@
   &-navigation {
     position: relative;
     padding-left: 20px;
+
     font-size: 12px;
     font-weight: 600;
     line-height: 12px;
     letter-spacing: 0em;
+
     color: var(--navigation-button);
     border: none;
     background-color: inherit;

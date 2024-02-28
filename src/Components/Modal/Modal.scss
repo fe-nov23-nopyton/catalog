@@ -4,14 +4,17 @@
   position: fixed;
   top: 0;
   left: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  font-family: 'Mont-Regular';
+
   opacity: 0;
   pointer-events: none;
   transition: 0.5s;
-  font-family: 'Mont-Regular';
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--elements-border-bottom);
 
   &.active {
     opacity: 1;
@@ -21,7 +24,7 @@
     padding: 40px;
     width: 40vw;
     border: 1px solid var(--elements-border);
-    background-color: white;
+    background-color: var(--bg);
     transform: scale(0.5);
     transition: 0.4s all;
 
@@ -38,8 +41,8 @@
   &__image {
     width: 80px;
     height: 80px;
-    background-image: url(../../images/icons/check-mark.svg);
     margin: 0 auto;
+    background-image: url(../../images/icons/check-mark.svg);
   }
 
   &__thanks {
@@ -50,22 +53,11 @@
 
 .dark-theme {
   .modal {
-    background-color: rgba(255, 255, 255, 0.4); 
+    background-color: rgba(255, 255, 255, 0.4);
 
     &__content {
       background-color: #070025; 
-    }
-
-    &__title {
-      color: white;
-    }
-
-    &__thanks {
-      color: white;
-    }
-
-    &__subtitle {
-      color: white;
+      color: var(--text-hover);
     }
   }
 }

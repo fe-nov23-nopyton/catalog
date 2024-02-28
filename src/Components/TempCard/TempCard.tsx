@@ -1,4 +1,3 @@
-import React from "react";
 import "../TempCard/TempCard.scss";
 
 export const TempCard = () => (

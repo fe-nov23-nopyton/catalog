@@ -1,0 +1,10 @@
+@import "../../mixins/adaptive-rules.scss";
+
+.recommends .swiper-slide-active {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.recommends__wrapper {
+    text-align: start;
+}

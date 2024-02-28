@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./Pagination.scss";
 import { Icon } from "../UI_Kit/Icon";
 import { IconContent } from "../../types/IconContent";
+import { visiblePagesHelper } from "../../utils/visiblePagesHelper";
+
+import "./Pagination.scss";
 
 type Props = {
   total: number;
@@ -9,6 +11,26 @@ type Props = {
   currentPage: number;
   onPageChange: (page: number) => void;
 };
+
+function handleNextPage(currentPage: number, totalPages: number, onPageChange: (page: number) => void) {
+  if (currentPage < totalPages) {
+    onPageChange(currentPage + 1);
+  }
+}
+
+function handlePrevPage(currentPage: number, totalPages: number, onPageChange: (page: number) => void) {
+  if (currentPage !== 1) {
+    onPageChange(currentPage - 1);
+  }
+}
+
+function handleToTop(onPageChange: (value: number) => void) {
+  onPageChange(1);
+}
+
+function handleToBottom(onPageChange: (value: number) => void, totalPages: number) {
+  onPageChange(totalPages);
+}
 
 export const Pagination: React.FC<Props> = ({ total, perPage, currentPage, onPageChange }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -30,60 +52,22 @@ export const Pagination: React.FC<Props> = ({ total, perPage, currentPage, onPag
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
   const navWindow = isMobile ? 3 : 5;
 
-  function visiblePagesHelper() {
-    if (totalPages <= navWindow) {
-      return pages;
-    }
-
-    const window = navWindow % 2 === 0 ? navWindow + 1 : navWindow;
-
-    switch (true) {
-      case currentPage > Math.ceil(window / 2) && currentPage < pages.length - Math.ceil(window / 2):
-        return pages.slice(currentPage - Math.ceil(window / 2), currentPage + Math.ceil(window / 2) - 1);
-
-      case currentPage <= Math.ceil(window / 2):
-        return pages.slice(0, window);
-
-      case currentPage >= pages.length - Math.ceil(window / 2):
-        return pages.slice(pages.length - window, pages.length);
-
-      default:
-        return pages;
-    }
-  }
-
-  function handleNextPage() {
-    if (currentPage < totalPages) {
-      onPageChange(currentPage + 1);
-    }
-  }
-
-  function handlePrevPage() {
-    if (currentPage !== 1) {
-      onPageChange(currentPage - 1);
-    }
-  }
-
-  function handleToTop() {
-    onPageChange(1);
-  }
-
-  function handleToBottom() {
-    onPageChange(totalPages);
-  }
-
   return (
     <ul className="pagination">
       <li className="pagination__item-reversed pagination__item-first">
-        <Icon iconType={IconContent.Arrow} handleClick={handlePrevPage} isDisabled={currentPage === 1} />
         <Icon
           iconType={IconContent.Arrow}
-          handleClick={handleToTop}
+          handleClick={() => handlePrevPage(currentPage, totalPages, onPageChange)}
+          isDisabled={currentPage === 1}
+        />
+        <Icon
+          iconType={IconContent.Arrow}
+          handleClick={() => handleToTop(onPageChange)}
           isDisabled={currentPage === 1}
           isDoubleArrow={true}
         />
       </li>
-      {visiblePagesHelper().map((page) => (
+      {visiblePagesHelper(currentPage, totalPages, navWindow, pages).map((page) => (
         <li key={page} className="pagination__item">
           <Icon
             iconType={IconContent.Text}
@@ -98,10 +82,14 @@ export const Pagination: React.FC<Props> = ({ total, perPage, currentPage, onPag
         </li>
       ))}
       <li className="pagination__item-last">
-        <Icon iconType={IconContent.Arrow} handleClick={handleNextPage} isDisabled={currentPage === totalPages} />
         <Icon
           iconType={IconContent.Arrow}
-          handleClick={handleToBottom}
+          handleClick={() => handleNextPage(currentPage, totalPages, onPageChange)}
+          isDisabled={currentPage === totalPages}
+        />
+        <Icon
+          iconType={IconContent.Arrow}
+          handleClick={() => handleToBottom(onPageChange, totalPages)}
           isDisabled={currentPage === totalPages}
           isDoubleArrow={true}
         />

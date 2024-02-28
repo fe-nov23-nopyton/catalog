@@ -1,27 +1,22 @@
-// React imports
-import React, { useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-// Component imports
 import { CardGalery } from "./CardGalery/CardGalery";
 import { CardSpec } from "./CardSpec/CardSpec";
 import { Breadcrumbs } from "../Breadcrumbs";
-import { Slider } from "../Slider";
 import { Button } from "../UI_Kit/Button";
 import { Icon } from "../UI_Kit/Icon";
 
-// Redux imports
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { addToCart, deleteFromCart } from "../../redux/features/cartSlice";
 import { clickFavorite } from "../../redux/features/favoritesSlice";
 import { fetchPhone } from "../../redux/features/productDataSlice";
 import { fetchPhones } from "../../redux/features/catalogSlice";
 
-// Type imports
 import { ButtonType } from "../../types/ButtonType";
 import { IconContent } from "../../types/IconContent";
+import { Recommends } from "../Recommends/Recommends";
 
-// Utility imports
 import { replacePart } from "../../utils/replacePath";
 import { getRecommendModels } from "../../utils/getRecommendModels";
 import { generateRandomId } from "../../utils/generateRandomId";
@@ -50,7 +45,6 @@ export const CardLayout = () => {
   // #endregion
 
   // #region States favorite and cart
-
   const favorites = useAppSelector((state) => state.favorites.favorites);
   const cart = useAppSelector((state) => state.cart.cart);
 
@@ -100,7 +94,7 @@ export const CardLayout = () => {
       capacity: phoneData.capacity,
       color: phoneData.color,
       ram: phoneData.ram,
-      year: 2020, // we do not have this data
+      year: 2020,
       image: phoneData.images[0]
     };
 
@@ -203,7 +197,7 @@ export const CardLayout = () => {
               </div>
             </div>
           </div>
-          <Slider title="You may also like" phones={phonesToSlider} />
+          <Recommends title="You may also like" phones={phonesToSlider} />
         </>
       ) : null}
     </>

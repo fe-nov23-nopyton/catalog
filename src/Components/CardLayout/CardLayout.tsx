@@ -33,6 +33,7 @@ export const CardLayout = () => {
   const normalizedPath = pathname.split("/")[3];
 
   useEffect(() => {
+    dispatch(fetchPhones());
     dispatch(fetchPhone(normalizedPath));
   }, [pathname]);
 
@@ -105,11 +106,13 @@ export const CardLayout = () => {
   // #endregion
 
   // #region Slider
-  const { phones } = useAppSelector((state) => state.catalog);
 
-  useEffect(() => {
-    dispatch(fetchPhones());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchPhones());
+  // }, []);
+
+  const phones = useAppSelector((state) => state.catalog.phones);
+  console.log(phones, "from slider");
 
   const phonesToSlider = useMemo(() => getRecommendModels(phones, 16), [phones]);
   // #endregion

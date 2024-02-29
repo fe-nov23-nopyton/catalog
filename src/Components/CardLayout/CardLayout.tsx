@@ -37,7 +37,7 @@ export const CardLayout = () => {
   }, [pathname]);
 
   const handleAttributeChange = (attribute: string, isColor = true) => {
-    const path = replacePart(normalizedPath, attribute, isColor);
+    const path = replacePart(normalizedPath, attribute.toLowerCase(), isColor);
     navigate(`/catalog/phones/${path}`);
   };
 

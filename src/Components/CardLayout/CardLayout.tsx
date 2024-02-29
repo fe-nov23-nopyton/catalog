@@ -33,8 +33,9 @@ export const CardLayout = () => {
   const normalizedPath = pathname.split("/")[3];
 
   useEffect(() => {
-    dispatch(fetchPhones());
-    dispatch(fetchPhone(normalizedPath));
+    dispatch(fetchPhones()).then(() => {
+      dispatch(fetchPhone(normalizedPath));
+    });
   }, [pathname]);
 
   const handleAttributeChange = (attribute: string, isColor = true) => {
@@ -120,7 +121,7 @@ export const CardLayout = () => {
   const loaded = !loading;
   return (
     <>
-      {loaded && Object.keys(phoneData).length > 0 ? (
+      {loaded && phones && Object.keys(phoneData).length > 0 ? (
         <>
           <Breadcrumbs path={pathname} />
           <div style={{ textAlign: "left", margin: "40px 0 0 0" }}>

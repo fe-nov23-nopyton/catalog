@@ -33,9 +33,7 @@ export const CardLayout = () => {
   const normalizedPath = pathname.split("/")[3];
 
   useEffect(() => {
-    dispatch(fetchPhones()).then(() => {
-      dispatch(fetchPhone(normalizedPath));
-    });
+    dispatch(fetchPhone(normalizedPath));
   }, [pathname]);
 
   const handleAttributeChange = (attribute: string, isColor = true) => {
@@ -108,20 +106,20 @@ export const CardLayout = () => {
 
   // #region Slider
 
-  // useEffect(() => {
-  //   dispatch(fetchPhones());
-  // }, []);
+  useEffect(() => {
+    dispatch(fetchPhones());
+  }, []);
 
   const phones = useAppSelector((state) => state.catalog.phones);
-  console.log(phones, "from slider");
+  const loaderFromPhones = useAppSelector((state) => state.catalog.loading);
 
   const phonesToSlider = useMemo(() => getRecommendModels(phones, 16), [phones]);
   // #endregion
 
-  const loaded = !loading;
+  const loaded = !loading && !loaderFromPhones;
   return (
     <>
-      {loaded && phones && Object.keys(phoneData).length > 0 ? (
+      {loaded && Object.keys(phoneData).length > 0 ? (
         <>
           <Breadcrumbs path={pathname} />
           <div style={{ textAlign: "left", margin: "40px 0 0 0" }}>

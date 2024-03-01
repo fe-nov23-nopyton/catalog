@@ -26,7 +26,7 @@ import { TempCardLayout } from "../TempCard/TempCardLayout";
 
 export const CardLayout = () => {
   // #region Fetching phone data
-  const { phoneData, loading } = useAppSelector((state) => state.phoneData);
+  const { phoneData, loading: loadingData } = useAppSelector((state) => state.phoneData);
   const dispatch = useAppDispatch();
 
   const { pathname } = useLocation();
@@ -51,7 +51,6 @@ export const CardLayout = () => {
 
   const hasFavoriteItem = favorites.some((item) => item.id === phoneData.id);
   const hasCartItem = cart.some((item) => item.id === phoneData.id);
-
   // #endregion
 
   // #region Navigation
@@ -101,22 +100,17 @@ export const CardLayout = () => {
 
     dispatch(clickFavorite(phone));
   };
-
   // #endregion
 
   // #region Slider
-
   useEffect(() => {
     dispatch(fetchPhones());
   }, []);
 
-  const phones = useAppSelector((state) => state.catalog.phones);
-  const loaderFromPhones = useAppSelector((state) => state.catalog.loading);
-
+  const { phones, loading } = useAppSelector((state) => state.catalog);
   const phonesToSlider = useMemo(() => getRecommendModels(phones, 16), [phones]);
   // #endregion
-
-  const loaded = !loading && !loaderFromPhones;
+  const loaded = !loadingData && !loading;
   return (
     <>
       {loaded && Object.keys(phoneData).length > 0 ? (

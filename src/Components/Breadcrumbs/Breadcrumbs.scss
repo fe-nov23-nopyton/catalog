@@ -15,7 +15,7 @@
 
   color: var(--main-text);
   text-decoration: none;
-  transition: color 0.15s ease-in-out;
+  transition: var(--transition-color);
 
   &:hover {
     color: var(--text-hover);

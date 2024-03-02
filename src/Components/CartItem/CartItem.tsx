@@ -6,6 +6,7 @@ import { Icon } from "../UI_Kit/Icon";
 import { IconContent } from "../../types/IconContent";
 
 import "../../Pages/CartPage/CartPage.scss";
+import { Link } from "react-router-dom";
 
 interface Props {
   item: Item;
@@ -14,7 +15,8 @@ interface Props {
 export const CartItem: React.FC<Props> = ({ item }) => {
   const dispatch = useAppDispatch();
 
-  const normalizedUrl = `/catalog/new/${item.product.image}`;
+  const currentProductUrl = `/catalog/phones/${item.id}`;
+  const normalizedUrlImage = `/catalog/new/${item.product.image}`;
 
   const handleDeleteItem = () => {
     dispatch(deleteFromCart(item));
@@ -29,9 +31,13 @@ export const CartItem: React.FC<Props> = ({ item }) => {
       <div className="cart-item--wrapper">
         <button className="cart-item--remove" onClick={handleDeleteItem} />
 
-        <img className="cart-item--image" src={normalizedUrl} alt={item.product.name} />
+        <Link to={currentProductUrl}>
+          <img className="cart-item--image" src={normalizedUrlImage} alt={item.product.name} />
+        </Link>
 
-        <h2 className="cart-item--title">{item.product.name}</h2>
+        <Link to={currentProductUrl}>
+          <h2 className="cart-item--title">{item.product.name}</h2>
+        </Link>
       </div>
 
       <div className="cart-item--wrapper cart-item--wrapper-amount">

@@ -40,5 +40,16 @@
     right: 0;
     bottom: 0;
     height: 2px;
+    animation: scale-in 0.5s forwards;
     background-color: var(--text-hover);
   }
+
+  @keyframes scale-in {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  

@@ -78,6 +78,11 @@
   &--image {
     height: 66px;
     width: auto;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &--title {
@@ -88,8 +93,13 @@
     line-height: 21px;
     font-weight: 600;
     text-align: left;
-
     color: var(--text-hover);
+
+    transition: var(--transition-color);
+
+    &:hover {
+      color: var(--navigation-button-hover);
+    }
   }
 
   &--quantity {

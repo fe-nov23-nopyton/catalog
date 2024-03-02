@@ -1,0 +1,114 @@
+@import "/src/mixins/adaptive-rules.scss";
+
+.skeleton__card__galery {
+    display: grid;
+    grid-template-areas: "slider main";
+    column-gap: 16px;
+
+    @include onTablet {
+      margin-top: 10px;
+    }
+  
+    @include onSmallPhone {
+      grid-template-areas:
+        "main"
+        "slider";
+  
+      row-gap: 16px;
+    }
+  
+    &-main {
+      grid-area: main;
+      width: 464px;
+      height: 464px;
+  
+      @include onTablet {
+        width: 287px;
+        height: 287px;
+      }
+  
+      @include onLargePhone {
+        width: 287px;
+        height: 287px;
+      }
+  
+      @include onSmallPhone {
+        width: 288px;
+        height: 288px;
+      }
+  
+      &-img {
+        margin: 0 auto;
+        width: 325px;
+        height: 448px;
+
+        @include onTablet {
+          width: 220px;
+          height: 287px;
+        }
+    
+        @include onLargePhone {
+          width: 287px;
+          height: 287px;
+        }
+    
+        @include onSmallPhone {
+          width: 288px;
+          height: 288px;
+        }
+      }
+    }
+  
+    &-sidebar {
+      width: 80px;
+      height: 464px;
+  
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-area: slider;
+  
+      @include onTablet {
+        width: 35px;
+        height: 207px;
+      }
+  
+      @include onLargePhone {
+        width: 35px;
+        height: 207px;
+      }
+  
+      @include onSmallPhone {
+        width: 288px;
+        height: 49px;
+        flex-direction: row;
+      }
+  
+      &-item {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 16px;
+        object-fit: contain;
+        cursor: pointer;
+  
+        @include onTablet {
+          width: 35px;
+          height: 35px;
+          margin-bottom: 8px;
+        }
+  
+        @include onLargePhone {
+          width: 35px;
+          height: 35px;
+          margin-bottom: 8px;
+        }
+  
+        @include onSmallPhone {
+          width: 51px;
+          height: 49px;
+          margin-bottom: 0;
+          margin-right: 8px;
+        }
+      }
+    }
+  }

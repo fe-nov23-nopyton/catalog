@@ -22,10 +22,11 @@ import { getRecommendModels } from "../../utils/getRecommendModels";
 import { generateRandomId } from "../../utils/generateRandomId";
 
 import "./CardLayout.scss";
+import { TempCardLayout } from "../TempCard/TempCardLayout";
 
 export const CardLayout = () => {
   // #region Fetching phone data
-  const { phoneData, loading } = useAppSelector((state) => state.phoneData);
+  const { phoneData, loading: loadingData } = useAppSelector((state) => state.phoneData);
   const dispatch = useAppDispatch();
 
   const { pathname } = useLocation();
@@ -50,7 +51,6 @@ export const CardLayout = () => {
 
   const hasFavoriteItem = favorites.some((item) => item.id === phoneData.id);
   const hasCartItem = cart.some((item) => item.id === phoneData.id);
-
   // #endregion
 
   // #region Navigation
@@ -100,20 +100,17 @@ export const CardLayout = () => {
 
     dispatch(clickFavorite(phone));
   };
-
   // #endregion
 
   // #region Slider
-  const { phones } = useAppSelector((state) => state.catalog);
-
   useEffect(() => {
     dispatch(fetchPhones());
   }, []);
 
+  const { phones, loading } = useAppSelector((state) => state.catalog);
   const phonesToSlider = useMemo(() => getRecommendModels(phones, 16), [phones]);
   // #endregion
-
-  const loaded = !loading;
+  const loaded = !loadingData && !loading;
   return (
     <>
       {loaded && Object.keys(phoneData).length > 0 ? (
@@ -199,7 +196,9 @@ export const CardLayout = () => {
           </div>
           <Recommends title="You may also like" phones={phonesToSlider} />
         </>
-      ) : null}
+      ) : (
+        <TempCardLayout />
+      )}
     </>
   );
 };

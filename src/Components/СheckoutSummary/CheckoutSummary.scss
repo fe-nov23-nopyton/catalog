@@ -8,6 +8,8 @@
 
   border: 1px solid var(--elements-border);
 
+  animation: slide 0.3s ease-in-out;
+
   @include onTablet {
     width: 100%;
     margin-bottom: 16px;
@@ -80,5 +82,16 @@
 
   &:hover {
     box-shadow: none;
+  }
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

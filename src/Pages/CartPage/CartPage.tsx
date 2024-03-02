@@ -8,6 +8,7 @@ import { CheckoutSummary } from "../../Components/СheckoutSummary";
 import { Button } from "../../Components/UI_Kit/Button";
 import { ButtonType } from "../../types/ButtonType";
 import { LookingGuy } from "../../Components/LookingGuy/LookingGuy";
+import { animationCartItems } from "../../utils/animationCartItems";
 
 import "./CartPage.scss";
 
@@ -19,6 +20,8 @@ export const CartPage = () => {
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(items));
+
+    animationCartItems(100);
   }, [items]);
 
   const itemsCount = totalQuantity(items);

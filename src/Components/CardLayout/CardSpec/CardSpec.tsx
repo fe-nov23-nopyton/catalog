@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import "./CardSpec.scss";
 import { SelectedPhone } from "../../../types/SelectedPhone";
+import { useTranslation } from "react-i18next";
 
 interface CardSpecProps {
   spec: SelectedPhone;
@@ -18,21 +19,22 @@ type typeSpecPropTitle = {
   cell: string;
 };
 
-const specPropTitle = {
-  screen: "Screen",
-  resolution: "Resolution",
-  processor: "Processor",
-  ram: "RAM",
-  capacity: "Build in memory",
-  camera: "Camera",
-  zoom: "Zoom",
-  cell: "Cell"
-};
-
 const propsOfItem = ["screen", "resolution", "processor", "ram", "capacity", "camera", "zoom", "cell"];
 
 export const CardSpec: React.FC<CardSpecProps> = ({ spec, isTrimmed }) => {
+  const { t } = useTranslation();
   const specKeys = Object.keys(spec);
+
+  const specPropTitle = {
+    screen: t("product.screen"),
+    resolution: t("product.resolution"),
+    processor: t("product.processor"),
+    ram: t("product.ram"),
+    capacity: t("product.capacity"),
+    camera: t("product.camera"),
+    zoom: t("product.zoom"),
+    cell: t("product.cell")
+  };
 
   const preparedSpecOrder = {
     screen: spec.screen,

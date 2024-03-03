@@ -23,8 +23,10 @@ import { generateRandomId } from "../../utils/generateRandomId";
 
 import "./CardLayout.scss";
 import { TempCardLayout } from "../TempCard/TempCardLayout";
+import { useTranslation } from "react-i18next";
 
 export const CardLayout = () => {
+  const { t } = useTranslation();
   // #region Fetching phone data
   const { phoneData, loading: loadingData } = useAppSelector((state) => state.phoneData);
   const dispatch = useAppDispatch();
@@ -117,7 +119,7 @@ export const CardLayout = () => {
         <>
           <Breadcrumbs path={pathname} />
           <div style={{ textAlign: "left", margin: "40px 0 0 0" }}>
-            <Button handleClick={handleBack} buttonType={ButtonType.Navigation} buttonText="Back" />
+            <Button handleClick={handleBack} buttonType={ButtonType.Navigation} buttonText={t("navigate.back")} />
           </div>
           <div className="cardLayout">
             <div className="cardLayout__header">{phoneData.name}</div>
@@ -127,7 +129,7 @@ export const CardLayout = () => {
             <div className="cardLayout__options">
               <div className="cardLayout__options-id">ID: {phoneData.id}</div>
               <div className="cardLayout__options-color">
-                <div className="cardLayout__options-color-text">Available colors</div>
+                <div className="cardLayout__options-color-text">{t("product.availableColors")}</div>
                 <div className="cardLayout__options-color-select">
                   {phoneData.colorsAvailable.map((availableColor) => (
                     <Icon
@@ -141,7 +143,7 @@ export const CardLayout = () => {
                 </div>
               </div>
               <div className="cardLayout__options-capacity">
-                <div className="cardLayout__options-capacity-text">Select capacity</div>
+                <div className="cardLayout__options-capacity-text">{t("product.selectCapacity")}</div>
 
                 <div className="cardLayout__options-capacity-select">
                   {phoneData.capacityAvailable.map((availableCapacity) => (
@@ -165,7 +167,7 @@ export const CardLayout = () => {
                     handleClick={handleToggleCart}
                     isSelected={hasCartItem}
                     buttonType={ButtonType.Primary}
-                    buttonText="Add to cart"
+                    buttonText={t("button.addToCart")}
                   />
                   <Icon isSelected={hasFavoriteItem} handleClick={handleFavorite} iconType={IconContent.Favorites} />
                 </div>
@@ -175,13 +177,13 @@ export const CardLayout = () => {
               </div>
             </div>
             <div className="cardLayout__specs">
-              <div className="cardLayout__specs-title">Tech specs</div>
+              <div className="cardLayout__specs-title">{t("product.techSpecs")}</div>
               <div className="cardLayout__specs-info">
                 <CardSpec spec={phoneData} isTrimmed={false} />
               </div>
             </div>
             <div className="cardLayout__about">
-              <div className="cardLayout__about-title">About</div>
+              <div className="cardLayout__about-title">{t("product.about")}</div>
               <div className="cardLayout__about-content">
                 {phoneData.description.map((content) => (
                   <div key={generateRandomId()} className="cardLayout__about-content-main">
@@ -194,7 +196,7 @@ export const CardLayout = () => {
               </div>
             </div>
           </div>
-          <Recommends title="You may also like" phones={phonesToSlider} />
+          <Recommends title={t("recommends.mayLike")} phones={phonesToSlider} />
         </>
       ) : (
         <TempCardLayout />

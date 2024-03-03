@@ -9,10 +9,13 @@ import { Banner } from "../Components/Banner/Banner";
 import { getHotPrices } from "../utils/getHotPrices";
 import { getNewModels } from "../utils/getNewModels";
 import { Recommends } from "../Components/Recommends/Recommends";
+import { useTranslation } from "react-i18next";
 
 export const HomePage: React.FC = () => {
   const { phones, loading } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispatch();
+
+  const { t } = useTranslation();
 
   const amountItems = { amountPhones: phones.length, amountTablets: 0, amountAccessories: 0 };
 
@@ -31,11 +34,11 @@ export const HomePage: React.FC = () => {
         </div>
       ) : (
         <>
-          <h1 className="title">Welcome to Nice Gadgets store!</h1>
+          <h1 className="title">{t("homePage.greeter")}</h1>
           <Banner />
-          {newModels.length !== 0 && <Recommends phones={newModels} title="New Models" />}
+          {newModels.length !== 0 && <Recommends phones={newModels} title={t("recommends.newModels")} />}
           <Categories amount={amountItems} />
-          {hotPrices.length !== 0 && <Recommends phones={hotPrices} title="Hot Prices" />}
+          {hotPrices.length !== 0 && <Recommends phones={hotPrices} title={t("recommends.hotPrices")} />}
         </>
       )}
     </>

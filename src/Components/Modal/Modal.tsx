@@ -5,12 +5,14 @@ import { ThemeContext } from "../../ThemeContext/ThemeContext";
 import { useNavigate } from "react-router-dom";
 
 import "./Modal.scss";
+import { useTranslation } from "react-i18next";
 
 export const Modal = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [active, setActive] = useState(false);
   const { theme } = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setActive(true);
@@ -30,9 +32,9 @@ export const Modal = () => {
       >
         <div className={`modal__content ${active ? "active" : ""}`}>
           <div className="modal__image" />
-          <h2 className="modal__title">Congrats!</h2>
-          <h3 className="modal__thanks">Thank you for your purchase!</h3>
-          <p className="modal__subtitle">We appreciate your purchase. Enjoy your products!</p>
+          <h2 className="modal__title">{t("cartPage.checkoutSummary.congrats")}</h2>
+          <h3 className="modal__thanks">{t("cartPage.checkoutSummary.thanks")}</h3>
+          <p className="modal__subtitle">{t("cartPage.checkoutSummary.appreciate")}</p>
         </div>
       </div>
       {active && <div className="modal-overlay" />}

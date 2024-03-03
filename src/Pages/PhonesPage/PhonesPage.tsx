@@ -22,11 +22,13 @@ import { SortOptions } from "../../types/OptionsForSort";
 import "./PhonesPage.scss";
 import { ItemsOnPage } from "../../types/ItemsOnPage";
 import { SearchParams } from "../../types/SearchParams";
+import { useTranslation } from "react-i18next";
 
 const optionsForItemsOnPage = [ItemsOnPage.Sixteen, ItemsOnPage.Eight, ItemsOnPage.Four, ItemsOnPage.All];
 const optionsForSort = [SortOptions.Cheapest, SortOptions.Alphabetically, SortOptions.Newest];
 
 export const PhonesPage: React.FC = () => {
+  const { t } = useTranslation();
   // #region redux
   const { phones, loading, errorMessage } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispatch();
@@ -164,7 +166,7 @@ export const PhonesPage: React.FC = () => {
   return (
     <div>
       <Breadcrumbs path={pathname} />
-      <h1 className="title">Mobile phones</h1>
+      <h1 className="title">{t("phonesPage.title")}</h1>
       {loading ? (
         <>
           <TempSort />
@@ -180,17 +182,19 @@ export const PhonesPage: React.FC = () => {
             <p className="title">{errorMessage}</p>
           ) : (
             <>
-              <p className="total-phones">{quantityPhones} models</p>
+              <p className="total-phones">
+                {quantityPhones} {t("categories.models")}
+              </p>
               <div className="dropdown-wrapper">
                 <div className="dropdown-sortBy">
-                  <Dropdown value={sort} list={optionsForSort} handleClick={handleSortBy} title={"Sort by"} />
+                  <Dropdown value={sort} list={optionsForSort} handleClick={handleSortBy} title={t("filter.sort")} />
                 </div>
                 <div className="dropdown-itemsOnPage">
                   <Dropdown
                     value={itemsOnPage}
                     list={optionsForItemsOnPage}
                     handleClick={handleItemsOnPage}
-                    title={"Items on page"}
+                    title={t("filter.itemsOnPage")}
                   />
                 </div>
                 <div className="dropdown-input">
@@ -200,7 +204,7 @@ export const PhonesPage: React.FC = () => {
                     value={query}
                     onChange={handleChangeQuery}
                     name="query"
-                    title="Search"
+                    title={t("filter.search")}
                   />
                 </div>
               </div>
@@ -218,7 +222,7 @@ export const PhonesPage: React.FC = () => {
                 </>
               ) : (
                 <div style={{ paddingTop: "50px" }}>
-                  <LookingGuy mainMessage="Sorry, There are not already yet any items" />
+                  <LookingGuy mainMessage={t("lookingGuy.noProducts")} />
                 </div>
               )}
             </>

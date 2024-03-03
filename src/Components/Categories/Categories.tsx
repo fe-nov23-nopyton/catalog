@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./Categories.scss";
+import { useTranslation } from "react-i18next";
 
 interface AmountItems {
   amountPhones: number;
@@ -15,16 +16,17 @@ interface Props {
 
 export const Categories: React.FC<Props> = ({ amount }) => {
   const { amountPhones, amountTablets, amountAccessories } = amount;
+  const { t } = useTranslation();
 
   const categories = [
-    { name: "Mobile phones", amount: amountPhones, link: "phones", cssClass: "phones" },
-    { name: "Tablets", amount: amountTablets, link: "tablets", cssClass: "tablets" },
-    { name: "Accessories", amount: amountAccessories, link: "accessories", cssClass: "accessories" }
+    { name: t("categories.phones"), amount: amountPhones, link: "phones", cssClass: "phones" },
+    { name: t("categories.tablets"), amount: amountTablets, link: "tablets", cssClass: "tablets" },
+    { name: t("categories.accessories"), amount: amountAccessories, link: "accessories", cssClass: "accessories" }
   ];
 
   return (
     <section className="container">
-      <h2 className="category-title">Shop by category</h2>
+      <h2 className="category-title">{t("categories.title")}</h2>
 
       <div className="wrapper wrapper-categories">
         {categories.map((category) => (
@@ -36,7 +38,9 @@ export const Categories: React.FC<Props> = ({ amount }) => {
             <Link to={`/catalog/${category.link}`} className="category-name">
               {category.name}
             </Link>
-            <span className="amount">{category.amount} models</span>
+            <span className="amount">
+              {category.amount} {t("categories.models")}
+            </span>
           </article>
         ))}
       </div>

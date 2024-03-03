@@ -10,12 +10,14 @@ import { Icon } from "../UI_Kit/Icon";
 import { IconContent } from "../../types/IconContent";
 
 import "./ProductCard.scss";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   phone: Phone;
 }
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
+  const { t } = useTranslation();
   const favorites = useAppSelector((state) => state.favorites.favorites);
   const cart = useAppSelector((state) => state.cart.cart);
   const dispatch = useAppDispatch();
@@ -62,17 +64,17 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
         </div>
 
         <div className="card__feature">
-          <p className="card__feature-name">Screen:</p>
+          <p className="card__feature-name">{t("product.screen")}:</p>
 
           <p className="card__feature-value">{phone.screen}</p>
         </div>
         <div className="card__feature">
-          <p className="card__feature-name">Capacity:</p>
+          <p className="card__feature-name">{t("product.capacity")}:</p>
 
           <p className="card__feature-value">{phone.capacity}</p>
         </div>
         <div className="card__feature">
-          <p className="card__feature-name">Ram</p>
+          <p className="card__feature-name">{t("product.ram")}</p>
 
           <p className="card__feature-value">{phone.ram}</p>
         </div>
@@ -82,7 +84,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
         <Button
           handleClick={handleToggleCart}
           buttonType={ButtonType.Primary}
-          buttonText="Add to cart"
+          buttonText={t("button.addToCart")}
           isSelected={hasCartItem}
         />
 

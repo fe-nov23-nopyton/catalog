@@ -6,15 +6,19 @@ import { Button } from "../../Components/UI_Kit/Button";
 import { ButtonType } from "../../types/ButtonType";
 
 import "./NotFoundPage.scss";
+import { useTranslation } from "react-i18next";
 
-export const NotFoundPage: React.FC = () => (
-  <div className="not-found position-center">
-    <LookingGuy mainMessage="404 - Page not found" secondMessage="Oops! It seems like you got lost..." />
+export const NotFoundPage: React.FC = () => {
+  const { t } = useTranslation();
+  return (
+    <div className="not-found position-center">
+      <LookingGuy mainMessage={t("lookingGuy.notFound")} secondMessage={t("lookingGuy.lost")} />
 
-    <div className="not-found__button">
-      <NavLink to="/catalog/home">
-        <Button buttonType={ButtonType.Primary} buttonText="Go back to home" />
-      </NavLink>
+      <div className="not-found__button">
+        <NavLink to="/catalog/home">
+          <Button buttonType={ButtonType.Primary} buttonText={t("lookingGuy.goHome")} />
+        </NavLink>
+      </div>
     </div>
-  </div>
-);
+  );
+};

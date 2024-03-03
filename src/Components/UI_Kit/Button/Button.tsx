@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { ButtonType } from "../../../types/ButtonType";
 
 import "./Button.scss";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   handleClick?: () => void;
@@ -18,18 +19,21 @@ export const Button: React.FC<Props> = ({
   isSelected = false,
   buttonType = ButtonType.Primary,
   isArrowRight = false
-}) => (
-  <button
-    className={classNames("button", {
-      "button-primary": buttonType === ButtonType.Primary,
-      "button-primary-selected": isSelected && buttonType === ButtonType.Primary,
+}) => {
+  const { t } = useTranslation();
+  return (
+    <button
+      className={classNames("button", {
+        "button-primary": buttonType === ButtonType.Primary,
+        "button-primary-selected": isSelected && buttonType === ButtonType.Primary,
 
-      "button-navigation": buttonType === ButtonType.Navigation,
-      "button-navigation-reverseArrow": buttonType === ButtonType.Navigation && isArrowRight
-    })}
-    type="button"
-    onClick={handleClick}
-  >
-    {isSelected && buttonType === ButtonType.Primary ? "Added to cart" : buttonText}
-  </button>
-);
+        "button-navigation": buttonType === ButtonType.Navigation,
+        "button-navigation-reverseArrow": buttonType === ButtonType.Navigation && isArrowRight
+      })}
+      type="button"
+      onClick={handleClick}
+    >
+      {isSelected && buttonType === ButtonType.Primary ? t("button.addedToCart") : buttonText}
+    </button>
+  );
+};

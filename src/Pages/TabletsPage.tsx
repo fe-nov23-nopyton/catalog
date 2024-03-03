@@ -2,12 +2,13 @@ import React from "react";
 import { LookingGuy } from "../Components/LookingGuy/LookingGuy";
 
 import "../App.scss";
+import { useTranslation } from "react-i18next";
 
-export const TabletsPage: React.FC = () => (
-  <div className="position-center">
-    <LookingGuy
-      mainMessage="Currently, there are no items to display."
-      secondMessage="However, stay tuned as items will appear shortly. Thank you for your patience."
-    />
-  </div>
-);
+export const TabletsPage: React.FC = () => {
+  const { t } = useTranslation();
+  return (
+    <div className="position-center">
+      <LookingGuy mainMessage={t("lookingGuy.mainMessage")} secondMessage={t("lookingGuy.secondMessage")} />
+    </div>
+  );
+};

@@ -11,9 +11,11 @@ import { LookingGuy } from "../../Components/LookingGuy/LookingGuy";
 import { animationCartItems } from "../../utils/animationCartItems";
 
 import "./CartPage.scss";
+import { useTranslation } from "react-i18next";
 
 export const CartPage = () => {
   const items: Item[] = useAppSelector((state) => state.cart.cart);
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
   const handleBack = () => navigate(-1);
@@ -35,13 +37,13 @@ export const CartPage = () => {
   return (
     <main className="cart">
       <div style={{ textAlign: "left" }}>
-        <Button handleClick={handleBack} buttonType={ButtonType.Navigation} buttonText="Back" />
+        <Button handleClick={handleBack} buttonType={ButtonType.Navigation} buttonText={t("navigate.back")} />
       </div>
       {!!itemsCount ? (
-        <h1 className="title">Cart</h1>
+        <h1 className="title">{t("cartPage.title")}</h1>
       ) : (
         <div className="position-center">
-          <LookingGuy mainMessage="There are no products yet..." secondMessage="... but you can add them)" />
+          <LookingGuy mainMessage={t("lookingGuy.noProducts")} secondMessage={t("lookingGuy.youCanAdd")} />
         </div>
       )}
       {!!itemsCount && (

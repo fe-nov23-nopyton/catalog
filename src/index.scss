@@ -16,6 +16,24 @@
 
 html {
   scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--icons-light);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--main-text-dark);
+    border-radius: 10px;
+
+    &:hover {
+      background-color: var(--accent-hover);
+    }
+  }
 }
 
 body {

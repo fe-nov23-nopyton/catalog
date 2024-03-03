@@ -1,5 +1,6 @@
 export enum SearchParams {
   Sort = "sort",
-  ItemsOnPage = "itemOnPage",
+  Page = "page",
+  PerPage = "perPage",
   Query = "query"
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -19,10 +19,11 @@ import { filterItems } from "../../utils/filterItems";
 import { Phone } from "../../types/Phone";
 import { SortOptions } from "../../types/OptionsForSort";
 
-import "./PhonesPage.scss";
 import { ItemsOnPage } from "../../types/ItemsOnPage";
 import { SearchParams } from "../../types/SearchParams";
 import { useTranslation } from "react-i18next";
+
+import "./PhonesPage.scss";
 
 const optionsForItemsOnPage = [ItemsOnPage.Sixteen, ItemsOnPage.Eight, ItemsOnPage.Four, ItemsOnPage.All];
 const optionsForSort = [SortOptions.Cheapest, SortOptions.Alphabetically, SortOptions.Newest];
@@ -43,16 +44,17 @@ export const PhonesPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const sort = searchParams.get(SearchParams.Sort) || "";
-  const itemsOnPage = searchParams.get(SearchParams.ItemsOnPage) || "";
+  const page = +(searchParams.get(SearchParams.Page) || "1");
+  const perPage = searchParams.get(SearchParams.PerPage) || "16";
   const query = searchParams.get(SearchParams.Query) || "";
   // #endregion
 
   // #region pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  const perPage = parseInt(itemsOnPage) || phones.length;
-
   const handlePageChange = (page: number) => {
-    setCurrentPage(page);
+    const params = new URLSearchParams(searchParams);
+    params.set(SearchParams.Page, page.toString());
+    setSearchParams(params);
+
     setTimeout(() => {
       scrollToTop();
     }, 0);
@@ -65,8 +67,8 @@ export const PhonesPage: React.FC = () => {
   };
 
   const prepareVisiblePhones = (phones: Phone[], changeVisible: string) => {
-    const start = (currentPage - 1) * perPage;
-    const end = start + perPage;
+    const start = (page - 1) * +perPage;
+    const end = start + +perPage;
 
     return changeVisible === ItemsOnPage.All ? phones : phones.slice(start, end);
   };
@@ -82,12 +84,10 @@ export const PhonesPage: React.FC = () => {
   // #region search params
   const handleItemsOnPage = (param: string) => {
     const params = new URLSearchParams(searchParams);
-    params.set(SearchParams.ItemsOnPage, param);
+    params.set(SearchParams.PerPage, param);
     setSearchParams(params);
 
-    setCurrentPage(1);
-
-    localStorage.setItem(SearchParams.ItemsOnPage, param);
+    localStorage.setItem(SearchParams.PerPage, param);
   };
 
   const handleSortBy = (sortBy: string) => {
@@ -100,7 +100,7 @@ export const PhonesPage: React.FC = () => {
 
   useEffect(() => {
     const valueSort = localStorage.getItem(SearchParams.Sort);
-    const valueItemsOnPage = localStorage.getItem(SearchParams.ItemsOnPage);
+    const valueItemsOnPage = localStorage.getItem(SearchParams.PerPage);
     const valueQuery = localStorage.getItem(SearchParams.Query);
 
     const params = new URLSearchParams(searchParams);
@@ -109,7 +109,7 @@ export const PhonesPage: React.FC = () => {
       params.set(SearchParams.Sort, valueSort);
     }
     if (valueItemsOnPage !== null) {
-      params.set(SearchParams.ItemsOnPage, valueItemsOnPage);
+      params.set(SearchParams.PerPage, valueItemsOnPage);
     }
     if (valueQuery !== null) {
       params.set(SearchParams.Query, valueQuery);
@@ -121,7 +121,7 @@ export const PhonesPage: React.FC = () => {
   useEffect(() => {
     const handleStorageChange = () => {
       const valueSort = localStorage.getItem(SearchParams.Sort);
-      const valueItemsOnPage = localStorage.getItem(SearchParams.ItemsOnPage);
+      const valueItemsOnPage = localStorage.getItem(SearchParams.PerPage);
 
       if (valueSort !== null) {
         const params = new URLSearchParams(searchParams);
@@ -130,7 +130,7 @@ export const PhonesPage: React.FC = () => {
       }
       if (valueItemsOnPage !== null) {
         const params = new URLSearchParams(searchParams);
-        params.set(SearchParams.ItemsOnPage, valueItemsOnPage);
+        params.set(SearchParams.PerPage, valueItemsOnPage);
         setSearchParams(params);
       }
     };
@@ -160,7 +160,7 @@ export const PhonesPage: React.FC = () => {
   };
   // #endregion
   const preparedPhones = prepareProducts(phones, sort, query);
-  const visiblePhones = prepareVisiblePhones(preparedPhones, itemsOnPage);
+  const visiblePhones = prepareVisiblePhones(preparedPhones, perPage);
 
   const quantityPhones = preparedPhones.length;
   return (
@@ -191,7 +191,7 @@ export const PhonesPage: React.FC = () => {
                 </div>
                 <div className="dropdown-itemsOnPage">
                   <Dropdown
-                    value={itemsOnPage}
+                    value={perPage}
                     list={optionsForItemsOnPage}
                     handleClick={handleItemsOnPage}
                     title={t("filter.itemsOnPage")}
@@ -211,11 +211,11 @@ export const PhonesPage: React.FC = () => {
               {visiblePhones.length > 0 ? (
                 <>
                   <ProductsList phones={visiblePhones} />
-                  {itemsOnPage !== ItemsOnPage.All && (
+                  {perPage !== ItemsOnPage.All && (
                     <Pagination
                       total={quantityPhones}
-                      perPage={perPage}
-                      currentPage={currentPage}
+                      perPage={+perPage}
+                      currentPage={page}
                       onPageChange={handlePageChange}
                     />
                   )}

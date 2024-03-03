@@ -20,6 +20,7 @@ export const Root = () => (
 
         <Route path="phones/">
           <Route index element={<PhonesPage />} />
+          <Route path=":page" element={<PhonesPage />} />
           <Route path=":phoneId" element={<CardLayout />} />
         </Route>
 

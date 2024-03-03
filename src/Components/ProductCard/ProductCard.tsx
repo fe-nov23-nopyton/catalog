@@ -22,8 +22,8 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
   const cart = useAppSelector((state) => state.cart.cart);
   const dispatch = useAppDispatch();
 
-  const hasFavoriteItem = favorites.some((item) => item.id === phone.id);
-  const hasCartItem = cart.some((item) => item.id === phone.id);
+  const hasFavoriteItem = favorites.some((item) => item.phoneId === phone.phoneId);
+  const hasCartItem = cart.some((item) => item.id === phone.phoneId);
 
   const handleFavorite = () => {
     dispatch(clickFavorite(phone));
@@ -31,7 +31,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
 
   const handleToggleCart = () => {
     const cartItem = {
-      id: phone.id,
+      id: phone.phoneId,
       quantity: 1,
       product: phone
     };

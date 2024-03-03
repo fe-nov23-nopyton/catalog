@@ -36,6 +36,7 @@
   }
 
   &__list-item {
+    transition: var(--transition-color);
     color: var(--main-text);
 
     &:hover {
@@ -52,6 +53,8 @@
     font-family: "Mont-SemiBold";
     font-size: 12px;
     color: var(--main-text);
+    transition: var(--transition-color);
+
 
     &::after {
       content: '';
@@ -66,6 +69,7 @@
       background-image: var(--up-img);
       background-repeat: no-repeat;
       background-position: center;
+      transition: border 0.5s ease-in-out;
     }
 
     &:hover {

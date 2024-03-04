@@ -44,6 +44,11 @@ export const CartPage = () => {
       ) : (
         <div className="position-center">
           <LookingGuy mainMessage={t("lookingGuy.noProducts")} secondMessage={t("lookingGuy.youCanAdd")} />
+          <Button
+            handleClick={() => navigate("/catalog/home")}
+            buttonType={ButtonType.Primary}
+            buttonText={t("button.letsGoShopping")}
+          />
         </div>
       )}
       {!!itemsCount && (

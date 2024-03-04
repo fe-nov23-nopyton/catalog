@@ -85,6 +85,7 @@ export const uk = {
   },
   button: {
     addToCart: "Додати в кошик",
-    addedToCart: "Додано в кошик"
+    addedToCart: "Додано в кошик",
+    letsGoShopping: "За покупками"
   }
 };

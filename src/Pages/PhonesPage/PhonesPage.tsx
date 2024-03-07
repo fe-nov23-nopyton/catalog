@@ -211,7 +211,7 @@ export const PhonesPage: React.FC = () => {
               {visiblePhones.length > 0 ? (
                 <>
                   <ProductsList phones={visiblePhones} />
-                  {perPage !== ItemsOnPage.All && (
+                  {perPage !== ItemsOnPage.All && quantityPhones >= +perPage && (
                     <Pagination
                       total={quantityPhones}
                       perPage={+perPage}

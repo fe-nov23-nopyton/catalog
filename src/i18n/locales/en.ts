@@ -85,6 +85,7 @@ export const en = {
   },
   button: {
     addToCart: "Add to cart",
-    addedToCart: "Added to cart"
+    addedToCart: "Added to cart",
+    letsGoShopping: "Let's go shopping"
   }
 };

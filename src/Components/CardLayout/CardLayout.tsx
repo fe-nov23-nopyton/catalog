@@ -56,6 +56,10 @@ export const CardLayout = () => {
   // #endregion
 
   // #region Navigation
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [phoneData]);
+
   const navigate = useNavigate();
   const handleBack = () => navigate(-1);
   // #endregion

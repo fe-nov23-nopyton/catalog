@@ -7,6 +7,8 @@ import { IconContent } from "../../types/IconContent";
 
 import "../../Pages/CartPage/CartPage.scss";
 import { Link } from "react-router-dom";
+import { changeImageFormat } from "../../utils/changeImageFormat";
+import { getCategoryNameById } from "../../utils/getCategoryNameById";
 
 interface Props {
   item: Item;
@@ -15,8 +17,8 @@ interface Props {
 export const CartItem: React.FC<Props> = ({ item }) => {
   const dispatch = useAppDispatch();
 
-  const currentProductUrl = `/catalog/phones/${item.id}`;
-  const normalizedUrlImage = `/catalog/new/${item.product.image}`;
+  const currentProductUrl = `/catalog/${getCategoryNameById(item.product.categoryId)}/${item.id}`;
+  const normalizedUrlImage = `/catalog/new/${changeImageFormat(item.product.images[0])}`;
 
   const handleDeleteItem = () => {
     dispatch(deleteFromCart(item));

@@ -29,6 +29,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   const hasFavoriteItem = favorites.some((item) => item.itemId === product.itemId);
   const hasCartItem = cart.some((item) => item.id === product.itemId);
 
+  console.log(product);
+
   const imageProduct = `/catalog/new/${changeImageFormat(product.images[0])}`;
 
   const handleFavorite = () => {
@@ -55,7 +57,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
     <div className="card">
       <Link to={`/catalog/${currentCategory}/${product.itemId}`} className="card__link">
         <div className="card__image-container">
-          <img className="card__image" src={imageProduct} alt={product.name} />
+          <img loading="lazy" className="card__image" src={imageProduct} alt={product.name} />
         </div>
       </Link>
 

@@ -25,6 +25,7 @@ import { TempCardLayout } from "../TempCard/TempCardLayout";
 import { useTranslation } from "react-i18next";
 import { getCategoryNameById } from "../../utils/getCategoryNameById";
 import { normalizedColorName } from "../../utils/normalizedColorName";
+import { generateRandomId } from "../../utils/generateRandomId";
 
 export const CardLayout = () => {
   const { t } = useTranslation();
@@ -61,7 +62,7 @@ export const CardLayout = () => {
   const cart = useAppSelector((state) => state.cart.cart);
 
   const hasFavoriteItem = favorites.some((item) => item.id === productData.id);
-  const hasCartItem = cart.some((item) => item.id === productData.id);
+  const hasCartItem = cart.some((item) => item.id === productData.itemId);
   // #endregion
 
   // #region Navigation
@@ -75,17 +76,10 @@ export const CardLayout = () => {
 
   // #region Selecting product
   const handleToggleCart = () => {
-    const phone = {
-      id: productData.id,
-      name: productData.name,
-      price: productData.price,
-      image: productData.images[0]
-    };
-
     const cartItem = {
-      id: productData.id,
+      id: productData.itemId,
       quantity: 1,
-      product: phone
+      product: productData
     };
 
     if (hasCartItem) {
@@ -241,7 +235,7 @@ export const CardLayout = () => {
               <div className="cardLayout__about-title">{t("product.about")}</div>
               <div className="cardLayout__about-content">
                 {description.map((item: { title: string; text: string }) => (
-                  <div className="cardLayout__about-content-main">
+                  <div key={generateRandomId()} className="cardLayout__about-content-main">
                     <div className="cardLayout__about-content-main-title">{item.title}</div>
                     <div className="cardLayout__about-content-main-text">{item.text}</div>
                   </div>

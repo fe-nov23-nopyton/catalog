@@ -48,8 +48,6 @@ export const Products: React.FC = () => {
 
   let products;
 
-  console.log(products);
-
   switch (currentCategory) {
     case "phones":
       products = phones;
@@ -63,6 +61,8 @@ export const Products: React.FC = () => {
     default:
       products = phones;
   }
+
+  console.log(products);
 
   const dispatch = useAppDispatch();
 

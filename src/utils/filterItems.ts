@@ -1,6 +1,6 @@
 /* eslint-disable arrow-body-style */
-import { Phone } from "../types/Phone";
+import { Product } from "../types/Product";
 
-export const filterItems = (items: Phone[], query: string) => {
+export const filterItems = (items: Product[], query: string) => {
   return items.filter((item) => item.name.toLowerCase().trim().includes(query.toLowerCase().trim()));
 };

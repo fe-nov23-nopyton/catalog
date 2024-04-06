@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { fetchPhones } from "../../redux/features/catalogSlice";
+import { fetchAccessories, fetchPhones, fetchTablets } from "../../redux/features/catalogSlice";
 
 import { ProductsList } from "../../Components/ProductsList/ProductsList";
 import { Breadcrumbs } from "../../Components/Breadcrumbs";
@@ -16,7 +16,7 @@ import { LookingGuy } from "../../Components/LookingGuy/LookingGuy";
 import { sortItems } from "../../utils/sortItems";
 import { filterItems } from "../../utils/filterItems";
 
-import { Phone } from "../../types/Phone";
+import { Product } from "../../types/Product";
 import { SortOptions } from "../../types/OptionsForSort";
 
 import { ItemsOnPage } from "../../types/ItemsOnPage";
@@ -28,25 +28,71 @@ import "./PhonesPage.scss";
 const optionsForItemsOnPage = [ItemsOnPage.Sixteen, ItemsOnPage.Eight, ItemsOnPage.Four, ItemsOnPage.All];
 const optionsForSort = [SortOptions.Cheapest, SortOptions.Alphabetically, SortOptions.Newest];
 
-export const PhonesPage: React.FC = () => {
+export const Products: React.FC = () => {
   const { t } = useTranslation();
-  // #region redux
-  const { phones, loading, errorMessage } = useAppSelector((state) => state.catalog);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchPhones());
-  }, []);
-  // #endregion
 
   // #region url params
   const { pathname } = useLocation();
+  const currentCategory = pathname.split("/")[2];
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const sort = searchParams.get(SearchParams.Sort) || "";
   const page = +(searchParams.get(SearchParams.Page) || "1");
   const perPage = searchParams.get(SearchParams.PerPage) || "16";
   const query = searchParams.get(SearchParams.Query) || "";
+  // #endregion
+
+  // #region redux
+  const { phones, tablets, accessories, loading, errorMessage } = useAppSelector((state) => state.catalog);
+
+  let products;
+
+  console.log(products);
+
+  switch (currentCategory) {
+    case "phones":
+      products = phones;
+      break;
+    case "tablets":
+      products = tablets;
+      break;
+    case "accessories":
+      products = accessories;
+      break;
+    default:
+      products = phones;
+  }
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    switch (currentCategory) {
+      case "phones":
+        if (phones.length !== 0) {
+          return;
+        }
+
+        dispatch(fetchPhones());
+        break;
+      case "tablets":
+        if (tablets.length !== 0) {
+          return;
+        }
+
+        dispatch(fetchTablets());
+        break;
+      case "accessories":
+        if (accessories.length !== 0) {
+          return;
+        }
+
+        dispatch(fetchAccessories());
+        break;
+      default:
+        return;
+    }
+  }, [pathname]);
   // #endregion
 
   // #region pagination
@@ -60,13 +106,13 @@ export const PhonesPage: React.FC = () => {
     }, 0);
   };
 
-  const prepareProducts = (phones: Phone[], sortBy: string, query: string) => {
+  const prepareProducts = (phones: Product[], sortBy: string, query: string) => {
     const filteredPhones = filterItems(phones, query);
 
     return sortItems(filteredPhones, sortBy);
   };
 
-  const prepareVisiblePhones = (phones: Phone[], changeVisible: string) => {
+  const prepareVisiblePhones = (phones: Product[], changeVisible: string) => {
     const start = (page - 1) * +perPage;
     const end = start + +perPage;
 
@@ -159,14 +205,14 @@ export const PhonesPage: React.FC = () => {
     }
   };
   // #endregion
-  const preparedPhones = prepareProducts(phones, sort, query);
+  const preparedPhones = prepareProducts(products, sort, query);
   const visiblePhones = prepareVisiblePhones(preparedPhones, perPage);
 
   const quantityPhones = preparedPhones.length;
   return (
     <div>
       <Breadcrumbs path={pathname} />
-      <h1 className="title">{t("phonesPage.title")}</h1>
+      <h1 className="title">{t(`${currentCategory}Page.title`)}</h1>
       {loading ? (
         <>
           <TempSort />

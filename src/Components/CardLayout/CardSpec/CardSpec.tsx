@@ -14,8 +14,6 @@ type typeSpecPropTitle = {
   processor: string;
   ram: string;
   capacity: string;
-  camera: string;
-  zoom: string;
   cell: string;
 };
 
@@ -31,8 +29,6 @@ export const CardSpec: React.FC<CardSpecProps> = ({ spec, isTrimmed }) => {
     processor: t("product.processor"),
     ram: t("product.ram"),
     capacity: t("product.capacity"),
-    camera: t("product.camera"),
-    zoom: t("product.zoom"),
     cell: t("product.cell")
   };
 
@@ -42,8 +38,6 @@ export const CardSpec: React.FC<CardSpecProps> = ({ spec, isTrimmed }) => {
     processor: spec.processor,
     ram: spec.ram,
     capacity: spec.capacity,
-    camera: spec.camera,
-    zoom: spec.zoom,
     cell: spec.cell
   };
 

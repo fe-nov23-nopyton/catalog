@@ -1,6 +1,6 @@
-import { Phone } from "../types/Phone";
+import { Product } from "../types/Product";
 
-export const getRecommendModels = (models: Phone[], count: number): Phone[] => {
+export const getRecommendModels = (models: Product[], count: number): Product[] => {
   const randomModels = [];
 
   for (let i = 0; i < count; i++) {

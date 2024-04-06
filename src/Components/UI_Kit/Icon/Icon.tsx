@@ -2,6 +2,7 @@ import classNames from "classnames";
 import "./Icon.scss";
 import { Colors } from "../../../types/Colors";
 import { IconContent } from "../../../types/IconContent";
+import { normalizedColorName } from "../../../utils/normalizedColorName";
 
 interface Props {
   handleClick: () => void;
@@ -46,7 +47,7 @@ export const Icon: React.FC<Props> = ({
     <div
       className={classNames({
         ["icon--color"]: iconType === IconContent.Color,
-        [`icon--color-${color}`]: iconType === IconContent.Color
+        [`icon--color-${normalizedColorName(color)}`]: iconType === IconContent.Color
       })}
     >
       {iconType === IconContent.Text && content}

@@ -1,12 +1,12 @@
 import React from "react";
-import { Phone } from "../../types/Phone";
+import { Product } from "../../types/Product";
 import { totalQuantity } from "../../utils/totalQuantity";
 import { Item } from "../../types/Item";
 
 import "./IconCount.scss";
 
 interface Props {
-  items: Phone[] | Item[];
+  items: Product[] | Item[];
 }
 
 const IconCount: React.FC<Props> = ({ items }) => {

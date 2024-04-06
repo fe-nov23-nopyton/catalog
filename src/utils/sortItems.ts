@@ -1,6 +1,6 @@
-import { Phone } from "../types/Phone";
+import { Product } from "../types/Product";
 
-export const sortItems = (phones: Phone[], criterion: string) =>
+export const sortItems = (phones: Product[], criterion: string) =>
   [...phones].sort((a, b) => {
     switch (criterion) {
       case "Newest":

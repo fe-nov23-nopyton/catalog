@@ -1,24 +1,36 @@
 /* eslint-disable prettier/prettier */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Phone } from "../../types/Phone";
-import { getPhones } from "../../utils/fetchClient";
+import { Product } from "../../types/Product";
+import { getProducts } from "../../utils/fetchClient";
 
 export interface catalogState {
-  phones: Phone[];
+  phones: Product[];
+  tablets: Product[];
+  accessories: Product[];
   loading: boolean;
   errorMessage: string;
 }
 
 const initialState: catalogState = {
   phones: [],
+  tablets: [],
+  accessories: [],
   loading: false,
   errorMessage: "",
 };
 
 
 export const fetchPhones = createAsyncThunk(
-  'catalog/fetch',
-  () => getPhones()
+  'catalog/fetchPhones',
+  () => getProducts('phones')
+);
+export const fetchTablets = createAsyncThunk(
+  'catalog/fetchTablets',
+  () => getProducts('tablets')
+);
+export const fetchAccessories = createAsyncThunk(
+  'catalog/fetchAccessories',
+  () => getProducts('accessories')
 );
 
 export const catalogSlice = createSlice({
@@ -37,7 +49,30 @@ export const catalogSlice = createSlice({
       .addCase(fetchPhones.rejected, (state) => {
         state.errorMessage = 'Sorry( Please try again later.';
         state.loading = false;
-      })}
+      })
+      .addCase(fetchTablets.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchTablets.fulfilled, (state, action) => {
+        state.tablets = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchTablets.rejected, (state) => {
+        state.errorMessage = 'Sorry( Please try again later.';
+        state.loading = false;
+      })
+      .addCase(fetchAccessories.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchAccessories.fulfilled, (state, action) => {
+        state.accessories = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchAccessories.rejected, (state) => {
+        state.errorMessage = 'Sorry( Please try again later.';
+        state.loading = false;
+      });
+    }
 })
 
 export default catalogSlice.reducer;

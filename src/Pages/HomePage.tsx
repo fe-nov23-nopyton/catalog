@@ -12,15 +12,25 @@ import { Recommends } from "../Components/Recommends/Recommends";
 import { useTranslation } from "react-i18next";
 
 export const HomePage: React.FC = () => {
-  const { phones, loading } = useAppSelector((state) => state.catalog);
+  const { phones, tablets, accessories, loading } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispatch();
 
   const { t } = useTranslation();
 
-  const amountItems = { amountPhones: phones.length, amountTablets: 0, amountAccessories: 0 };
+  const amountItems = {
+    amountPhones: phones.length,
+    amountTablets: tablets.length,
+    amountAccessories: accessories.length
+  };
 
   useEffect(() => {
+    if (phones.length !== 0) {
+      return;
+    }
+
     dispatch(fetchPhones());
+
+    //use new fetch for count of phones, tablets and accessories
   }, [dispatch]);
 
   const hotPrices = getHotPrices(phones);
@@ -36,9 +46,9 @@ export const HomePage: React.FC = () => {
         <>
           <h1 className="title">{t("homePage.greeter")}</h1>
           <Banner />
-          {newModels.length !== 0 && <Recommends phones={newModels} title={t("recommends.newModels")} />}
+          {newModels.length !== 0 && <Recommends products={newModels} title={t("recommends.newModels")} />}
           <Categories amount={amountItems} />
-          {hotPrices.length !== 0 && <Recommends phones={hotPrices} title={t("recommends.hotPrices")} />}
+          {hotPrices.length !== 0 && <Recommends products={hotPrices} title={t("recommends.hotPrices")} />}
         </>
       )}
     </>

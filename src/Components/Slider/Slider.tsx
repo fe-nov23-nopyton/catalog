@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { ProductCard } from "../ProductCard/ProductCard";
-import { Phone } from "../../types/Phone";
+import { Product } from "../../types/Product";
 import { Icon } from "../UI_Kit/Icon";
 import { IconContent } from "../../types/IconContent";
 
@@ -8,7 +8,7 @@ import "./Slider.scss";
 
 interface SliderProps {
   title: string;
-  phones: Phone[];
+  phones: Product[];
 }
 
 export const Slider: React.FC<SliderProps> = ({ title, phones }) => {
@@ -90,15 +90,17 @@ export const Slider: React.FC<SliderProps> = ({ title, phones }) => {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {phones[currentPhoneIndex % phones.length] && <ProductCard phone={phones[currentPhoneIndex % phones.length]} />}
+        {phones[currentPhoneIndex % phones.length] && (
+          <ProductCard product={phones[currentPhoneIndex % phones.length]} />
+        )}
         {phones[(currentPhoneIndex + 1) % phones.length] && (
-          <ProductCard phone={phones[(currentPhoneIndex + 1) % phones.length]} />
+          <ProductCard product={phones[(currentPhoneIndex + 1) % phones.length]} />
         )}
         {phones[(currentPhoneIndex + 2) % phones.length] && (
-          <ProductCard phone={phones[(currentPhoneIndex + 2) % phones.length]} />
+          <ProductCard product={phones[(currentPhoneIndex + 2) % phones.length]} />
         )}
         {phones[(currentPhoneIndex + 3) % phones.length] && (
-          <ProductCard phone={phones[(currentPhoneIndex + 3) % phones.length]} />
+          <ProductCard product={phones[(currentPhoneIndex + 3) % phones.length]} />
         )}
       </div>
     </>

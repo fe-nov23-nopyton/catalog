@@ -1,15 +1,17 @@
 export interface SelectedPhone {
   id: string;
-  namespaceId: string;
+  categoryId: number;
+  itemId: string;
   name: string;
   capacityAvailable: string[];
   capacity: string;
-  priceRegular: number;
-  priceDiscount: number;
+  fullPrice: number;
+  price: number;
   colorsAvailable: string[];
   color: string;
+  year: number;
   images: string[];
-  description: Description[];
+  description: string;
   screen: string;
   resolution: string;
   processor: string;
@@ -17,9 +19,4 @@ export interface SelectedPhone {
   camera: string;
   zoom: string;
   cell: string[];
-}
-
-interface Description {
-  title: string;
-  text: string[];
 }

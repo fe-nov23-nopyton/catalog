@@ -1,7 +1,6 @@
-export type Phone = {
+export type Product = {
   id: string;
-  category: string;
-  phoneId: string;
+  categoryId: number;
   itemId: string;
   name: string;
   fullPrice: number;
@@ -11,5 +10,5 @@ export type Phone = {
   color: string;
   ram: string;
   year: number;
-  image: string;
+  images: string[];
 };

@@ -1,22 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-function wait(delay: number) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, delay);
-  });
-}
 
-export function getPhones() {
-  return Promise.all([fetch("/catalog/new/products.json"), wait(500)]).then(([response]) => {
-    if (!response.ok) {
-      throw new Error();
+export function getProducts(category: string) {
+  return Promise.all([fetch(`https://backend-admin-eight.vercel.app/api/categories/${category}`)]).then(
+    ([response]) => {
+      if (!response.ok) {
+        throw new Error();
+      }
+
+      return response.json();
     }
-
-    return response.json();
-  });
+  );
 }
 
-export function getPhoneData(pathname: string) {
-  return Promise.all([fetch(`/catalog/new/products/${pathname}.json`), wait(300)]).then(([response]) => {
+export function getProductData(id: string) {
+  return Promise.all([fetch(`https://backend-admin-eight.vercel.app/api/products/${id}`)]).then(([response]) => {
     if (!response.ok) {
       throw new Error();
     }

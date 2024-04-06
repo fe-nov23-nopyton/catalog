@@ -1,3 +1,5 @@
+import { tab } from "@testing-library/user-event/dist/tab";
+
 export const en = {
   header: {
     home: "Home",
@@ -18,6 +20,12 @@ export const en = {
   },
   phonesPage: {
     title: "Mobile phones"
+  },
+  tabletsPage: {
+    title: "Tablets"
+  },
+  accessoriesPage: {
+    title: "Accessories"
   },
   favoritesPage: {
     title: "Favorites",

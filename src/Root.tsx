@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { App } from "./App";
 import { HomePage } from "./Pages/HomePage";
 import { NotFoundPage } from "./Pages/NotFoundPage/NotFoundPage";
-import { PhonesPage } from "./Pages/PhonesPage/PhonesPage";
+import { Products } from "./Pages/PhonesPage/Products";
 import { TabletsPage } from "./Pages/TabletsPage";
 import { AccessoriesPage } from "./Pages/AccessoriesPage";
 import { CartPage } from "./Pages/CartPage";
@@ -18,20 +18,10 @@ export const Root = () => (
 
         <Route path="home" element={<HomePage />} />
 
-        <Route path="phones/">
-          <Route index element={<PhonesPage />} />
-          <Route path=":phoneId" element={<CardLayout />} />
-          <Route path=":page" element={<PhonesPage />} />
-        </Route>
-
-        <Route path="tablets">
-          <Route index element={<TabletsPage />} />
-          <Route path=":tabletId" element={<TabletsPage />} />
-        </Route>
-
-        <Route path="accessories">
-          <Route index element={<AccessoriesPage />} />
-          <Route path=":accessoryId" element={<AccessoriesPage />} />
+        <Route path=":category">
+          <Route index element={<Products />} />
+          <Route path=":productId" element={<CardLayout />} />
+          <Route path=":page" element={<Products />} />
         </Route>
 
         <Route path="favorites">

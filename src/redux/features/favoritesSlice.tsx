@@ -1,23 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { Phone } from "../../types/Phone";
+import { Product } from "../../types/Product";
 
 export interface favoritesState {
-  favorites: Phone[];
+  favorites: Product[];
 }
 
 const initialState: favoritesState = {
-  favorites: JSON.parse(localStorage.getItem("favorites") || "[]") as Phone[]
+  favorites: JSON.parse(localStorage.getItem("favorites") || "[]") as Product[]
 };
 
 export const favoritesSlice = createSlice({
   name: "favorites",
   initialState,
   reducers: {
-    setFavorites: (state, action: PayloadAction<Phone[]>) => {
+    setFavorites: (state, action: PayloadAction<Product[]>) => {
       state.favorites = action.payload;
     },
-    clickFavorite: (state, action: PayloadAction<Phone>) => {
+    clickFavorite: (state, action: PayloadAction<Product>) => {
       if (state.favorites.some((item) => item.id === action.payload.id)) {
         state.favorites = state.favorites.filter((item) => item.id !== action.payload.id);
       } else {

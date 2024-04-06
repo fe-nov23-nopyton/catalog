@@ -19,6 +19,12 @@ export const uk = {
   phonesPage: {
     title: "Мобільні телефони"
   },
+  tabletsPage: {
+    title: "Планшети"
+  },
+  accessoriesPage: {
+    title: "Аксесуари"
+  },
   favoritesPage: {
     title: "Улюблене",
     items: "товарів"

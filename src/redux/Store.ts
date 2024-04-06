@@ -11,7 +11,7 @@ export const store = configureStore({
     catalog: catalogSlice,
     favorites: favoritesSlice,
     filter: filterSlice,
-    phoneData: productDataSlice
+    productData: productDataSlice
   }
 });
 

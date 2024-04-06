@@ -1,5 +1,3 @@
-import { tab } from "@testing-library/user-event/dist/tab";
-
 export const en = {
   header: {
     home: "Home",

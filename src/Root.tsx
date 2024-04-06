@@ -3,8 +3,6 @@ import { App } from "./App";
 import { HomePage } from "./Pages/HomePage";
 import { NotFoundPage } from "./Pages/NotFoundPage/NotFoundPage";
 import { Products } from "./Pages/PhonesPage/Products";
-import { TabletsPage } from "./Pages/TabletsPage";
-import { AccessoriesPage } from "./Pages/AccessoriesPage";
 import { CartPage } from "./Pages/CartPage";
 import { FavoritesPage } from "./Pages/FavouritesPage/FavouritesPage";
 import { CardLayout } from "./Components/CardLayout/CardLayout";

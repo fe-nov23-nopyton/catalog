@@ -12,7 +12,6 @@ import { IconContent } from "../../types/IconContent";
 import "./ProductCard.scss";
 import { useTranslation } from "react-i18next";
 import { changeImageFormat } from "../../utils/changeImageFormat";
-import { get } from "https";
 import { getCategoryNameById } from "../../utils/getCategoryNameById";
 
 interface Props {

@@ -18,8 +18,6 @@ Welcome to our innovative gadget store project! Explore our wide selection of ad
 - Implementation pagination, slider, modal window
 - All functionality required for a modern site has been implemented
 
-[DEMO LINK](https://fe-nov23-nopyton.github.io/catalog/)
-
 # Getting Started
 
 ```bash

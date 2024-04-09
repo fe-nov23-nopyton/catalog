@@ -18,18 +18,21 @@ Welcome to our innovative gadget store project! Explore our wide selection of ad
 - Implementation pagination, slider, modal window
 - All functionality required for a modern site has been implemented
 
-[DEMO LINK](https://fe-nov23-nopyton.github.io/catalog/)
-
 # Getting Started
 
 ```bash
 git clone https://github.com/fe-nov23-nopyton/catalog.git
+cd catalog
+npm install
+npm start
 ```
+
 npm install Visit http://localhost:3000/ to view the app in your browser.
 
 Before starting to work on a task and before pushing your changes, make sure to pull the latest changes from the main branch:
 
 ```git pull origin master``` When working on a task, create a new branch.
+
 
 ## Built With
 
